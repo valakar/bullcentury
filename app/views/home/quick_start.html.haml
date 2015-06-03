@@ -1,0 +1,49 @@
+%h1.col-sm-9.big-title.xbig-top-buffer= t('quick_start').upcase
+.col-sm-10.col-md-10.col-sm-offset-1.big-top-buffer.text-center{ 'data-spy' => :scroll, 'data-target' => '#nav-quick-start'}
+  .quick-arrow
+  - if I18n.locale == :ua
+    = image_tag "banners/quick_start_ua.png", :class => "scale_700"
+
+  - if I18n.locale == :ru
+    = image_tag "banners/quick_start_ru.png", :class => "scale_700"
+
+  - if I18n.locale == :en
+    = image_tag "banners/quick_start_en.png", :class => "scale_700"
+
+  - if I18n.locale == :hu
+    = image_tag "banners/quick_start_hu.png", :class => "scale_700"
+.col-sm-12.no-padding.bottom-buffer-200.top-buffer-100{'data-spy' => :scroll, 'data-target' => '#nav-quick-start'}
+  - if I18n.locale == :ua
+    = render partial: 'home/quick_start_ua'
+
+  - if I18n.locale == :ru
+    = render partial: 'home/quick_start_ru'
+
+  - if I18n.locale == :en
+    = render partial: 'home/quick_start_en'
+
+  - if I18n.locale == :hu
+    = render partial: 'home/quick_start_hu'
+%span#top-link-block.hidden
+  %a{:href => "#top", :onclick => "$('html,body').animate({scrollTop:0},'slow');return false;"}
+    =image_tag 'up_button.png'
+/ /top-link-block
+:javascript
+  $(document).ready(function(){
+    $('.mouse_pointer').click(function(){
+      term = $(this).attr('term');
+      //$(this).addClass('blue');
+      //alert(term_text);
+      $('.content').each(function(){    
+        if ($(this).attr('term') == term){        
+          if ($(this).css('display') == 'none'){
+            $(this).css('display','block');
+          }          
+          else {
+            $(this).css('display','none');
+          }      
+                      
+        }
+      });
+    });
+  });

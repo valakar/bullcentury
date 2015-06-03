@@ -1,0 +1,21 @@
+.col-sm-12.col-md-12.no_left_padding.big-top-buffer.disable-input-style
+  %h4
+    %strong
+      = t('reward.reward_for').upcase
+      {{reward.per_amount}}+
+      {{project.currency_id}}
+      / = @project.currency.key unless @project.currency.nil?
+  %span.reward-small.bottom-buffer-50{class: hideText}
+    %div {{reward.description}}
+    %p{'ng-show' => 'reward.image'}
+      %img{'ng-src' => "{{reward.image.thumb.url}}", 'ng-show' => 'reward.image', class: 'img-rounded'}
+      / = image_tag reward.image.url(:thumb), class: 'img-rounded'
+    
+  - if(can?(:manage, @project))     
+    - if !@project.published? and !@project.closed? and !@project.on_review? 
+      - if user_signed_in?
+        %p
+          %button.btn.btn-primary{'ng-click' => "editReward(reward)", type: 'button'} Edit
+          %button.btn.btn-danger{'ng-click' => "deleteReward(reward)", type: 'button'} Delete
+  /         = link_to t('reward.edit_reward'), edit_project_reward_path(reward.project.id, reward.id), :class => 'btn btn-info'
+  /         = link_to t('reward.delete_reward'), project_reward_path(reward.project.id, reward.id), method: :delete, :class => 'btn btn-link'

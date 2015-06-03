@@ -1,0 +1,142 @@
+-if @profile
+  .row.bottom-buffer-150
+    .col-sm-12.col-md-12.top-buffer
+      .col-sm-6.col-md-6.top-buffer
+        = render partial: 'dashboard_block'
+      .col-sm-6.col-md-6.top-buffer
+        = render partial: 'dashboard_general_block'
+    .col-sm-11.col-md-11.separate_top.no_left_padding.offset-5.top-buffer
+      .col-sm-6.col-md-6.separate_right.padding-all
+        %h4.green_title
+          %span.uppercase 
+            = t('profile.dashboard.current_project')
+          %small 
+            = @project.nil? ? "Your project" : @project.name 
+            = link_to('ADD PROJECT', new_project_path) if @project.nil?
+
+        .col-sm-4.col-md-4
+          %strong 
+            = t('profile.main.status') + ':'
+          %br
+          = @project.nil? ? "0" : @project.funding_duration_in_days 
+          = t('project.days_to_go')
+        .col-sm-5.col-md-5
+          %strong 
+            = t('profile.main.supporters') + ':'
+          %br
+          0
+        .col-sm-3.col-md-3
+          %strong 
+            = t('profile.main.pledged') + ':'
+          %br
+          = @project.nil? ? "0" : @project.funding_goal.to_i  
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+        .col-sm-4.col-md-4.top-buffer
+          %strong 
+            = t('profile.dashboard.likes') + ':'
+          %br
+          0
+        .col-sm-4.col-md-4.top-buffer
+          %strong 
+            = t('profile.dashboard.dislikes') + ':'
+          %br
+          0
+        .square_green
+      .col-sm-6.col-md-6.no_left_padding.padding-all
+        %h4.yellow_title  
+          %span.uppercase 
+            = t('profile.dashboard.project_account')
+          %small 
+            = @project.nil? ? "Your project" : @project.name 
+            = link_to('ADD PROJECT', new_project_path) if @project.nil?
+        .col-sm-4.col-md-4
+          %strong 
+            = t('profile.main.goal') + ':'
+          %br
+          = @project.nil? ? "0" : @project.funding_goal.to_i 
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+        .col-sm-5.col-md-5
+          %strong 
+            = t('profile.main.pledged') + ':'
+          %br
+          = @project.nil? ? "0" : @project.funding_goal.to_i 
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+        .col-sm-3.col-md-3
+          %strong 
+            = t('profile.receive_money.bc_fees') + ':'
+          %br
+          = @project.nil? ? "0" : (@project.funding_goal.nil? ? 0 : @project.funding_goal*0.04) 
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+        .col-sm-4.col-md-4
+          %strong 
+            = t('profile.main.status') + ':'
+          %br
+          Failed/Refund
+        .col-sm-12.col-md-12.top-buffer
+          = t('profile.main.account') + ' #0637531258; Fund Released; In process'
+        .square_yellow
+    .col-sm-11.col-md-11.separate_top.no_left_padding.offset-5.top-buffer
+      .col-sm-6.col-md-6.no_right_padding.separate_right.padding-all#social_dashboard
+        %h4.pink_title 
+          %span.uppercase 
+            = t('profile.dashboard.social_media_promotion')
+
+        .row.two-column-table.social-table
+          .col-sm-12.col-md-12.thead.text-center
+            .col-sm-3.col-md-3
+              SM
+            .col-sm-3.col-md-3
+              CLICKS
+            .col-sm-3.col-md-3
+              LIKES
+            .col-sm-3.col-md-3
+              FANS
+
+          = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/facebook_icon.png', clicks: '0', likes: '0', fans: '0'}
+          = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/vk_icon.png', clicks: '0', likes: '0', fans: '0'}
+          = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/google+_icon.png', clicks: '0', likes: '0', fans: '0'}
+
+        .square_pink
+      .col-sm-6.col-md-6.no_left_padding.padding-all
+        %h4.blue_title 
+          %span.uppercase 
+            = t('profile.dashboard.notification_center')
+          %small (From BC and Supporter)
+        .form-group.padding-all-sm
+          .notifications
+            .messages
+              =link_to "Someone added you", "#", :class => "message"
+          .pull-right.blue_title  See more
+        .form-group.padding-all-sm
+          .notifications
+            .messages
+              =link_to "Someone added you", "#", :class => "message"
+          .pull-right.blue_title  See more
+        .form-group.padding-all-sm
+          .notifications
+            .messages
+              =link_to "Someone added you", "#", :class => "message"
+          .pull-right.blue_title  See more
+        %br
+        .blue_title 
+          Load More Mails
+        .square_blue
+      /OLD start
+      / = render partial: 'profiles/user_info'
+      /OLD end
+
+      /OLD start
+      / = render partial: 'profiles/current_project', locals: { project: @project }
+      / - if @closed_projects.present?
+      /   .panel.panel-info
+      /     .panel-heading
+      /       %h3.panel-title= t('closed_projects')
+      /     .panel-body
+      /       - @closed_projects.each do |project|
+      /         = render partial: 'profiles/closed_project', locals: { project: project }
+      /OLD end
+-else
+  %h3
+    Profile not found
+
+

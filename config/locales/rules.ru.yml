@@ -1,0 +1,8 @@
+ru:
+  rules:
+    nav:
+      project-categories: "Категории Проектов"
+      the-project: "Проект"
+      who-can-create-project: "Кто может создать проект"
+      who-can-support-project: "Кто может Инвестировать или Поддерживать проекты"
+      what-is-not-allowed: "Что делать запрещается"

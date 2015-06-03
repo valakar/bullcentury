@@ -1,0 +1,12 @@
+.panel
+  .panel-body
+    .row
+      .col-sm-4.col-md-4
+        = link_to project_url(project) do
+          %h4= project.name
+    .row
+      .col-sm-4.col-md-4
+        = link_to project_url(project) do
+          = image_tag project.image.url(:thumb), class: 'img-rounded'
+      .col-sm-8.col-md-8
+        %p= project.tweet

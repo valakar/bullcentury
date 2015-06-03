@@ -1,0 +1,38 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer
+  .col-sm-8.col-md-8.bottom-buffer
+    .col-sm-3.col-md-3.no_right_padding.text-center
+      = image_tag("refunds.png", width:105)
+    .col-sm-9.col-md-9.no_left_padding
+      %h1.one-header
+        = t('profile.refund.title')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  - if @refund_projects.empty?
+    .col-sm-12.col-md-12
+      .text-center.info-message-gray.top-buffer
+        Hi, You have nothing to refund yet.
+  - else
+    = render partial: 'profiles/refunds/refund'
+  .col-sm-12.col-md-12
+    .big-header
+      = t('profile.refund.title_1') 
+      %span.sm-header.vertical-super
+        %a.blue_title.tooltips{:href => "javascript:;"}
+          = t('profile.main.what_is_it')
+          %span 
+            = t('profile.refund.what_is_it_1')
+  = render partial: 'profiles/refunds/other_refund'
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer
+    %h4 
+      = t('profile.main.attention') + ":"
+    %small
+      = t('profile.refund.attention_title') 
+      %ol
+        %li 
+          = t('profile.refund.attention_1') 
+        %li 
+          = t('profile.refund.attention_2') 
+        %li 
+          = t('profile.refund.attention_3') 
+        %li 
+          = t('profile.refund.attention_4') 

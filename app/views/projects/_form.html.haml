@@ -1,0 +1,13 @@
+- if @project.new_record?
+  - url = projects_path
+  - method = :post
+  - submit_button_caption = t('project.create')
+- else
+  - url = project_path(@project)
+  - method = :patch
+  - submit_button_caption = t('project.edit')
+/ new design
+= render partial: 'create_project'
+/ end of new design
+
+

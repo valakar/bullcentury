@@ -1,0 +1,90 @@
+- if @project.new_record?
+  - url = projects_path
+  - method = :post
+  - submit_button_caption = t('project.create')
+- else
+  - url = project_path(@project)
+  - method = :patch
+  - submit_button_caption = t('project.save')
+
+-#.row.row-eq-height
+-#  .col-sm-8.col-md-8
+-#    .b-project__profile-image-container.text-center
+-#      - if @project.video and @project.video.url
+-#        %div
+-#          .fileinput.fileinput-new{ 'data-provides' => 'fileinput' }
+-#            .fileinput-preview.thumbnail{ 'data-trigger' => 'fileinput', :style => 'width: 642px; height: 392px;'}
+-#              = "<video id=\"example_video_1\" class=\"video-js vjs-default-skin\" controls preload=\"metadata\" width=\"640\" height=\"360\" data-setup=\"{}\"><source src=\"#{@project.video.url}\" type='video/mp4' /><!--<source src=\"http://video-js.zencoder.com/oceans-clip.webm\" type='video/webm' /><source src=\"http://video-js.zencoder.com/oceans-clip.ogv\" type='video/ogg' />--><!--<track kind=\"captions\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;<track kind=\"subtitles\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;--> </video>".html_safe()
+-#            %div
+-#              %span.btn.btn-file.file-input
+-#                / = f.file_field :video
+-#      - else
+-#        %a{ :href=>'javascript:;' }
+-#          .fileinput.fileinput-new{ 'data-provides' => 'fileinput' }
+-#            .fileinput-preview.thumbnail{ 'data-trigger' => 'fileinput', :style => 'width: 642px; height: 392px;vertical-align: middle;display: table-cell;' }
+-#              %div Video upload max 50 mb
+-#            %div
+-#              %span.btn.btn-file.file-input
+-#                / = f.file_field :video
+  //TEST VIDEO
+.row.row-eq-height
+  .col-sm-8.col-md-8
+    = form_for :project, url: url, multipart: true, method: method, :html => { :id => '#create_form', :class => 'form-horizontal', :role => 'form' } do |f|
+      .b-project__profile-image-container.text-center
+        - if @project.video and @project.video.url
+          %div
+            .fileinput.fileinput-new{ 'data-provides' => 'fileinput' }
+              .fileinput-preview.thumbnail{ 'data-trigger' => 'fileinput', :style => 'width: 642px; height: 362px;'}
+                = "<video id=\"example_video_1\" class=\"video-js vjs-default-skin\" controls preload=\"metadata\" width=\"640\" height=\"360\" data-setup=\"{}\"><source src=\"#{@project.video.url}\" type='video/mp4' /><!--<source src=\"http://video-js.zencoder.com/oceans-clip.webm\" type='video/webm' /><source src=\"http://video-js.zencoder.com/oceans-clip.ogv\" type='video/ogg' />--><!--<track kind=\"captions\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;<track kind=\"subtitles\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;--> </video>".html_safe()
+              %div
+                %span.btn.btn-file.file-input
+                  = f.file_field :video, :required => true
+        - else
+          %a{ :href=>'javascript:;' }
+            .fileinput.fileinput-new{ 'data-provides' => 'fileinput' }
+              .fileinput-preview.thumbnail{ 'data-trigger' => 'fileinput', :style => 'width: 642px; height: 392px;vertical-align: middle;display: table-cell;' }
+                %div Video upload max 50 mb
+              %div
+                %span.btn.btn-file.file-input
+                  = f.file_field :video, :required => true
+      = f.submit submit_button_caption, :class => 'btn btn-primary'
+  .col-sm-4.col-md-4
+    %form{:name => 'projectMainForm', 'ng-submit' => 'saveMain()'}
+      .col-sm-12.col-md-12.equal.disable-input-style
+        .col-sm-6.col-md-6.content-block-purple
+          %div
+          = t('project.number_of_supporters').upcase
+          %h4
+            %strong
+              0
+            %small
+              = t('project.persons')
+        .col-sm-6.col-md-6.content-block-lightgreen
+          %div
+            = t('project.goal').upcase
+          %h4
+            %strong
+              %input{'ng-model' => 'project.funding_goal', placeholder: '0', min: '1', "tabindex" => "2", type: 'number'}
+            %select{'ng-model' => 'project.currency_id', 'ng-options' => "currency.id as currency.key for currency in currencies", :class=>'selectpicker'}
+              %option{style: "display:none", value: ""} Currency
+            / = f.collection_select(:currency_id, Currency.all, :id, :key, {}, {:class=>'selectpicker'})
+      .col-sm-12.col-md-12.equal.disable-input-style
+        .col-sm-6.col-md-6.content-block-purple
+          %div
+            = t('project.funded').upcase
+          %h4
+            %strong
+              0
+        .col-sm-6.col-md-6.content-block-lightgreen
+          %div
+            = t('project.funding_duration_in_days').upcase
+          %h4
+            %strong
+              %input{'ng-model' => 'project.funding_duration_in_days', placeholder: 'Max 120', min: '1', max:120, "tabindex" => "3", type: 'number'}
+            %small
+              = t('project.days')
+      .col-sm-12.col-md-12.top-buffer
+        .progress.progress-striped.active
+          .progress-bar.progress-bar-success{:style => "width: 100% ;"} 100%
+      .col-sm-12.col-md-12.text-center
+        %input.btn.btn-primary{:type => "submit", :value => "Submit main part"}

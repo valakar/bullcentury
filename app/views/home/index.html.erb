@@ -1,0 +1,246 @@
+<% content_for :part1 do %>
+  <!-- <div class="shadow"> -->
+  <%= render partial: 'banner_slider_full_width'%>
+  <%#= render partial: 'banner_video' %>
+
+
+    <%#= image_tag I18n.locale == :ru ? 'front_banner_ru.jpg' : 'front_banner_en.jpg', :class => 'img-rounded' %>
+  <!-- </div> -->
+<% end %>
+
+
+
+<div class="grid-nav-container row text-center">
+  <div class="col-sm-4 col-md-4">
+    <div class="bright">
+      <div class="grid-nav-item pink_gradient_left_bottom_to_right_center">
+        <%= link_to projects_path do %>
+          <div class="uppercase"><%=  t('project.listing') %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="bright">
+      <div class="grid-nav-item blue_gradient_right_bottom_to_left_center">
+        <%= link_to mentors_path do %>
+          <div class="uppercase"><%= t('mentors.mentors_title') %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="bright">
+      <div class="grid-nav-item green_gradient_left_bottom_to_right_center">
+        <%= link_to university_path do %>
+          <div class="uppercase"><%= t('bc_university') %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-nav-container row text-center">
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-pink">
+      <%= link_to category_path('art') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('paint') %></li>
+          <li><%= t('literature') %></li>
+          <li><%= t('theater') %></li>
+        </ul>
+        <div class="uppercase"><%= t('art')%></div>
+        <div class="right_bottom uppercase"><%= t('more')%>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-blue">
+      <%= link_to category_path('media') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('music') %></li>
+          <li><%= t('movie') %></li>
+          <li><%= t('photo') %></li>
+        </ul>
+        <div class="uppercase"><%= t('media') %></div>
+        <div class="right_bottom uppercase"><%= t('more') %>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-green">
+      <%= link_to category_path('innovation') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('product') %></li>
+          <li><%= t('design') %></li>
+          <li><%= t('technology') %></li>
+        </ul>
+        <div class="uppercase"><%= t('innovation') %></div>
+        <div class="right_bottom uppercase"><%= t('more') %>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="grid-nav-container row text-center">
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-yellow">
+      <%= link_to category_path('crazy') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('talent') %></li>
+          <li><%= t('funny') %></li>
+          <li><%= t('never_seen') %></li>
+        </ul>
+        <div class="uppercase"><%= t('crazy') %></div>
+        <div class="right_bottom uppercase"><%= t('more') %>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-green">
+      <%= link_to category_path('leisure') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('travel') %></li>
+          <li><%= t('cook') %></li>
+          <li><%= t('adventure') %></li>
+        </ul>
+        <div class="uppercase"><%= t('leisure') %></div>
+        <div class="right_bottom uppercase"><%= t('more') %>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-sm-4 col-md-4">
+    <div class="grid-nav-item m-bg-blue">
+      <%= link_to category_path('charity') do %>
+        <ul class="left_top list_bullet">
+          <li><%= t('social') %></li>
+          <li><%= t('community') %></li>
+          <li><%= t('eco')%></li>
+        </ul>
+        <div class="uppercase"><%= t('charity') %></div>
+        <div class="right_bottom uppercase"><%= t('more') %>  <%= image_tag('bullet1.png') %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="line-separator"></div>
+
+<!-- Popular Projects -->
+<div class="panel panel-danger home-page__popular-projects-container">
+
+  <div class="row projects_rows">
+    <%= render partial: 'projects/projects_block', locals: {
+      key: 'popular',
+      projects: @popular_projects,
+      caption: t('popular_projects'),
+      is_separator_hidden: true } %>
+    <%= render partial: 'projects/projects_block', locals: {
+      key: 'successful',
+      projects: @successful_projects,
+      caption: t('successful_projects'),
+      is_separator_hidden: false } %>
+  </div>
+
+  <!-- <div class="panel-heading">
+    <h3 class="panel-title">
+      <#%= t('popular_projects') %>
+      <#%= link_to t('all_projects'), projects_path, :class => 'pull-right' %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <#% unless @popular_projects.empty? %>
+          <#% @popular_projects.each do |project| %>
+            <div class="col-sm-4 col-md-4">
+              <#%= render :partial => 'projects/project', :locals => { project: project } %>
+            </div>
+          <#% end %>
+      <#% else %>
+        <div class="alert alert-warning text-center col-sm-offset-2 col-sm-8">
+          <p><strong><%#= t('no_projects') %></strong></p>
+          <p><%#= link_to t('create_popular_project'), new_project_path, :class => 'btn btn-info' %></p>
+        </div>
+      <#% end %>
+    </div>
+  </div> -->
+
+</div>
+<div class="col-sm-12 bottom-buffer-150">
+<!-- End of Popular Projects -->
+
+<!-- Successful Projects -->
+<!-- <div class="panel panel-success home-page__successful-projects-container">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <#%= t('successful_projects') %>
+      <#%= link_to t('all_projects'), projects_path, :class => 'pull-right' %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <#% unless @successful_projects.empty? %>
+          <#% @successful_projects.each do |project| %>
+            <div class="col-sm-4 col-md-4">
+              <#%= render :partial => 'projects/project', :locals => { project: project } %>
+            </div>
+          <#% end %>
+      <#% else %>
+        <div class="alert alert-warning text-center col-sm-offset-2 col-sm-8">
+          <p><strong><#%= t('no_projects') %></strong></p>
+          <p><#%= link_to t('create_successful_project'), new_project_path, :class => 'btn btn-info' %></p>
+        </div>
+      <#% end %>
+    </div>
+  </div>
+</div>
+
+<!-- End of Successful Projects -->
+
+<!--Start video button-->
+<!--<div class="row video_button text-center">
+  <a href="<%= how_it_works_path %>">
+    <div class="col-sm-6">
+      <%= image_tag 'video_button_1_2.png', :class => 'bot' %>
+      <%= image_tag 'video_button_1_1.png', :class => 'top' %>
+      <div class="text text-left">
+        <h4><%= t('video') %> 1</h4>
+        <p><%= t('video_1') %></p>
+      </div>
+    </div>
+  </a>
+  <a href="<%= how_it_works_path %>">
+    <div class="col-sm-6">
+      <%= image_tag 'video_button_2_2.png', :class => 'bot' %>
+      <%= image_tag 'video_button_2_1.png', :class => 'top' %>
+      <div class="text text-left">
+        <h4><%= t('video') %> 2</h4>
+        <p><%= t('video_2') %></p>
+      </div>
+    </div>
+  </a>
+</div>-->
+<!--End video button-->
+
+<span id="top-link-block" class="hidden">
+    <a href="#top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <%= image_tag 'up_button.png' %>
+    </a>
+</span><!-- /top-link-block -->
+
+<!-- horizontal slider -->
+<script type="text/javascript">
+  (function () {
+    $(function() {
+      $(".projects-carousel").each(function (i, element) {
+        $(element).jCarouselLite({
+          btnNext: $('.next', element)[0],
+          btnPrev: $('.prev', element)[0],
+          visible: 3,
+          start: 0,
+          circular: false
+        });
+      });
+    });
+  })()
+</script>

@@ -1,0 +1,11 @@
+.row.tbody.text-center
+  .col-sm-2.col-md-2.td-second
+    = link_to(link) do
+      = image_tag(image, height: '25')
+  .col-sm-8.col-md-8.td-second 
+    = text
+  .col-sm-2.col-md-2.td-second 
+    %div
+      %input{:name => "social", :type => "checkbox", :value => value, :id => id}
+      %label{:for => id}
+        %span

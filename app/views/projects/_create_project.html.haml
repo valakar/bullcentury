@@ -1,0 +1,132 @@
+- if @project.new_record?
+  - url = projects_path
+  - method = :post
+  - submit_button_caption = t('project.create')
+- else
+  - url = project_path(@project)
+  - method = :patch
+  - submit_button_caption = t('project.save')
+%div{'ng-controller' => 'ProjectController', 'ng-init' => "init(#{@project.id}, #{@current_user.id})"}
+  / = form_for :project, url: url, multipart: true, method: method, :html => { :id => '#create_form', :class => 'form-horizontal', :role => 'form' } do |f|
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockMain'
+
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockAuthor'
+
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockRewards'
+
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockDetails'
+
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockCreator'
+
+  .col-sm-12.col-md-12.no_padding
+    = render partial: 'projects/edit/blockTimeline'
+
+
+  /TODO IMAGE CROP SAVE ANGULAR
+  .col-sm-12.col-md-12.no_padding
+      
+  / = form_for :project, url: url, multipart: true, method: method, :html => { :id => '#create_form', :class => 'form-horizontal', :role => 'form' } do |f|
+  /   =#<!-- PROGRESS BAR END
+  /   .form-group.bottom-buffer-100
+  /     .col-sm-offset-5.col-sm-7
+  /       / %button{:type => "reset", :class => 'btn btn-default'} Discard changes
+  /       / %input{:onclick => "history.go(0)", :type => "button", :value => "Discard changes", :class => "btn btn-default"}
+  /       %input{:onclick => "location.reload()", :type => "button", :value => "Discard changes", :class => "btn btn-default"}
+  /       = f.submit submit_button_caption, :class => 'btn btn-default'
+
+
+:javascript
+  var ready;
+    ready = function() {
+
+      / function textAreaAdjust(o) {
+      /   o.style.height = "1px";
+      /   o.style.height = (25+o.scrollHeight)+"px";
+      / }
+
+      / tinyMCE.init({
+      /   selector: 'textarea.editor'
+      / });
+      
+
+      $('.selectpicker').selectpicker();
+      
+      $('#tweet').keyup(function () {
+          var left = 140 - $(this).val().length;
+          if (left < 0) {
+              left = 0;
+          }
+          $('#tweet_counter').text(left + ' / 140');
+      });
+      $('#project_name1').keyup(function () {
+          var left = 70 - $(this).val().length;
+          if (left < 0) {
+              left = 0;
+          }
+          $('#project_counter1').text(left + ' / 70');
+      });
+      $('#project_name2').keyup(function () {
+          var left = 70 - $(this).val().length;
+          if (left < 0) {
+              left = 0;
+          }
+          $('#project_counter2').text(left + ' / 70');
+      });
+      
+      $(function() {
+        //  the following simple make the textbox "Auto-Expand" as it is typed in
+        $("#creator_biography").keyup(function(e) {
+            //  this if statement checks to see if backspace or delete was pressed, if so, it resets the height of the box so it can be resized properly
+            if (e.which == 8 || e.which == 46) {
+                $(this).height(parseFloat($(this).css("min-height")) != 0 ? parseFloat($(this).css("min-height")) : parseFloat($(this).css("font-size")));
+            }
+            //  the following will help the text expand as typing takes place
+            while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+                $(this).height($(this).height()+1);
+            };
+        });
+      });
+
+      $('#demo').awesomeCropper({ 
+        width: 539, 
+        height: 329, 
+        debug: true
+      });
+
+    
+
+      //enter doesn't submit form
+      $('input').bind("keyup keypress", function(e) {
+        var code = e.keyCode || e.which; 
+        if (code  == 13) {               
+          e.preventDefault();
+          var $this = $(e.target);
+          var index = parseFloat($this.attr('data-index'));
+          $('[data-index="' + (index + 1).toString() + '"]').focus();
+          $('input').blur();
+          return false;
+        }
+      });
+
+
+      $(function() {
+        var now = new Date();
+        var month = (now.getMonth() + 1);               
+        var day = now.getDate();
+        if(month < 10) 
+            month = "0" + month;
+        if(day < 10) 
+            day = "0" + day;
+        var today = now.getFullYear() + '-' + month + '-' + day;
+        $('input[type=date]').attr('min',today);
+      });
+      
+    };
+
+  $(document).ready(ready);
+  $(document).on('page:load', ready);

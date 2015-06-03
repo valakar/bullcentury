@@ -1,0 +1,93 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer#receive_money 
+  .col-sm-8.col-md-8
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("receive_money.png")
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.receive_money.title_part1')
+      %h1.second-header
+        = t('profile.receive_money.title_part2')
+    /OLD HEADER
+    / %h1 
+    /   = t('profile.receive_money.title')
+    / %h4 
+    /   If you are project investor wist to check 
+    /   = link_to 'activities' , 'javascript:;'
+    /   details, please click
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer#section1 
+    .bottom-buffer
+      %span.step
+        = t('profile.receive_money.step_1')
+      %span.step_content
+        = t('profile.receive_money.content_step_1')
+      .pull-right
+        %a.tooltips{:href => "javascript:;"}
+          = t('profile.main.what_is_it')
+          %span 
+            = t('profile.main.what_is_it')
+    - if @projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi, You have no published project yet. Let's 
+        = link_to 'create a project' , new_project_url
+    - else
+      .table-for-profile.table-green
+        %table
+          %tr
+            %td
+              = t('profile.main.p_date')
+            %td
+              = t('profile.main.project') + ":"
+            %td
+              ID:
+            %td
+              = t('profile.main.status') + ":"
+            %td
+              = t('profile.main.close_date') + ":"
+          - @projects.each do |project|
+            %tr.tr-link{'data-goal' => project.funding_goal,
+            'data-categories' => project.get_categories,
+            'data-country' => project.country.name,
+            'data-pledged' => project.calc_pledged,
+            'data-currency' => project.currency.sign,
+            'data-id' => project.id}
+              %td.text-center
+                = project.created_at.strftime("%m/%d/%Y")
+              %td
+                %a{href: 'localhost:3000'}
+                  = project.name
+              %td.text-center
+                = project.id
+              %td.text-center
+                = project.state
+              %td.text-center
+                = project.created_at
+    %small.top-buffer
+      = t('profile.receive_money.attention_1')
+
+  #section2
+    = render partial: '/profiles/receive_money/section2', locals: {project_id: '1'}
+
+/ :javascript
+/   (function () {
+/     var t = document.getElementById('section1');
+/     t.onclick = function (event) {
+/         event = event || window.event; //IE8
+/         var target = event.target || event.srcElement;
+/         while (target && target.nodeName != 'TR') { // find TR
+/             target = target.parentElement;
+/         }
+/         //if (!target) { return; } //tr should be always found
+/         var cells = target.cells; //cell collection - https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableRowElement
+/         //var cells = target.getElementsByTagName('td'); //alternative
+/         if (!cells.length || target.parentNode.nodeName == 'THEAD') {
+/             return;
+/         }
+/         var f1 = cells[1].innerHTML;
+/         $('#section2').html("#{escape_javascript(render :partial => 'profiles/receive_money/section2', :locals => {project_id: $f1 })}");
+
+/         $("#section2").show();
+/         //console.log(target.nodeName, event);
+/     };
+/   })();

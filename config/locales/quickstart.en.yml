@@ -1,0 +1,56 @@
+en:
+  quickstart:
+    nav:
+      how-it-works: "1. How It Works?"
+      fees: "2. Fees"
+      crowd-funding: "3. What is Crowd-Funding?"
+      what-do-you-need-to-start: "4. What do you need to start a project?"
+      link-to-info-center: "5. Still have more questions?"
+    category:
+      art:
+        sub_1: "VISUAL ART"
+        sub_small_1: "Photography, Painting, Drawing, Sculpting"
+        sub_2: "LITERATURE"
+        sub_small_2: "Publication of Poetry, Novels, Short Stories and Epics"
+        sub_3: "PERFORMING ART"
+        sub_small_3: "Musical, Dance, Opera, Theatre and Film"
+      crazy:
+        sub_1: "YOU’VE GOT TALENT (YGT)"
+        sub_small_1: "Musical, Dance, Opera, and Others we can’t think of..."
+        sub_2: "NO ONE CAN (NOC)"
+        sub_small_2: "Impressive, Shocking, Funny, Surprising and Others"
+        sub_3: "NEVER SEEN BEFORE (NSB)"
+        sub_small_3: "First one doing, experiencing, discovering and Others..."
+      innov:
+        sub_1: "PRODUCTS"
+        sub_small_1: "All innovative products"
+        sub_2: "DESIGNS"
+        sub_small_2: "All innovative designs in different industries"
+        sub_3: "TECHNOLOGY"
+        sub_small_3: "IT, Science, Aerospace, Energy and all others..."
+        sub_4: "FASHION"
+        sub_small_4: "All fashion industries"
+        sub_5: "IDEAS"
+        sub_small_5: "All creative business start up ideas"
+      leisure:
+        sub_1: "TRAVEL"
+        sub_small_1: "Funding a meaningful trip, adventure, outdoor activities"
+        sub_2: "FOOD/COOK/RECIPES"
+        sub_small_2: "All food and beverages related"
+        sub_3: "HOBBY"
+        sub_small_3: "Sports, Comics"
+      media:
+        sub_1: "MUSIC / VIDEO"
+        sub_small_1: ""
+        sub_2: "MOVIE / EPISODE"
+        sub_small_2: ""
+        sub_3: "PHOTOGRAPHY"
+        sub_small_3: ""
+      social:
+        sub_1: "CHARITY"
+        sub_small_1: "Helping People, Organization, Animals and Others"
+        sub_2: "COMMUNITY"
+        sub_small_2: "Neighborhood, Workplace, School/University and Others"
+        sub_3: "GREEN"
+        sub_small_3: "Energy, Environment, Climate and Others"
+    

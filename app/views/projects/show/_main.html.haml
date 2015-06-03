@@ -1,0 +1,55 @@
+.row.row-eq-height
+  .col-sm-8.col-md-8
+    .b-project__profile-image-container.text-center
+      - if @project.video and @project.video.url
+        = "<video id=\"example_video_1\" class=\"video-js vjs-default-skin\" controls preload=\"metadata\" width=\"640\" height=\"360\" data-setup=\"{}\"><source src=\"#{@project.video.url}\" type='video/mp4' /><source src=\"#{@project.video.url}\" type='video/webm' /><!--<source src=\"http://video-js.zencoder.com/oceans-clip.ogv\" type='video/ogg' />--><!--<track kind=\"captions\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;<track kind=\"subtitles\" src=\"demo.captions.vtt\" srclang=\"en\" label=\"English\"></track>&lt;!&ndash; Tracks need an ending tag thanks to IE9 &ndash;&gt;--> </video>".html_safe()
+      - else
+        = image_tag @project.image.url if @project.image?
+  .col-sm-4.col-md-4
+    .col-sm-12.col-md-12.equal
+      .col-sm-6.col-md-6.content-block-purple
+        %div
+          = t('project.number_of_supporters').upcase
+        %h4
+          %strong
+            1390
+          %small
+            = t('project.persons')
+      .col-sm-6.col-md-6.content-block-lightgreen
+        %div
+          = t('project.goal').upcase
+        %h4
+          %strong
+            = @project.funding_goal
+          %small
+            = @project.currency ? @project.currency.key : ''
+    .col-sm-12.col-md-12.equal
+      .col-sm-6.col-md-6.content-block-purple
+        %div
+          = t('project.funded').upcase
+        %h4
+          %strong
+            = @pledgedAmount
+          %small
+            = @project.currency ? @project.currency.key : ''
+      .col-sm-6.col-md-6.content-block-lightgreen
+        %div
+          = t('project.funding_duration_in_days').upcase
+        %h4
+          %strong
+            = @project.funding_duration_in_days
+          %small
+            = t('project.days')
+    .col-sm-12.col-md-12.top-buffer
+      .progress.progress-striped.active
+        - unless @project.funding_goal.nil?
+          - if @pledged > 100
+            .progress-bar.progress-bar-success{:style => 'width: 100%;'} #{'%.0f' % @pledged.to_f}%
+          - else
+            .progress-bar.progress-bar-success{:style => "width: #{@pledged}% ;"} #{'%.0f' % @pledged.to_f}%
+    .col-sm-8.col-md-8.col-sm-offset-2.support-btn-bottom-45
+      .list-group-item-warning{:title=> t('payment_systems_is_in_progress')}
+        %div.btn.btn-success.btn-lg.b-project__profile-support-btn{"data-toggle" => "modal", :href => "#pledgeForm"}
+          = t('project.support_btn')
+    .col-sm-12.col-md-12.social-btn-bottom-0
+      = render partial: 'social_links'

@@ -1,0 +1,38 @@
+.row.row-eq-height
+  .col-sm-9.col-md-9.no_right_padding
+    %h4.big-title-green
+      = t('rewards').upcase
+      
+    - if user_signed_in? or (!user_signed_in? and !@project.rewards.empty?)
+      %div
+        .panel-heading
+          %h3{:class=>'panel-title'}
+
+        .panel-body
+          %h4= t('reward.add_new_reward')
+          - if(can?(:manage, @project))
+            - if !@project.published? and !@project.closed? and !@project.on_review?
+              - if user_signed_in?
+                .col-sm-12.col-md-12
+                  = render :partial => 'rewards/form_angular'
+          .col-sm-12.col-md-12{"ng-repeat" => "reward in project.rewards | orderBy:'per_amount'"}
+            = render :partial => 'projects/edit/reward', :locals => { hideText: ''}
+          /- @project.rewards.sort.sort.each do |reward|
+          /  = render :partial => 'projects/reward', :locals => { reward: reward, hideText: ''}
+
+  .col-sm-3.col-md-3.right-col.disable-input-style
+    %a{:href=>'javascript:;', :class=>'thumbnail fixed-size-200 top-buffer'}
+      - if @project.author and @project.author.image?
+        = image_tag @project.author.image.url(:thumb), :class => 'fixed-size-200'
+      - elsif current_user.image.to_s != ""
+        = image_tag current_user.image.url(:thumb), :class => 'fixed-size-200'
+      - else
+        = image_tag 'user_placeholder.png', :class => 'fixed-size-200'
+    %h3
+      = t('creator_biography')
+    /TODO Need to save creator biography with project
+    / %a{href: '#creator_biography'}
+    /TODOANG
+    %textarea{'ng-model' => 'project.creator_biography', rows: '25', maxlength: '1255', placeholder: "Please, add information about creator", "tabindex" => "6", readonly: 'true', onload: 'textAreaAdjust(this)'}
+    / = f.text_area :creator_biography, id:'creator_biography2', rows: '25', maxlength: '1255', placeholder: "Please, add information about creator", "tabindex" => "6", readonly: 'true', onload: 'textAreaAdjust(this)'
+    =# text_area "", "user_information", disabled: 'disabled', id: 'creator_biography2', placeholder: 'Here will be Creator biography'

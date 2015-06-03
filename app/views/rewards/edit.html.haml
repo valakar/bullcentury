@@ -1,0 +1,2 @@
+%h1= t('reward.edit_reward')
+= render :partial => 'rewards/form', locals: {url: project_reward_path(@reward.project.id, @reward), method: :patch, reward: @reward}

@@ -1,0 +1,33 @@
+= form_for :author, url: url, multipart: true, method: method, :html => {:class => 'form-horizontal', :role => 'form'} do |f|
+  - if @author.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@author.errors.count, 'error')
+        prohibite
+        this author from being saved:
+      %ul
+        - @author.errors.full_messages.each do |msg|
+          %li= msg
+  = f.hidden_field :project_id, value: @project_id
+  .form-group.row
+    = f.label :image, t('author.image'), :class => 'col-sm-5'
+    .col-sm-7
+      - if @author.image?
+        = image_tag @author.image.url(:thumb) if @author.image?
+      = f.file_field :image
+      / <small class="help-block"></haml_block><haml_silent></haml_silent><haml_block></small>
+  .form-group
+    = f.label :name, t('author.name'), :class => 'col-sm-5'
+    .col-sm-7
+      = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :city, t('author.city'), :class => 'col-sm-5'
+    .col-sm-7
+      = f.text_field :city, :class => 'form-control'
+  .form-group
+    = f.label :country, t('author.country'), :class => 'col-sm-5'
+    .col-sm-7
+      = f.text_field :country, :class => 'form-control'
+  .form-group
+    .col-sm-offset-5.col-sm-7
+      = f.submit t('author.save'), :class => 'btn btn-default'

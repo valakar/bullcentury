@@ -1,0 +1,7 @@
+%h1= t('how_it_works')
+- if I18n.locale == :ua
+  = render partial: 'home/how_it_works_ua'
+- if I18n.locale == :ru
+  = render partial: 'home/how_it_works_ru'
+- if I18n.locale == :en
+  = render partial: 'home/how_it_works_en'

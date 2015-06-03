@@ -1,0 +1,830 @@
+@import "mixin"
+
+.project-item
+  border: 1px solid $color_mountain_mist_approx
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 4px
+  padding: 5px 10px
+  margin: 5px
+
+.project-item.span3
+  margin: 5px
+
+.project-item__title
+  text-transform: uppercase
+  color: $black
+  a
+    text-decoration: none
+    color: black
+    font-weight: 900
+
+.thumbnail
+  position: relative
+  padding: 0
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 0
+  a img
+    width: 100%
+    height: 200px
+  .caption-fixed-size
+    height: 288px
+
+.project-item__image
+  margin: 10px 0
+  border: 1px solid $color_mountain_mist_approx
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 4px
+  img
+    display: inline-block
+    margin: 0
+    border-radius: 4px
+
+
+.project-item__thumbnail-image-container
+  height: 200px
+  padding: 0
+  margin-bottom: 0
+
+.project-item__tweet
+  height: auto
+  text-align: justify
+
+//Thumbnail projects text cut
+.cut-text-tweet
+  display: -webkit-box
+  -webkit-line-clamp: 5
+  -webkit-box-orient: vertical
+  overflow: hidden
+
+.cut-text-title
+  text-overflow: ellipsis
+  white-space: nowrap
+  overflow: hidden
+//end Thumbnail projects text cut
+
+//Show/hide part of text
+.morecontent span
+  display: none
+
+.morelink
+  display: block
+  text-decoration: none
+  color: $gray
+
+//Project main image to fit col-sm-8
+.b-project__profile-image-container
+  width: 642px
+  height: 392px
+  padding: 0
+  img
+    width: inherit
+    height: inherit
+
+//Project not main image to fit col-sm-7
+.b-project__profile-image-container-sm
+  width: 642px * 0.84
+  max-height: 392px * 0.84
+  padding: 0
+  img
+    width: inherit
+    max-height: inherit
+
+.b-project__profile-support-btn
+  width: 100%
+
+.b-project__author-and-images-container
+  margin-top: 20px
+
+.b-project__fill-author-info-btn
+  width: 100%
+
+// for all projects page
+.sidebar_col-md-3
+  width: 18%
+  float: left
+
+.sidebar_margin
+  margin-left: -150px
+  width: 185px
+
+.projects_rows
+  float: left
+  background-color: $white
+  margin-top: -18px
+
+.projects_row
+  float: left
+  width: 1000px !important
+
+.project_category
+  margin-top: 10px
+  padding-left: 20px
+  text-transform: uppercase
+  font-family: $font_0
+  padding-bottom: 15px
+  color: $gray
+  font-weight: 900
+
+
+.navbar-fixed-top + .content-container
+  margin-top: 70px
+
+.content-container
+  margin: 0 130px
+
+#top-link-block
+  z-index: 3
+  &.affix-top
+    position: absolute /* allows it to "slide" up into view */
+    bottom: -82px /* negative of the offset - height of link element */
+    left: 10px /* padding from the left side of the window */
+
+  &.affix
+    position: fixed /* keeps it on the bottom once in view */
+    bottom: 18px /* height of link element */
+    left: 10px /* padding from the left side of the window */
+
+
+.imagewrap
+  position: relative
+
+.button_link
+  background: none
+  border: 1px solid $color_quill_gray_approx
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 15px
+  font-size: 14px
+  color: $white
+  position: absolute
+  right: 43%
+  top: 44%
+
+.button_hover a
+  &:hover
+    color: white
+    text-decoration: none
+    background-color: rgba(0, 0, 0, 0.4)
+    border-color: rgba(0, 0, 0, 1)
+
+.button_link_right_top
+  background: none
+  border: 1px solid $green
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 15px
+  font-size: large
+  color: $black
+  position: absolute
+  right: 7%
+  top: 26%
+
+.button_hover_green
+  a
+    &:hover
+      color: white
+      text-decoration: none
+      background-color: $green
+
+.sidebar_el
+  margin-right: 5px
+  margin-bottom: -2px
+  font-weight: 900
+  font-size: 22px
+
+.project-banner
+  width: 100%
+
+.progress
+  width: 100%
+
+.sidebar_margin>li>a
+  color: $color_quill_gray_approx
+  border-bottom: 1px solid $color_quill_gray_approx
+  border-left: 9px solid $color_quill_gray_approx
+  &:hover
+    text-decoration: none
+    color: $color_chicago_approx
+    background: none
+    border-bottom: 1px solid $color_key_lime_pie_approx
+    border-left: 9px solid $color_key_lime_pie_approx
+
+  &:link
+    color: $color_quill_gray_approx
+
+  &:active
+    color: $black
+
+.separator_size
+  width: 950px
+  margin-top: -17px
+  padding-top: 3px
+  margin-bottom: 10px
+  background-image: $url_1
+  background-size: 950px
+  background-repeat: inherit
+
+//slider
+.left img
+  position: absolute
+  top: 40%
+  left: 0
+  width: 40px
+
+.right img
+  position: absolute
+  top: 40%
+  right: 0
+  width: 40px
+
+.col3-li
+  margin: 0 6px 0 32px
+  width: 285px
+
+.no_hover a
+  text-decoration: none
+
+.dropdown:hover .dropdown-menu
+  display: block
+
+.new_project_link
+  width: 100% !important
+  a
+    text-align: center
+    background-color: #dcddd7
+    color: white
+    font-weight: 900
+    &:hover
+      color: #ACC82B !important
+
+.link_next_to_title
+  float: right
+  font-size: medium
+  font-weight: 100
+  margin: 10px 40px 0 0
+  text-transform: none
+  color: $color_atlantis_approx
+  text-decoration: none
+  a
+    color: #A6CE39
+    text-decoration: none
+
+.panel-group
+  table
+    width: 100%
+    margin-top: 15px
+    tr td
+      width: 25%
+      position:  relative
+      float: left
+      padding: 0px 5px 0px 5px
+
+.panel
+  border-radius: 10px !important
+  a
+    color: white
+    &:hover
+      text-decoration: none
+
+.panel-group .panel
+  margin-bottom: 5px
+
+.panel-default
+  border-color: white
+
+.panel-default>.panel-heading
+  background-image: none
+  background-color: white
+
+.panel-body
+  ul
+    list-style: none
+    a
+      color: lightgray
+      text-transform: capitalize
+
+
+.menu_title
+  text-align: center
+  text-transform: uppercase
+  font-weight: 900
+  color: $white
+
+.innovation_color
+  +top_menu_color($innovation)
+
+.art_color
+  +top_menu_color($art)
+
+.crazy_color
+  +top_menu_color($crazy)
+
+.media_color
+  +top_menu_color($media)
+
+.social_color
+  +top_menu_color($social)
+
+.leisure_color
+  +top_menu_color($leisure)
+
+.aquamarine_color
+  +top_menu_color(aquamarine)
+
+.burlywood_color
+  +top_menu_color(burlywood)
+
+.art_upper
+  +color_upper($art)
+
+.innovation_upper
+  +color_upper($innovation)
+
+.crazy_upper
+  +color_upper($crazy)
+
+.media_upper
+  +color_upper($media)
+
+.social_upper
+  +color_upper($social)
+
+.leisure_upper
+  +color_upper($leisure)
+
+.white_leisure_hover
+  +white_color_hover($leisure)
+
+.white_crazy_hover
+  +white_color_hover($crazy)
+
+.white_art_hover
+  +white_color_hover($art)
+
+.white_media_hover
+  +white_color_hover($media)
+
+.white_innovation_hover
+  +white_color_hover($innovation)
+
+.white_social_hover
+  +white_color_hover($social)
+
+.main_title
+  +title_right($lightgray)
+
+.art_title
+  +title_right($art)
+
+.crazy_title
+  +title_right($crazy)
+
+.media_title
+  +title_right($media)
+
+.innovation_title
+  +title_right($innovation)
+
+.social_title
+  +title_right($social)
+
+.leisure_title
+  +title_right($leisure)
+
+.bright>div:hover
+  opacity: 0.8
+  -webkit-filter: opacity(0.8)
+
+.category_nav
+  position: absolute
+  right: 0
+  top: 0
+  width: 250px
+  height: 100%
+  background-color: $black
+  opacity: 0.4
+
+.category_nav_menu
+  position: absolute
+  right: auto
+  left: 780px
+  top: 3%
+  width: 100px
+  height: 100px
+
+.fixed-panel
+  display: table-cell
+  width: 231px
+  height: 41px
+  vertical-align: middle
+  .panel-title.menu_title
+    white-space: nowrap
+
+.fixed-size-150
+  width: 150px
+  height: 150px!important
+
+.fixed-size-200
+  width: 200px
+  height: 200px!important
+
+.fixed-height-158
+  max-height: 158px
+
+
+//Single project page
+.project-title
+  float: left
+  padding: 10px
+  border: 1px solid $color_quill_gray_approx
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 5px
+  margin-bottom: 5px
+  margin-right: 15px
+  text-transform: capitalize
+
+.project-category
+  float: left
+  padding: 10px
+  background-color: $color_fantasy_approx
+  border: 1px solid $color_fantasy_approx
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 5px
+  margin-bottom: 5px
+
+
+.project-content-block
+  +content-block(1px, lightgray)
+
+.content-block-blue
+  +content-block(5px, white)
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 10px
+  background-color: $color_seagull_17_approx
+  margin: 5px
+
+.content-block-pink
+  +content-block(5px, white)
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 10px
+  background-color: $color_sea_pink_17_approx
+  margin: 5px
+
+.content-block-purple
+  +content-block(5px, white)
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 10px
+  background-color: $color_east_side_17_approx
+  margin: 5px
+
+.content-block-orange
+  +content-block(5px, white)
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 10px
+  background-color: $color_jaffa_17_approx
+  margin: 5px
+
+.content-block-lightgreen
+  +content-block(5px, white)
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 10px
+  background-color: $color_feijoa_10_approx
+  margin: 5px
+
+.creator-block-fix
+  margin: 0
+  padding: 7px
+
+.content-background-lightpurple
+  background-color: $color_whisper_approx
+
+.support-btn-bottom-45
+  position: absolute
+  bottom: 45px
+  left: 0
+  right: 0
+
+.social-btn-bottom-0
+  position: absolute
+  bottom: 0
+
+.social-btn-right-0
+  position: absolute
+  right: 0
+
+.big-title-green
+  +big-title(white, $leisure)
+
+.big-title-blue
+  +big-title(white, #6DCDE5)
+
+.author-title
+  background-image: $url_2
+  height: 200px
+  background-repeat: round
+  h1
+    color: white
+    height: 200px
+    vertical-align: middle
+    text-align: center
+    display: table-cell
+
+.right-col
+  background-color: $color_whisper_approx
+  margin: 10px 15px 0 0
+  padding: 0 20px
+
+.left-col
+  background-color: $color_whisper_approx
+  margin: 10px 15px 0 20px
+
+//end of single page project
+
+//start project page 1
+
+div.background-start
+  //If you use compass, instead of the line below you could use +box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 20px 20px -20px $black_80
+  background-image: $url_3
+  background-position-x: -40px
+  background-repeat: round
+  display: -webkit-box
+
+.form-fix
+  display: inline-block
+  width: 210px
+  background-color: $white_50
+
+.input-start
+  border: none
+  border-bottom: 1px solid $color_yellow_green_approx
+  background: none
+  width: 450px
+
+.form-group input:focus
+  border-bottom: 1px solid $color_mountain_mist_approx
+  //If you use compass, instead of the line below you could use +box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none
+  padding: none
+  margin: none
+  outline: 0
+
+.country-instraction
+  margin-left: -20px
+  padding-top: 15px
+  font-size: small
+
+.soon-open
+  border-left: 8px solid $color_pistachio_approx
+  font-style: italic
+  padding-left: 5px
+  color: $color_pistachio_approx
+  font-size: small
+
+.btn-start
+  width: 100px
+  vertical-align: middle
+  display: table-cell
+  font-size: large
+  padding: 6px!important
+
+.btn-round
+  //If you use compass, instead of the line below you could use +border-radius($radius, $vertical-radius)
+  border-radius: 34px
+  height: 65px
+  width: 65px
+
+.btn-pink
+  background-color: $color_cerise_red_approx
+  border-color: $color_cerise_red_approx $color_cerise_red_approx
+  color: $white !important
+  //If you use compass, instead of the line below you could use +text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 0 -1px 0 $black_16
+  -webkit-font-smoothing: antialiased
+
+.btn-orange
+  background-color: $color_kournikova_approx
+  border-color: $color_kournikova_approx $color_kournikova_approx
+  color: $white !important
+  //If you use compass, instead of the line below you could use +text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: 0 -1px 0 $black_16
+  -webkit-font-smoothing: antialiased
+  &:hover
+    background-color: $color_golden_tainoi_approx
+    border-color: $color_golden_tainoi_approx $color_golden_tainoi_approx
+    color: $white !important
+    //If you use compass, instead of the line below you could use +text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 0 -1px 0 $black_16
+    -webkit-font-smoothing: antialiased
+
+#first-line-create-project
+  div
+    display: inline-block
+  #hint
+    display: block
+    margin: 0px -101px -67px 0
+    a
+      color: gray
+      font-size: small
+      outline: 0
+      text-decoration: none
+    a:hover
+      text-decoration: none
+
+#project_categories
+  .modal-footer
+    background-color: #BCC6CC
+    height: 50px
+    padding: 7px 20px 0 0 !important
+
+//end of start project page 1
+
+//start project page 2
+.background-create-project
+  background-color: $color_spring_wood_approx
+
+.btn-file
+  position: relative
+  overflow: hidden
+  white-space: normal
+  height: inherit
+  width: inherit
+  display: table-cell
+  input[type=file]
+    position: absolute
+    top: 0
+    right: 0
+    min-width: 100%
+    min-height: 100%
+    font-size: 100px
+    text-align: right
+    filter: alpha(opacity=0)
+    opacity: 0
+    background: $red
+    cursor: inherit
+    display: block
+
+
+input[readonly]
+  background-color: $white !important
+  cursor: text !important
+
+.btn-image
+  background-color: $white
+  border: 2px dashed $color_quill_gray_approx
+  &:hover
+    background-color: $color_tahuna_sands_approx
+    border: 2px solid $color_tahuna_sands_approx
+
+
+.green
+  color: $color_pistachio_approx
+
+//override
+.bootstrap-select
+  //width: 192px!important
+  .btn-default
+    background-image: none !important
+
+.submit-block
+  position: absolute
+  bottom: 0
+  background-color: $color_bon_jour_approx
+  margin-left: -15px
+  height: 15%
+  div:first-child
+    vertical-align: middle
+    text-align: center
+    margin: 27px 0px 0px 0px
+  button
+    color: $color_fedora_approx
+    border: none
+    background: none
+    font-weight: bold
+    outline: 0
+    &:hover
+      color: $gray
+
+.top-menu-button
+  width: 80px
+  background-color: $color_green_white_approx
+  color: $color_inch_worm_approx
+  border: none
+
+.disable-input-style
+  input
+    border: none
+    background: none
+    width: 100%
+    outline: 0
+    text-transform: inherit
+    &:hover
+      border: none
+      background: none
+      outline: 0
+      width: 100%
+  .nowidth
+    width: auto
+    &:hover
+      width: auto
+  textarea
+    border: none
+    background: none
+    width: 100%
+    outline: 0
+    text-transform: inherit
+    resize: none
+    overflow: hidden
+    &:hover
+      border: none
+      background: none
+      width: auto
+      outline: 0
+      width: 100%
+      resize: none
+  .bootstrap-select
+    width: auto!important
+    .selectpicker
+      margin: -5px 0 -7px 0
+  select
+    border: none
+    background: none
+    width: 100%
+    outline: 0
+    text-transform: inherit
+    resize: none
+    overflow: hidden
+    &:hover
+      border: none
+      background: none
+      width: auto
+      outline: 0
+      width: 100%
+      resize: none
+
+.creator_bigraphy
+  p
+    text-indent: 25px
+    text-align: justify
+
+//remaniing symbols right bottom corner
+.remaining-symbols-textarea
+  margin-top: -15px
+  color: $color_quill_gray_approx
+  float: right
+
+.remaining-symbols-input
+  color: $color_quill_gray_approx
+  float: right
+//end of start project page 2
+
+//modal size for project categories on start page 1
+#project_categories
+  .modal-dialog
+    width: 700px
+
+//Category banners
+#popular_banner
+  +banner
+  background: $url_4 no-repeat center center // fixed:
+
+#art_banner
+  +banner
+  background: $url_5 no-repeat center center // fixed:
+
+#leisure_banner
+  +banner
+  background: $url_6 no-repeat center center // fixed:
+
+#media_banner
+  +banner
+  background: $url_7 no-repeat center center // fixed:
+
+#innovation_banner
+  +banner
+  background: $url_8 no-repeat center center // fixed:
+
+#charity_banner
+  +banner
+  background: $url_9 no-repeat center center // fixed:
+
+#crazy_banner
+  +banner
+  background: $url_10 no-repeat center center // fixed:
+//end Category banners
+
+#cropAreaProjectImage
+  background: $color_mercury_approx
+  overflow: hidden
+  width: 642px * 0.84
+  height: 392px * 0.84
+
+#cropAreaProfileImage
+  background: $color_mercury_approx
+  overflow: hidden
+  width: 150px
+  height: 150px
+
+#cropAreaRewardImage
+  background: $color_mercury_approx
+  overflow: hidden
+  width: 100%
+  height: 300px

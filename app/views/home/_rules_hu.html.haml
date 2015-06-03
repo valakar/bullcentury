@@ -1,0 +1,60 @@
+.col-sm-12.sm-top-buffer
+  %h5#nav-project-categories.mouse_pointer.content-block-header{:term => "project-categories"}
+    \> #{t('rules.nav.project-categories')}
+  .content.content-block{:term => "project-categories"}
+    %p A projektnek legalább egy kategóriába bele kell illenie:
+    = render :partial => 'home/list_subcategory'
+    %br/
+    %br/
+    %p
+      %small Megjegyzés: a projekt több, az itt felsorolt kategóriához is tartozhat. A projekt létrehozójának lehetősége van (a projekt létrehozása közben), hogy meghatározzon több megfelelő kategóriát is.
+.col-sm-12.sm-top-buffer
+  %h5#nav-the-project.mouse_pointer.content-block-header{:term => "the-project"}
+    \> #{t('rules.nav.the-project')}
+  .content.content-block{:term => "the-project"}
+    %ol
+      %li A projektnek világos/ érthető üzenete kell hogy legyen. Például egy epizód, egy CD album, egy új technológia vagy egy játszótér a helyi közösség gyermekeinek.
+      %li A projektnek végül egy eredménnyel kell lezárulnia.
+      %li A projektnek tartalmaznia kell jutalmat, amit a végén el kell juttatni az összes támogatóhoz.
+      %li A projekt folyamata teljes mértékben hozzáférhetőnek kell lennie az összes támogatónak, valamint tájékoztatni kell őket az esetleges csúszásokról vagy az eredeti tervhez képest az eltérésekről.
+      %li A projektet a BC leellenőrzi, mielőtt felkerülne az oldalra.
+.col-sm-12.sm-top-buffer
+  %h5#nav-who-can-create-project.mouse_pointer.content-block-header{:term => "who-can-create-project"}
+    \> #{t('rules.nav.who-can-create-project')}
+  .content.content-block{:term => "who-can-create-project"}
+    %p Projekt létrehozása nyitott minden EU, Kína (Hong Kong, Taiwan) és Ukrajna állampolgárainak korhatár nélkül. Mi azon dolgozunk folyamatosan, hogy bővítsük a piacot új országok felé is. Ha nem látod még a saját országod, jövünk hamarosan.
+    %p Cégek, egyének, non profit vállalkozások és bármilyen más szervezet, aki a kreatív ötletét a BULLCENTRUY-nál tudja kamatoztatni.
+.col-sm-12.sm-top-buffer
+  %h5#nav-who-can-support-project.mouse_pointer.content-block-header{:term => "who-can-support-project"}
+    \> #{t('rules.nav.who-can-support-project')}
+  .content.content-block{:term => "who-can-support-project"}
+    %p A projektbe való befektetés (pénzbeli) jelenleg mindenkinek és minden országból elérhető, aki már betöltötte a 18. Életévét. Azonban a befektetőnek meg kell győződnie arról, hogy a megfelelő fizetési forma/számla működik az adott országban. A helyi bevett fizetési formák (pl. PayPal, Amazon vagy ezekhez hasonló) gyakran kötelező. Kérjük, vedd figyelembe, hogy a jogszabály eltérő lehet országonként, még nem létezik egységes fizetőeszköz erre a célra.
+    %p A támogatók bármilyen támogatást felajánlhatnak, kivéve pénzbeli juttatást. Nincs országhoz vagy korhoz kötve.
+.col-sm-12.sm-top-buffer
+  %h5#nav-what-is-not-allowed.mouse_pointer.content-block-header{:term => "what-is-not-allowed"}
+    \> What is
+    %u not
+    allowed
+  .content.content-block{:term => "what-is-not-allowed"}
+    %ol
+      %li A létrehozók nem ajánlatnak fel semmilyen pénzügyi ösztönzőt vagy méltányosságot olyan juttatásként, mint például tulajdonjog, profit megosztása, visszafizetés/hitel, készpénzzel egyenértékűt vagy nemesfémet.
+      %li A létrehozók nem állhatnak el az előzetesen megbeszélt jutalomtól, amit a profilján bejelentett.
+      %li Bullcentury nem használható bármely személyi jövedelem növelésére, személyes jólét növelésére, vagy a személyes hozzátartozó (férj, feleség, rokon, stb.) oktatására vagy számlák kifizetésére.
+      %li Bullcentury nem használható bármilyen terrorista szervezet pénzbeli növelésére, terrorista tevékenységekre, vagy bármely bűncselekményre egyik országban sem.
+      %li Bullcentury nem használható olyan projektek létrehozására, amelyek veszélyesek lehetnek a környezetre és károsítják a Földet, valamint az ott élőket.
+      %li Bullcentury nem használható öngyilkos kalandok, életveszélyes tevékenységek megszervezésére.
+      %li Bullcentury nem használható software alapítására, publikálásra, média vagy innovatív projektre ami nem a fejlesztő, producer vagy alapító üzemeltet.
+      %li A projekt nem használható termék viszonteladására, amit nem a projekten belül vagy a feltaláló  hozott létre.
+      %li A projekt nem ajánlhat fel semmilyen formában alkoholt, dohányterméket, drogot, vagy szexuális tartalmat jutalomként.
+      %li A projekt nem ajánlhat fel élő állományt/állatot, élő szövetet vagy genetikailag módosított organizmusokat jutalomként.
+      %li Tilos üzleti, pénzügyi, egészségügyi, orvosi, érzelmi tanács.
+      %li Tilos sex/csábítás, prostitúció, pornográf vagy házassági tanácsadó iroda.
+      %li Tilos dohány, drog és kábítószeres kellékek, energiaital vagy táplálékkiegészítő.
+      %li Tilos támogatni vagy ellentábort építeni híres emberekről vagy politikai nézetekről
+      %li Tilos támadó anyagot, megfélemlítést és utálkozó beszédet, stb. közzé tenni.
+      %li Tilos versenyt, tombolát, kuponokat, nyereményjátékot vagy élethosszig tartó tagságot létrehozni.
+      %li Tilos bármilyen fürdő, szépségápolási, kozmetikai terméket, vagy orvosi kezelésre való terméket forgalmazni.
+      %li Tilos biztonsági felügyeleti eszközt, katonasági felszerelést, daraboló eszközöket vagy hekker szoftwaret közzé tenni.
+      %li Tilos a tűzijáték, fegyverek, lőszer, kések, fegyver kiegészítők, fegyver darabjai, fegyverutánzatok és fegyverként szolgáló felszerelések.
+      %li Tilos orvosi, egészségügyi, biztonsági és személyvédelmi termékek vagy illegális dolgok.
+      %li Tilos politikailag érzékeny tartalmak vagy magasan besorolt kormányinformáció.

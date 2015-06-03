@@ -1,0 +1,27 @@
+%div.accordion#accordion
+	.panel-group
+		%table
+			%tr
+				%td
+					= render partial: 'nav_category', locals: {color: 'art_color', key: '1', title: 'art', subcategories: [{key: 'visual_art', value: ['photography', 'painting','drawing','sculpting']}, {key: 'literature', value: ['publication_of_poetry', 'novels','short_stories_and_epics']},{key: 'performing_art', value: ['musical', 'dance','opera','theatre_and_film']} ]}
+
+					= render partial: 'nav_category', locals: {color: 'aquamarine_color', key: '2', title: '[TODO]games', subcategories: [{key: 'games1', value: ['test1', 'test2','test3']}, {key: 'games2', value: ['test1', 'test2','test3']},{key: 'games3', value: ['test1', 'test2','test3']} ]}
+				%td
+					= render partial: 'nav_category', locals: {color: 'crazy_color', key: '3', title: 'crazy', subcategories: [{key: 'ygt', value: ['musical', 'dance','opera']}, {key: 'noc', value: ['impressive', 'shocking','funny','surprising']},{key: 'nsb', value: ['first_one_doing', 'experiencing','discovering']} ]}
+					= render partial: 'nav_category', locals: {color: 'media_color', key: '4', title: 'media', subcategories: [{key: 'music_video', value: []}, {key: 'movie_episode', value: []},{key: 'photography', value: []} ]}
+				%td
+					= render partial: 'nav_category', locals: {color: 'innovation_color', key: '5', title: 'innovation', subcategories: [{key: 'products', value: ['all_products']}, {key: 'designs', value: ['all_designs']},{key: 'technology', value: ['it', 'science','aerospace','energy']}, {key: 'fashion', value: ['all_fashion']}, {key: 'ideas', value: ['start_up']} ]}
+					= render partial: 'nav_category', locals: {color: 'social_color', key: '6', title: 'charity', subcategories: [{key: 'social', value: ['helping_people', 'organization','animals']}, {key: 'community', value: ['neighborhood', 'workplace','school_university']},{key: 'eco', value: ['energy', 'environment','climate']} ]}
+				%td
+					= render partial: 'nav_category', locals: {color: 'leisure_color', key: '7', title: 'leisure', subcategories: [{key: 'travel', value: ['meaningful_trip', 'adventure','outdoor_activities']}, {key: 'food_cook_recipes', value: ['all_food']},{key: 'hobby', value: ['sports', 'comics']} ]}
+					= render partial: 'nav_category', locals: {color: 'burlywood_color', key: '8', title: '[TODO]social', subcategories: [{key: 'charity1', value: ['test1', 'test2','test3']}, {key: 'charity2', value: ['test1', 'test2','test3']},{key: 'charity3', value: ['test1', 'test2','test3']} ]}
+				/ %td
+				/ 	= render partial: 'top_menu_element', locals: {category: 'art'}
+				/ %td
+				/ 	= render partial: 'top_menu_element', locals: {category: 'crazy'}
+				/ 	= render partial: 'top_menu_element', locals: {category: 'media'}
+				/ %td
+				/ 	= render partial: 'top_menu_element', locals: {category: 'innovation'}
+				/ 	= render partial: 'top_menu_element', locals: {category: 'social'}
+				/ %td
+				/ 	= render partial: 'top_menu_element', locals: {category: 'leisure'}}

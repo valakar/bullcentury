@@ -1,0 +1,82 @@
+.col-sm-12.col-md-12.big-top-buffer
+  .col-sm-8.col-md-8
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("activities_report.png", width:105)
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.activities.title_part1')
+      %h1.second-header
+        = t('profile.activities.title_part2')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer-100
+    .big-header
+      = t('profile.activities.title_1')
+      %span.sm-header.green_title
+        = t('profile.activities.title_sm_1')
+    - if @shipping_projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi
+        = current_user.name + ', You have no published project yet. Let\'s'
+        = link_to 'create a project' , new_project_url
+    - else
+      .table-for-profile.table-green
+        = render partial: 'profiles/user_projects/projects'
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer-100
+    .big-header
+      = t('profile.activities.title_2')
+      %span.sm-header.blue_title
+        = t('profile.activities.title_sm_2')
+    - if @projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi 
+        = current_user.name + ', You have not invested in any project yet. You can click '
+        = link_to 'here' , projects_url
+        to see how creative people are
+    - else
+      .table-for-profile.table-blue
+        = render partial: 'profiles/activities/fund'
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer-100
+    .big-header
+      = t('profile.activities.title_3')
+      %span.sm-header.orange_title
+        = t('profile.activities.title_sm_3')
+    - if @inveted_projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi
+        = current_user.name + ', You have no invested projects yet.'
+    - else
+      = render partial: 'profiles/invest_money/invest_money'
+
+  .col-sm-12.col-md-12.bottom-buffer-100
+    .big-header
+      = t('profile.activities.title_1')
+      %span.sm-header.yellow_title
+        = t('profile.activities.title_sm_1')
+    - if @projects_contacts.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi 
+        = current_user.name + ', You have no published project yet. Let\'s'
+        = link_to 'create a project' , new_project_url
+    - else
+      = render partial: 'profiles/invest_money/contacts'
+
+  .col-sm-12.col-md-12.bottom-buffer-100
+    .big-header
+      = t('profile.activities.title_4')
+      %span.sm-header.purple_title
+        = t('profile.activities.title_sm_4')
+    - if @projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi 
+        = current_user.name + ', You have no published project yet. Let\'s'
+        = link_to 'create a project' , new_project_url
+    - else
+      = render partial: 'profiles/refunds/refund'
+
+  .col-sm-12.col-md-12
+    .big-header
+      = t('profile.refund.title_1')
+      %span.sm-header.blue_title
+        = t('profile.activities.title_sm_5')
+  = render partial: 'profiles/refunds/other_refund'

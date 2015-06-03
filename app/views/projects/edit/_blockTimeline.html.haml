@@ -1,0 +1,60 @@
+%form{:name => 'projectTimelineForm', 'ng-submit' => 'saveTimeline()'}
+  =#<!-- PROGRESS BAR -->
+  .col-sm-12.col-md-12.top-buffer.project-content-block.bottom-buffer.disable-input-style
+    .col-sm-12.col-md-12
+      %h2 Project timeline
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline1', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'IF PROJECT FUNDED', "tabindex" => "8"}
+        / = f.text_field :timeline1, id: 'timeline1', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'IF PROJECT FUNDED', "tabindex" => "8"
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline2', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'PROTOTYPE COMPLETE', "tabindex" => "9"}
+        / = f.text_field :timeline2, id: 'timeline2', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'PROTOTYPE COMPLETE', "tabindex" => "9"
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline3', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'DELIVERY ALL REWARDS', "tabindex" => "10"}
+        / = f.text_field :timeline3, id: 'timeline3', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'DELIVERY ALL REWARDS', "tabindex" => "10"
+      .progress.top-buffer-25
+        .progress-bar.progress-bar-success{'aria-valuemax' => '33', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 35%', :title => ''}
+        .progress-bar.progress-bar-info{'aria-valuemax' => '100', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 33%', :title => ''}
+        .progress-bar.progress-bar-warning{'aria-valuemax' => '100', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 32%', :title => ''}
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline_date1', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (IF PROJECT FUNDED)',:type => 'date', "tabindex" => "11", class: 'nowidth'}
+        / = f.text_field :timeline_date1, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (IF PROJECT FUNDED)',:type => 'date', "tabindex" => "11",:value => (@project.timeline_date1.strftime("%Y-%m-%d") unless @project.timeline_date1.nil?), class: 'nowidth'
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline_date2', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (PROTOTYPE COMPLETE)',:type => 'date', "tabindex" => "12", class: 'nowidth'}
+        / = f.text_field :timeline_date2, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (PROTOTYPE COMPLETE)',:type => 'date', "tabindex" => "12",:value => (@project.timeline_date2.strftime("%Y-%m-%d") unless @project.timeline_date2.nil?), class: 'nowidth'
+      .col-sm-4.col-md-4
+        %input{'ng-model' => 'project.timeline_date3', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (DELIVERY ALL REWARDS)',:type => 'date', "tabindex" => "13", class: 'nowidth'}
+        / = f.text_field :timeline_date3, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Date (DELIVERY ALL REWARDS)',:type => 'date', "tabindex" => "13",:value => (@project.timeline_date3.strftime("%Y-%m-%d") unless @project.timeline_date3.nil?), class: 'nowidth'
+    .col-sm-12.col-md-12
+      %h4.top-buffer-30.bottom-buffe-30
+        %input{'ng-model' => 'project.name', "data-autosize-input"=>'{ "space": 10 }', placeholder: t('project.name'), maxlength: "70", "tabindex" => "14"}
+        / = f.text_field :name, id: 'project_name2', "data-autosize-input"=>'{ "space": 10 }', placeholder: t('project.name'), maxlength: "70", "tabindex" => "14"
+        .remaining-symbols-input#project_counter2
+    .col-sm-8.col-md-8
+      %h2
+        = t('thank_you')
+    .col-sm-4.col-md-4
+      /TODO Trenz Pruca (Optional) 
+      %p
+        /%input{'ng-model' => 'project.country', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project country', maxlength: "20", "tabindex" => "16"}
+        %select{'ng-model' => 'project.country_id', 'ng-options' => "country.id as country.name for country in countries", 'ng-change'=>'change(project.country_id)'}
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} Select your Country *
+      %p
+        / - if(@project.city == '' or @project.city.nil?) 
+        /   - city_value = @current_user.city unless @current_user.city.nil?
+        / - else
+        /   - city_value = @project.city
+        /%input{'ng-model' => 'project.city', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project city', maxlength: "20", "tabindex" => "17"}
+        %select{'ng-model' => 'project.city_id', 'ng-options' => "city.id as city.name for city in cities"} 
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} Select your City *
+        / = f.text_field :city, id: 'city', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project city', maxlength: "20", "tabindex" => "17", value: city_value
+      %p
+        %input{'ng-model' => 'project.region', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project region(for USA)', maxlength: "20", "tabindex" => "18"}
+        / = f.text_field :region, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project region(for USA)', maxlength: "20", "tabindex" => "18"
+      %p
+        %input{'ng-model' => 'project.zip', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'ZIP', maxlength: "8", "tabindex" => "19"}
+        / = f.text_field :zip, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'ZIP', maxlength: "8", "tabindex" => "19"
+      %p
+        %input{'ng-model' => 'project.address', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Apt Street (Optional)', maxlength: "30", "tabindex" => "20"}
+        / = f.text_field :address, "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Apt Street (Optional)', maxlength: "30", "tabindex" => "20"
+  %input.btn.btn-primary.pull-right{:type => "submit", :value => "Submit timeline part"}

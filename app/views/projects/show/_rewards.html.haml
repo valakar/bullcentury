@@ -1,0 +1,30 @@
+.row.row-eq-height
+  .col-sm-9.col-md-9.no_right_padding
+    %h4.big-title-green
+      = t('rewards').upcase
+      / - if(can?(:manage, @project))
+      /   - if !@project.published? and !@project.closed? and !@project.on_review?
+      /     - if user_signed_in?
+      /       %small
+      /         = link_to t('reward.add_new_reward'), new_project_reward_path(@project.id)
+    - if user_signed_in? or (!user_signed_in? and !@project.rewards.empty?)
+      %div
+        .panel-heading
+          %h3{:class=>"panel-title"}
+        .panel-body
+          - @project.rewards.sort { |a,b| a.per_amount <=> b.per_amount }.each do |reward|
+            = render :partial => 'projects/reward', :locals => { reward: reward, hideText: '' }
+  .col-sm-3.col-md-3.right-col
+    - if  @project.author
+      %a{:href=>"javascript:;", :class=>"thumbnail fixed-size-200 top-buffer"}
+        = image_tag @project.author.image.url(:thumb), :class => "fixed-size-200" if @project.author and @project.author.image?
+      %h3
+        = t('creator_biography')
+      .creator_bigraphy
+        %p
+          = @project.creator_biography
+
+    - elsif can?( :manage, @project.author)
+      .alert.alert-warning
+        = t('provide_author_info')
+        = link_to t('edit_author'), edit_profile_path(@project.author), :class => 'b-project__fill-author-info-btn btn btn-info'

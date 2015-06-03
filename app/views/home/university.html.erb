@@ -1,0 +1,56 @@
+<% if I18n.locale == :ua %>
+  <%= render partial: 'home/university_ua' %>
+<% end %>
+
+<% if I18n.locale == :ru %>
+  <%= render partial: 'home/university_ru' %>
+<% end %>
+
+<% if I18n.locale == :en %>
+  <%= render partial: 'home/university_en' %>
+<% end %>
+
+<% if I18n.locale == :hu %>
+  <%= render partial: 'home/university_hu' %>
+<% end %>
+
+<div class="col-sm-12 bottom-buffer-150">
+
+<span id="top-link-block" class="hidden">
+    <a href="#top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <%= image_tag 'up_button.png' %>
+    </a>
+</span><!-- /top-link-block -->
+
+
+<!-- GoUp button -->
+<script type="text/javascript">
+  // Only enable if the document has a long scroll bar
+  // Note the window height + offset
+  if ( ($('body').outerHeight() > $(window).height()) ) {
+      $('#top-link-block').removeClass('hidden').affix({
+          // how far to scroll down before link "slides" into view
+          offset: {top:100}
+      });
+  }
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.mouse_pointer').click(function(){
+    term = $(this).attr('term');
+    //$(this).addClass('blue');
+    //alert(term_text);
+    $('.content').each(function(){    
+      if ($(this).attr('term') == term){        
+        if ($(this).css('display') == 'none'){
+          $(this).css('display','block');
+        }          
+        else {
+          $(this).css('display','none');
+        }      
+                    
+      }
+    });
+  });
+});
+</script>

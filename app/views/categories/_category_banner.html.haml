@@ -1,0 +1,10 @@
+- unless @category.nil?
+	- content_for :part1 do
+		.imagewrap.shadow
+			%div{class: '', id: "#{@category.key}_banner"}
+			=# image_tag "banners/#{@category.key}_bigbanner.jpg", :class => "project-banner", :id => "#{@category.key}_banner"
+			%div.button_hover
+				= link_to t('project.add_new_project').upcase, new_project_url, :class => "button_link btn-lg"
+		%h1{:class => "#{@category.key}" + "_title"}
+			= t(@category.key)
+= render partial: 'categories/top_menu_category', locals: {category: @category}

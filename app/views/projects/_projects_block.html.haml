@@ -1,0 +1,23 @@
+.projects_row.projects-carousel
+	%h4.project_category{ id: key }
+		= caption
+		- unless ['popular', 'successful'].include? key
+			.link_next_to_title
+				= link_to t('see_all'), category_path(key)
+
+	- unless is_separator_hidden
+		.separator_size
+	- if projects.empty?
+		%ul.new_project_link
+			%li.new_project_link
+				= render partial: 'projects/new_project'
+	- else
+		- projects.each do |project|
+			%ul
+				%li.col3-li
+					= render partial: 'projects/project', locals: { project: project }
+		%a.left.prev{:title => 'Previous'}
+			%img{src: '/assets/prev_arrow.png'}
+		%a.right.next{:title => 'Next'}
+			%img{src: '/assets/next_arrow.png'}
+

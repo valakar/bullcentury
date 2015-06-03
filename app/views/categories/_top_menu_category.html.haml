@@ -1,0 +1,57 @@
+%div.accordion#accordion
+	.panel-group
+		%table
+			%tr
+				- status = "#{@category.key}"
+				- if status.eql?"art"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'crazy_color', key: '1', title: 'visual_art', subcategories: ['photography','painting','drawing','sculpting']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'leisure_color', key: '2', title: 'literature', subcategories: ['publication_of_poetry','novels','short_stories_and_epics']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'innovation_color', key: '3', title: 'performing_art', subcategories: ['musical','dance','opera','theatre_and_film']}
+				- if status.eql?"crazy"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'art_color', key: '1', title: 'ygt', subcategories: ['musical','dance','opera']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'leisure_color', key: '2', title: 'noc', subcategories: ['impressive','shocking','funny','surprising']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'innovation_color', key: '3', title: 'nsb', subcategories: ['first_one_doing','experiencing','discovering']}
+				- if status.eql?"media"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'art_color', key: '1', title: 'music_video', subcategories: []}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'leisure_color', key: '2', title: 'movie_episode', subcategories: []}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'innovation_color', key: '3', title: 'photography', subcategories: []}
+				- if status.eql?"innovation"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'art_color', key: '1', title: 'products', subcategories: ['all_products']}
+						= render partial: '/categories/nav_category_small', locals: {color: 'media_color', key: '4', title: 'fashion', subcategories: ['all_fashion']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'leisure_color', key: '2', title: 'designs', subcategories: ['all_designs']}
+						= render partial: '/categories/nav_category_small', locals: {color: 'social_color', key: '5', title: 'ideas', subcategories: ['start_up']}			
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'crazy_color', key: '3', title: 'technology', subcategories: ['science','aerospace','energy']}	
+				- if status.eql?"social"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'art_color', key: '1', title: 'charity', subcategories: ['helping_people', 'organization','animals']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'leisure_color', key: '2', title: 'community', subcategories: ['workplace','school_university']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'innovation_color', key: '3', title: 'green', subcategories: ['energy', 'environment','climate']}
+				- if status.eql?"leisure"
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'art_color', key: '1', title: 'travel', subcategories: ['meaningful_trip', 'adventure','outdoor_activities']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'media_color', key: '2', title: 'food_cook_recipes', subcategories: ['all_food']}
+					%td
+						= render partial: '/categories/nav_category_small', locals: {color: 'innovation_color', key: '3', title: 'hobby', subcategories: ['sports', 'comics']}		
+
+				%td
+					.panel.panel-default{:class => "#{@category.key}" + "_color"}
+						%a.bright{:href => projects_url}
+							.panel-heading  
+								.panel-title.menu_title
+									%span.glyphicon.glyphicon-chevron-right.pull-left
+									#{t('back')}

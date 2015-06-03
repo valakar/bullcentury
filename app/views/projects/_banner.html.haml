@@ -1,0 +1,10 @@
+- if @category.nil?
+	- content_for :part1 do
+		.imagewrap.shadow
+			#popular_banner
+			=# image_tag "banners/popular_bigbanner.png", :class => "project-banner"
+			%div.button_hover
+				= link_to t('learn_more').upcase, quick_start_url, :class => "button_link btn-lg"
+			%h1{:class => "main_title"}
+				= t('projects')
+= render partial: 'projects/top_menu'

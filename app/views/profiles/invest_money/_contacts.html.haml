@@ -1,0 +1,29 @@
+.col-sm-12.col-md-12.bottom-buffer-100
+  .table-for-profile.table-yellow
+    %table
+      %tr
+        %td 
+          = t('profile.main.project')
+        %td ID
+        %td 
+          = t('profile.main.owner')
+        %td 
+          = t('profile.main.country')
+        %td 
+          = t('profile.main.phone') 
+        %td 
+          = t('profile.main.email')
+      - @projects_contacts.each do |contact|
+        %tr
+          %td
+            = link_to contact.project_name, project_path(contact.id)  unless contact.project_name.nil? and contact.id.nil?
+          %td.text-center
+            = link_to contact.id, project_path(contact.id) unless contact.id.nil?
+          %td.text-center
+            = contact.name.upcase unless contact.name.nil?
+          %td.text-center
+            = contact.country unless contact.country.nil?
+          %td.text-center
+            = contact.mobile unless contact.mobile.nil?
+          %td.text-center
+            = contact.email unless contact.email.nil?

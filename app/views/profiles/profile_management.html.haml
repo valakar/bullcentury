@@ -1,0 +1,122 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer
+  .col-sm-8.col-md-8
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("profile_management.png")
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.profile.title_part1')
+      %h1.second-header
+        = t('profile.profile.title_part2')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  .col-sm-6.col-md-6.top-buffer
+    .col-sm-12.col-md-12.profile-personal.mouse_pointer#profile-personal{:term => "personal"}
+      %span.glyphicon.glyphicon-chevron-down.arrow-down
+      .white-big-header
+        = t('profile.profile.title_1')
+        %small
+          = t('profile.profile.title_sm_1')
+  .col-sm-6.col-md-6.top-buffer
+    .col-sm-12.col-md-12.profile-account.mouse_pointer#profile-account{:term => "account"}
+      %span.glyphicon.glyphicon-chevron-down.arrow-down
+      .white-big-header
+        = t('profile.profile.title_2')
+        %small
+          = t('profile.profile.title_sm_2')
+  .col-sm-12.col-md-12.content.big-top-buffer.big-bottom-buffer#personal-content{:term => "personal"}
+    .row.bottom-buffer
+      .col-sm-6.col-md-6
+        = render partial: 'profiles/profile_management/form', :locals => {user: @user}
+
+      .col-sm-6.col-md-6
+        = render partial: 'profiles/profile_management/form_location', :locals => {user: @user}
+
+        .text-right.orange-link
+          %a{:href => "javascript:;"}
+            EDIT
+        .table-profile.table-profile-password
+          %table
+            %tr
+              %td{:colspan => 2} 
+                = t('profile.profile.pass_user')
+            %tr
+              %td 
+                = t('profile.main.bc_user') + ':'
+              %td
+                = @user.email
+            %tr
+              %td 
+                = t('devise.password') + ':'
+              %td xxxxxx
+    .row.two-column-table
+      .col-sm-12.col-md-12.thead
+        = t('profile.profile.identify_me_as')
+        %span.pull-right
+          %a.tooltips{:href => "javascript:;"}
+            = t('profile.main.what_is_it')
+            %span 
+              = t('profile.main.what_is_it')
+      .row.equal.sm-bottom-buffer.tbody
+        .col-sm-2.col-md-2.td-first MENTOR
+        .col-sm-4.col-md-4.td-second My expertise are: Drop down multiple choices
+        .col-sm-2.col-md-2.td-first ANGEL INVESTOR
+        .col-sm-4.col-md-4.td-second Feel free to contact me
+      .row.equal.tbody
+        .col-sm-2.col-md-2.td-first INSTITUTIONAL INVESTOR
+        .col-sm-4.col-md-4.td-second I will contact you if I'm interested in your project
+        .col-sm-2.col-md-2
+        .col-sm-4.col-md-4
+
+        
+  .col-sm-12.col-md-12.content.big-top-buffer.big-bottom-buffer#account-content{:term => "account"}
+    %h1 Account
+
+:javascript
+  $(document).ready(function(){
+    $('#profile-personal').click(function(){
+      term = $(this).attr('term');
+
+      $('#profile-personal')
+        .toggleClass('profile-personal')
+        .toggleClass('profile-personal-reverse');
+      $('#profile-account')
+        .removeClass('profile-account-reverse')
+        .addClass('profile-account');
+      //alert(term_text);
+      $('.content').each(function(){    
+        if ($(this).attr('term') == term){        
+          if ($(this).css('display') == 'none'){
+            $(this).css('display','block');
+            $('#account-content').css('display','none');
+          }          
+          else {
+            $(this).css('display','none');
+          }      
+                      
+        }
+      });
+    });
+    $('#profile-account').click(function(){
+      term = $(this).attr('term');
+
+      $('#profile-account')
+        .toggleClass('profile-account')
+        .toggleClass('profile-account-reverse');
+      $('#profile-personal')
+        .removeClass('profile-personal-reverse')
+        .addClass('profile-personal');
+      //alert(term_text);
+      $('.content').each(function(){    
+        if ($(this).attr('term') == term){        
+          if ($(this).css('display') == 'none'){
+            $(this).css('display','block');
+            $('#personal-content').css('display','none');
+          }          
+          else {
+            $(this).css('display','none');
+          }      
+                      
+        }
+      });
+    });
+  });

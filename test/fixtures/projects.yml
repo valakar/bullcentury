@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Proj1
+  description: Text1
+  user_id: 1
+
+two:
+  name: Proj2
+  description: Text2
+
+valid:
+  id: 3
+  name: Valid
+  description: Valid
+  funding_duration_in_days: 15
+  funding_goal: 1000
+  image: "wwww.google.com/1.jpg"
+  tweet: Ha
+  user_id: 3

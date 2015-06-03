@@ -1,0 +1,44 @@
+= form_for(:user, url: { controller: :profiles, action: :update },
+           html: { multipart: true, method: :post, class: 'form-horizontal', role: :form, id: 'profile_form_2' }, remote: true) do |f|
+  = f.hidden_field :id
+  - if @errors and @errors.any?
+    %ul
+      - @errors.each do |msg|
+        %li
+          = msg
+  .text-right.orange-link
+    -#%a{:href => "javascript:;"}
+      EDIT
+    %a{:href => "", onclick: "$('#profile_form_2').submit()"}
+      SAVE
+    -#= f.submit 'Save'
+  .table-profile.table-profile-current-address.big-bottom-buffer
+    %table
+      %tr
+        %td{:colspan => 2}
+          = t('profile.profile.current_address')
+      %tr
+        %td
+          = t('profile.main.country')
+        %td
+          -#= f.select :country_id, @countries.map{ |c| [c.name, c.id] }, :include_blank => 'Choose Country'
+          = f.select :country_id, options_for_select(@countries.collect { |country| [country.name.titleize, country.id] }, @user.country_id), {:include_blank => 'Choose Country'}, { id: 'countries_select' }
+      %tr
+        %td
+          = t('profile.main.city')
+        %td
+          -#= f.select :city_id, @cities.map{ |c| [c.name, c.id] }, :include_blank => 'Choose City'
+
+          = f.select :city_id, options_for_select(@cities.collect { |city| [city.name.titleize, city.id] }, @user.city_id), {:include_blank => 'Choose City'}, { id: 'cities_select' }
+
+      %tr
+        %td
+          = t('profile.main.residence_address')
+        %td
+          = f.text_field :address
+      %tr
+        %td
+          = t('profile.main.zip')
+        %td
+          = f.text_field :zip
+

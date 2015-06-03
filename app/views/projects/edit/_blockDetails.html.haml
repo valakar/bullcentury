@@ -1,0 +1,23 @@
+%form{:name => 'projectDetailsForm', 'ng-submit' => 'saveDetails()'}
+  .col-sm-12.col-md-12.top-buffer.project-content-block
+    .row.row-eq-height
+      .col-sm-9.col-md-9.no_right_padding
+        %h4.big-title-blue.text-center
+          = t('main_details').upcase
+          - if(can?(:manage, @project))
+            - if !@project.published? and !@project.closed? and !@project.on_review? 
+              - if user_signed_in?
+                %small
+                  = link_to t('project.modify'), edit_project_path(@project)
+        .col-sm-12
+          %textarea{'ui-tinymce' => "tinymceOptions", 'ng-model' => 'project.description', "tabindex" => "5",:rows => 30}
+          / %textarea{'ng-model' => 'project.description', :class => "tinymce", "tabindex" => "5",:rows => 30}
+          / = f.text_area :description, :class => "tinymce", "tabindex" => "5",:rows => 30
+      .col-sm-3.col-md-3.right-col
+        %h3
+          = t('rewards').upcase
+        .col-sm-12.col-md-12{"ng-repeat" => "reward in project.rewards | orderBy:'per_amount'"}
+          = render :partial => 'projects/edit/reward', :locals => { hideText: ''}
+        / - @project.rewards.sort.each do |reward|
+        /   = render :partial => 'projects/reward', :locals => { reward: reward, hideText: '' }
+  %input.btn.btn-primary.pull-right{:type => "submit", :value => "Submit details part"}

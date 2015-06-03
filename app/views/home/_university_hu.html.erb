@@ -1,0 +1,256 @@
+<%= render partial: 'university_banner' %>
+
+<h1>BC egyetem</h1>
+
+<!-- Nav tabs -->
+<%= render partial: 'university_nav' %>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="intro">
+    <p>A BC egyetem azért lett létrehozva, hogy segítsen neked három dologban jobban teljesíteni:</p>
+    <ol>
+      <li>megérteni a Bullcentrury működését</li>
+      <li>sikeresebb projektet létrehozni</li>
+      <li>hatékonyabban találni befektetőket</li>
+    </ol>
+    <p>Ez egy információs központ, ahol megtalálhatod a részletes felhasználói kézikönyvet, utasításokat. </p>
+    <p>Miután klikkeltél a BC egyetemre, élvezheted a legfőbb funkciókat:
+    <p>Videó tanterem – itt választ kaphatsz az összes HOGYAN kérdésedre</p>
+    <p>Szöveg – részletes lépésről lépésre leírás minden műveletre</p>
+    <p>Konzultáció – tanácsadás, hogyan legyél jobb, például hogyan építsd fel jobban a projekedet, hogyan promotáld jobban a projektedet, hogyan készíts jobb videót a projektedről...stb.</p>
+    <p>Ahogyan a Bullcentury növekszik, a jövben a BC egyetem is tovább fog fejlődni egy Központi </p>
+    <p>Inelligencia Erőforrássá, minthogy csak egy inforációs központ legyen. 
+    <p>Továbbá ez lesz az otthona a projekt elemzői eszközöknek, statisztikai adatbázisnak, előrejelző központnak, hírportálnak és közösségi média helynek – az a hely, ahol új barátokat szerezhetsz és tapasztalatokat cserélhetsz.</p>
+  </div>
+  <div class="tab-pane" id="level_1">
+    <h2>LEVEL 1: BASICS</h2>
+    
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.header').click(function(){
+          term = $(this).attr('term');
+          //$(this).addClass('blue');
+          //alert(term_text);
+          $('.content').each(function(){    
+            if ($(this).attr('term') == term){        
+              if ($(this).css('display') == 'none'){
+                $(this).css('display','inline-block');
+              }          
+              else {
+                $(this).css('display','none');
+              }      
+                          
+            }
+          });
+        });
+      });
+    </script>
+    <h3 class="header" term="rules">1. BC Rules</h3>
+    <div class="content no_margin" term="rules">
+      <% if I18n.locale == :ua %>
+          <%= render partial: 'home/rules_ua' %>
+      <% end %>
+
+      <% if I18n.locale == :ru %>
+          <%= render partial: 'home/rules_ru' %>
+      <% end %>
+
+      <% if I18n.locale == :en %>
+          <%= render partial: 'home/rules_en' %>
+      <% end %>
+
+      <% if I18n.locale == :hu %>
+          <%= render partial: 'home/rules_hu' %>
+      <% end %>
+    </div>
+    <h3 class="header" term="fees">2. Díjak</h3>
+    <div class="content" term="fees">
+      <p>Coming Soon</p>
+    </div>
+    <h3 class="header" term="create_project">3. Projekt létrehozása</h3>
+    <div class="content" term="create_project">
+      <p>Coming Soon</p>
+    </div>
+
+    <h3 class="header" term="navigate">4. Tájékozódás a kezdőlapon</h3>
+    <div class="content" term="navigate">
+      <p>Bc weboldalt gyorsan és könnyen kezdheted el használni. Ebben a bemutatkozásban segítünk, hogy gyorsan elindulhass és elmagyarázzuk hogyan navigálj a kezdő oldalon.</p>
+      <h4 class="header" term="section_1">Section 1</h4>
+      <div class="content" term="section_1">
+        <p>Mindegyik oldal felső részében megtalálod a logót, szabályokat, gyors kezdést, Kereső részt valamint a bejelentkezés, kijelentkezés menüpontokat. A második sorban három pontot találhatsz és a nyelvi menüpontot. Az egyes rész felépítését mindegyik oldalon megtalálod bárhol légy is.</p>
+        <p>Logóra kattintva a kezdő oldalra ugorhatsz.</p>
+        <p>A kereső menüpont segítségedre lesz megtalálni azt az információt, amit keresel. Használj kulcsszavakat mint például projekt neve vagy azonosító.</p>
+        <p>Gyors kezdés - itt megkapod az összes fontos információt, amikről tudnod kell mielőtt elkezdesz egy projektet. Például a BC szabályzata, hogyan működik a crowdfunding és maga a weboldal.</p>
+        <p>Bc egyetem  - itt megkapod  a legfontosabb tanácsokat amiket tudnod kell a projekt közben valamint a befejezés után.</p>
+        <p>Információs központ - ez a legrészletesebb információs központ ahol minden típusú kérdésedre választ kaphatsz.</p>
+      </div>
+      <h4 class="header" term="section_2">Section 2</h4>
+      <div class="content" term="section_2">
+        <p>Mindegyik mozgókép tartalmaz egy linket, amely elnavigál téged különböző oldalakra a Bullcenturyn belül.</p>
+      </div>
+      <h4 class="header" term="section_3">Section 3</h4>
+      <div class="content" term="section_3">
+        <p>A 9 okos gomb - a Bullcentury alkotta meg. Sokkal felhasznalóbarátabb érintőképernyős tablet és okostelefon felhasználók számára. A cél az hogy mind a projekt létrehozói, mind a támogatók egy teljes képet kapjanak a folyamatokról és otthonosan mozogjanak azon belül a készülékeikkel, beleértve videó, zene, kép, szöveg feltöltést vagy formázást.</p>
+        <p>Fő kategóriák: művészet, média, szórakozás, találmányok, közösségi és crazy. Minden fő kategória tartalmaz egy részletes alkategóriát. Például klikkelj a közösségi projektre, olyan alkategóriát találsz ott, mint közösség, adomány, környezetvédelem, stb. Ez a felépítése a másik 5 menüpontnak.</p>
+      </div>
+      <h4 class="header" term="section_4">Section 4</h4>
+      <div class="content" term="section_4">
+        <p>A projekt ikonok lehetővé teszik a felhasználóknak, hogy a projektek között keresgéljenek kép kivágásokkal. A főoldalon csak két projekt kategória jelenik meg egyszerre, a legnépszerűbb és a legsikeresebb projekt. Minden projekt ikon tartalmazza a legfontosabb információkat mint például projekt képe, finanszírozás célja, záró nap és a befektetések mérteke. Bármelyik ikonra kattintva beléphetsz a projektekbe.</p>
+      </div>
+      <h4 class="header" term="section_5">Section 5</h4>
+      <div class="content" term="section_5">
+        <p>Az alsó szövegrész gyors elérési utat biztosít pár fontos oldalhoz és kérdéshez, például a gyakran ismételt kérdések a projekt elindításához. Fedezd fel a fő projekt kategóriákat és sok fontos dolgot ezen a helyen. Ez minden, jó szórakozást.</p>
+        <p>Ha elakadnál bármely Bc menüpontban, 4 féle képen tudunk neked segíteni</p>
+        <ol>
+          <li>Bemutató videó - ez a videó lépesről lépésre segít megtálalni a következő lépést</li>
+          <li>Információs központ - gyakran ismetelt kérdések között a tiedre is választ kaphatsz</li>
+        </ol>
+        <p>Lepj kapcsolatba velünk</p>
+        <p>Mielőtt kapcsolatba lepsz velünk bizonyosodj meg róla, hogy <a href="#">BC információs központ</a>  és a <a href="#">BC egyetem</a> nagyszerű tárhelye a gyakran ismetelt es hogyan kérdéseknek</p>
+        <ol start="3<p>"></p>
+          <li>Üzenet küldés - chatelj vagy írj emailt nekünk  (24 órán belül válaszolunk a kérdésedre)</li>
+          <li>Telefon - vedd fel a kapcsolatot a telefonos ügyfélszolgálatunkkal (normál munkaidőben)</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="header" term="create_video">5. Projekt videó készítése</h3>
+    <div class="content" term="create_video">
+      <h4 class="header" term="without_video">Videó nélkül?</h4>
+      <div class="content" term="without_video">
+        <p>A projekt videó elengedhetetlen szerepet játszik a sikerben. Azok a projektek, amelyek rendelkeznek videóval, átlagosan sokkal magasabb százalékban lesznek sikeresek, 59%(videóval) vs. 32% (videó nélkül). Ezért ajánljuk neked erősen, hogy készíts videót a projektedhez, még akkor is ha ez nem kötelező lépés a BullCentury-n. Hidd el, megéri a ráfordított időt.</p>
+        <p>Azonban, ha mégis úgy döntesz, hogy nem kell, automatikusan a videó ablak ki lesz töltve a projekt profil képeddel, hogy vonzóbbá tegye azt a látogatók számára.</p>
+      </div>
+      <h4 class="header" term="video_format">Videó formátum</h4>
+      <div class="content" term="video_format">
+        <p>Mp4. Mov. Flv. Mpg. webm. avi. Org a legkedveltebb formátumok és azok, amelyeket ajánlunk a legjobb minőség érdekében</p>
+        <p>A fenti listától függetlenül a Bullcentury szinte minden videó formátumot támogat. Próbáld ki, hogy melyik formátum a legmegfelelőbb számodra. A videó minősége nagyon sok mindentől függ, mint például operációs rendszer, feltöltő eszköz, szoftware, stb.</p>
+      </div>
+      <h4 class="header" term="video_size">Videó Mérete</h4>
+      <div class="content" term="video_size">
+        <p>5GB/videó</p>
+      </div>
+      <h4 class="header" term="device_i_need">Milyen eszközre van szükségem, hogy elkészítsem a videót?</h4>
+      <div class="content" term="device_i_need">
+        <p>Un. Okos eszközökkel közvetlenül készíthetsz és fel is tölthetsz videókat, például okostelefon, tablet, fényképezőgép, video kamera vagy laptop, legyen az professzionális vagy nem, drága vagy olcsó, egyszerű vagy bonyolult.</p>
+      </div>
+      <h4 class="header" term="shooting_by_smartphone">Videó készítése tablettel vagy okostelefonnal</h4>
+      <div class="content" term="shooting_by_smartphone">
+        <p>Bullcentury-re lehetséges feltölteni videókat közvetlenül tablettel vagy okostelefonnal és bármely más, kamera funkcióval rendelkező eszközzel. Figyelj arra, hogy a telefonodat vízszintesen tartsd amikor kamerázol, hogy beleférjen a projekt ablakába.</p>
+      </div>
+      <h4 class="header" term="video_experience">Szükségem van videó készítéshez tapasztalatra vagy hivatásos emberre?</h4>
+      <div class="content" term="video_experience">
+        <p>Nem. A videó elkészítéséhez nem szükséges professzionális tapasztalat. Ne félj attól, hogy kifejezd magad a kamera előtt. Egy amatőr videó ugyanolyan hatásos lehet, mint egy professzionális, ha figyelembe veszed a tanácsainkat:</p>
+        <ol>
+          <li>Légy önmagad</li>
+          <li>Mutasd be a projekted olyan részletesen, amennyire csak tudod</li>
+          <li>Törekedj arra, hogy a videó a lehetőségedhez mérten a legjobbat nyújtsa mind kép és hangminőségben</li>
+        </ol>
+      </div>
+      <h4 class="header" term="video_content">Videó tartalom útmutató</h4>
+      <div class="content" term="video_content">
+        <p>Valószínűleg mindenféle dolgot használni fogtok, hogy kifejezzétek a kreativitásotokat a videón. A siker érdekében, jó ha belefoglalod a  mondanivalódba a következő pontokat:</p>
+        <ul>
+          <li>Önmagad és a projekt bemutatása</li>
+          <li>A projekt története (pl. Motiváció, saját érzelmek, honnan jött az ötlet...stb.)</li>
+          <li>Kérj támogatást, csinálj egy listát arról, hogy mire van szükséged, és hogy miben tudnak segíteni</li>
+          <li>Magyarázd el, hogy miért van szükséged a támogatásokra</li>
+          <li>Magyarázd el, hogy mire fogod felhasználni a támogatók pénzét</li>
+          <li>Ajánld fel és részletezd a jutalmat, tedd olyan érdekessé és vonzóvá, amennyire csak tudod (adhatsz még hozzá képeket)</li>
+          <li>Részletezd a projektet a céltőkét, időkorlátot, és hogy mi történik, ha nem éred el a céltőkét...stb.</li>
+          <li>Fejezd ki a háládat a segítőknek</li>
+        </ul>
+      </div>
+      <h4 class="header" term="better_video">Jobb videó, nagyobb siker?</h4>
+      <div class="content" term="better_video">
+        <p>Igen, minden értelemben. Egy jól sikerült videóval befektethetsz a saját sikeredbe, nagyobb népszerűséggel és figyelemmel.</p>
+        <p>Még több információ:</p>
+        <p>Hogyan készíts jobb projekt videót</p>
+        <p>BC Média Stúdió</p>
+      </div>
+      <h4 class="header" term="do_not_do_this">Ezeket <u>NE</u> rakd bele a videóba</h4>
+      <div class="content" term="do_not_do_this">      
+        <p>Ne rakj semmilyen jogvédett anyagot, zenét, animációs karaktert vagy képet a videóba. Bajba keverhet a szerző jogvédettsége, ami büntetéssel jár........</p>
+        <p>Zene, kép vagy videó szerkesztő programért kattints ide:</p>
+        <p>Coming soon.</p>
+      </div>
+    </div>
+
+    <h3 class="header" term="create_reward">6. hozz létre jutalmat</h3>
+    <div class="content" term="create_reward">
+      <p>A jutalom létrehozása egy másik fontos tényező, ami nagy befolyással bír a végső sikerben. Azok a projektek, amelyen nem reális, nem inspiráló, túlságosan fel vagy alulértékelt jutalmat kínálnak, gyakran nem vonzzák a támogatókat. Fontos, hogy a jutalom kreatív, jelentőségteljes és arányában megfelelő legyen.</p>
+      <h4 class="header" term="the-common-reward-offers">Mik a gyakran felajánlott jutalmak?</h4>
+      <div class="content" term="the-common-reward-offers">
+        <ol>
+          <li>Kézzel fogható termék: új termék, ami a projekten belül készült el. Pl új innovatív termék, első CD album, DVD, előadás jegy.</li>
+          <li>Kreatív bevonás: Támogató bevonása a projektbe. Pl. Szerepjáték az új filmben, mutasd meg a támogatók arcképét az albumodban, fesd rá a támogatókat pólókra, legyenek a támogatók a bemutatón a modellek.</li>
+          <li>Kreatív élmény: hívd meg a támogatókat, hogy legyenek részesei a projekt létrejöttében. Pl. Ingyen út az új éjszakain léggömb túrán, koncert meghívás, a támogatók gyerekeit hívd meg, hogy próbálják ki az új libikókát az közösség új játszóterén.</li>
+          <li>Emlékeztető: felajánlani egy emléket vagy vidám pillanatot. Pl. Képeslap a csapatról miután megmásztátok a hegyet – Everest. Egy jelképes emlék kifejezi a győzelmi pillanatot, egy kép a megmentett delfinről.</li>
+        </ol>
+      </div>
+      <h4 class="header" term="price-a-reward">Hogyan árazd be a jutalmat?</h4>
+      <div class="content" term="price-a-reward">
+      <ul>        
+        <li>Felajánlani valamit többet jelent, mint csak egy árat adni neki – első aki kipróbálhatja, limitált kiadás, stb.</li>
+        <li>Felajánlani egy reális összeget vagy hasonlót mint az anyag ára – légy kreatív, de megfontolt. Egy hirtelen döntés romba döntheti a projekt hitelességét.</li>
+      </ul>
+<p>Megjegyzés: a gazdasági tényezők és a befektetési környezet nagyon különböző minden országban. A kutatás eredménye lehet nem pontos vagy megfelelő minden országra. A felhasználók kényelme érdekében, a BC folyamatosan frissíti az adatokat.</p>
+<table class="table table-bordered table-hover">
+  <tr>
+    <td>Legnépszerűbb minimum jutalom (létrehozó által):</td>
+    <td>10USD</td>
+  </tr>
+  <tr>
+    <td>Legnépszerűbb maximum jutalom (létrehozó által):</td>
+    <td>70USD</td>
+  </tr>
+  <tr>
+    <td>Legnépszerűbb megígért összeg (támogatótól):</td>
+    <td>20USD</td>
+  </tr>
+  <tr>
+    <td>Átlagos megígért összeg (támogatótól):</td>
+    <td>68USD</td>
+  </tr>
+</table>
+<p>Siker ráta:</p>
+<table class="table table-bordered table-hover">
+  <tr>
+    <td>Jutalom nélkül:</td>
+    <td>21%</td>
+  </tr>
+  <tr>
+    <td>Jutalommal:</td>
+    <td>35% (ha a jutalom értéke < $20)<br>47% (ha a jutalom értéke > $20)</td>
+  </tr>
+</table>
+      </div>
+    </div>
+
+    <h3 class="header" term="promote">7. Projekt közzététele</h3>
+    <div class="content" term="promote">
+      <p>Alap lépés I. az embereknek tudnia kell a projektedről – azaz el kell mesélned nekik a tervedet. Ha nem vették volna elég komolyan, akkor még egyszer el kell nekik mondanod. Ne félj megmutatni az ötletedet és megbeszélni azokkal akik közel állnak hozzád. Egy kivételes projekt szerezhet támogatókat a világ összes pontjáról, de a legtöbb projekt a saját környezetéből kapja a támogatókat és a befektetőket.</p>
+      <p>Alap lépés II. Oszd meg a projected közösségi medián/médiákon, hagyd, hogy a közösségi hálón terjedjen az ötleted.</p>
+      <p>Még többet arról, hogy hogyan tedd közzé a projected,a LEVEL II. Jobb promotálás menüpont alatt</p>
+    </div>
+
+    <h3 class="header" term="receive_and_send">8. Fizetés</h3>
+    <div class="content" term="receive_and_send">
+      <p>Coming Soon</p>
+    </div>
+
+    <h3 class="header" term="more_questions">9. még több kérdés vagy ötlet</h3>
+    <div class="content" term="more_questions">
+      <ul>
+        <li>Segítségedre voltak a menüpontok? Megválaszoltuk a kérdéseidet?</li>
+        <li>Ha van jobb ötleted, kérlek oszd meg velünk</li>
+        <li>Ha van még kérdésed, a support csapatunk szívesen segít neked</li>
+      </ul>
+      <a href="mailto:info@bullcentury.com">Írj emailt a support csapatnak.</a>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="level_2">level 2</div>
+  <div class="tab-pane" id="video">Video...</div>
+</div>

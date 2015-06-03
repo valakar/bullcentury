@@ -1,0 +1,12 @@
+/ %script{:src => "assets/mentor_angular/mentor.js", :type => "text/javascript"}
+
+%div{"ng-app" => 'mentor'}
+  %h1 
+    {{"Hello"+", Angular!"}}
+  %div{"ng-controller" => "MentorController as mentorCtrl"}
+    %div{"ng-repeat" => "mentor in mentorCtrl.mentors"}
+      %h3
+        {{mentor.name}}        
+        %em.pull-right
+          {{mentor.email}}
+= @mentors

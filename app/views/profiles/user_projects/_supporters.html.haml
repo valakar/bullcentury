@@ -1,0 +1,23 @@
+%table.checkbox-green#shipping-supporter-table
+  %tr
+    %td №
+    %td 
+      = t('profile.main.supporters')
+    %td 
+      = t('profile.main.pledged')
+    %td{:style => "width: 16%;"} 
+      = t('profile.main.address')
+    %td 
+      = t('profile.main.country')
+    %td 
+      = t('profile.main.phone')
+    %td 
+      = t('profile.main.email')
+    %td
+      %div
+        %input{:type => "checkbox", :onClick =>"toggle(this, 'shipping')"}
+        %label
+          %span
+    
+  - 1.upto(5) do |i|
+    = render partial: '/profiles/user_projects/shipping_supporters_row', locals: {id: i}

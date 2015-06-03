@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="bcApp">
+<head>
+  <title>Bullcentury</title>
+  <link rel="shortcut icon" type="image/icon" href="/favicon.ico"/>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div class="row no_margin">
+	  <div class="header">
+	    <%= render :partial => 'layouts/header' %>
+	  </div>
+	</div>
+
+	<%= yield :part1 %>
+
+
+	<div class="main-content">
+
+	  <div class="content_container">
+	    <div class="row main-banner no_margin">
+	      <div class="col-sm-12 no_padding">
+	        <%= yield :banner %>
+	      </div>
+	    </div>
+
+	    <div class="row no_margin">
+	      <div class="col-sm-12">
+	        <% if session[:errors]%>
+	          <div class="error"><%= session.delete(:errors) %></div>
+	        <% end %>
+	        <%= yield %>
+	      </div>
+	    </div>
+	  </div>
+
+	</div>
+
+	<%= yield :part2 %>
+	<%= yield :part3 %>
+
+	<div class="row footer_background no_margin">
+	  <div class="col-sm-12">
+	    <%= render :partial => 'layouts/footer_menu' %>
+
+	  </div>
+	</div>
+	<div class="col-sm-12 copyright-row">
+	  <div class="copyright text-center"><%= t('copyright').html_safe %></div>
+	</div>
+	<%= render :partial => 'layouts/analytics' %>
+</body>
+</html>

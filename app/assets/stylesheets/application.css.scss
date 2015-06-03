@@ -1,0 +1,497 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require bootstrap.min
+ *= require bootstrap-theme.min
+ *= require bootstrap-table
+ *= require bootstrap-select.min
+ *= require jasny-bootstrap.min
+ *= require imgareaselect-default
+ *= require jquery.awesome-cropper
+ *= require ng-img-crop.scss
+ *= require jquery-ui
+ *= require_self
+ *= require_tree .
+ */
+@import "mixin";
+
+
+
+body {
+	min-width: 1024px;
+	font-size: 13px;
+	overflow-x: hidden;
+}
+@font-face {
+	font-family: $font_0;
+	src: $url_0;
+	src: $url_1 format('embedded-opentype'), $url_2 format('woff'), $url_3 format('truetype'), $url_4 format('svg');
+}
+.second-part-content {
+	width: 100%;
+	background-color: $color_wax_flower_approx;
+}
+.content_container {
+	//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	background-color: $white;
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.empty-container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.second-part-content-container {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $color_wax_flower_approx;
+}
+.copyright-row {
+	background-color: $color_seashell_peach_approx;
+}
+.copyright {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px 0;
+	font-size: small;
+}
+.main-search-input {
+	width: 100%;
+	height: 29px;
+	font-size: 12px;
+	outline: none;
+	padding: 2px 5px;
+	border: 2px solid $color_pistachio_approx;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 5px;
+}
+.main-login-logout-controls-container {
+	margin: 14px 6px 0 0;
+	float: right;
+	a {
+	}
+}
+.logout-button {
+	width: 25px;
+	height: 25px;
+	float: right;
+	margin: 12px 0 0 5px;
+}
+.my-account-button {
+	background-color: $color_regent_st_blue_approx;
+	width: 50px;
+	height: 50px;
+	//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+	border-radius: 10px;
+	float: right;
+}
+.main-navigation {
+	background-color: $color_pink_swan_approx;
+	margin-top: 20px;
+	a {
+		color: $white;
+	}
+	.m-bg-pink a:hover {
+		background-color: $color_wild_strawberry_approx;
+	}
+	.m-bg-blue a:hover {
+		background-color: $color_dodger_blue_approx;
+	}
+	.nav .m-bg-green.open>a:focus {
+		background-color: $color_pear_approx;
+	}
+	.nav>li.m-bg-green>a:focus {
+		background-color: $color_pear_approx;
+	}
+	.m-bg-green a:hover {
+		background-color: $color_pear_approx;
+	}
+}
+.language-switcher {
+	margin-right: 0;
+	&.navbar-nav.navbar-right {
+		margin-right: 0;
+	}
+}
+.m-bg-pink {
+	background-color: $color_cerise_approx;
+}
+.m-bg-blue {
+	background-color: $color_viking_approx;
+}
+.m-bg-green {
+	background-color: $color_key_lime_pie_approx;
+}
+.m-bg-yellow {
+	background-color: $color_sun_approx;
+}
+.footer_menu {
+	width: 1000px;
+	background: $color_gallery_approx;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 0;
+	padding: 19px;
+	[class*="col-"] {
+		&:nth-child(1) h5 {
+			color: $color_cerise_approx;
+		}
+		&:nth-child(2) h5 {
+			color: $color_viking_approx;
+		}
+		&:nth-child(3) h5 {
+			color: $color_key_lime_pie_approx;
+		}
+		&:nth-child(4) h5 {
+			color: $color_sun_approx;
+		}
+	}
+}
+.footer_background {
+	background-color: $color_gallery_approx;
+}
+.header {
+	width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+.header_shadow {
+	//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+	box-shadow: 0 10px 10px $color_celeste_approx;
+}
+.no_margin {
+	margin-left: 0!important;
+	margin-right: 0;
+}
+.no_margin_bottom {
+	margin-bottom: 0!important;
+}
+.no_padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+.no_left_padding {
+	padding-left: 0;
+}
+.no_right_padding {
+	padding-right: 0;
+}
+.btn-success {
+	color: $white;
+	background-color: $color_conifer_approx;
+	border-color: $color_conifer_approx;
+	background-image: none;
+	&:hover {
+		@extend %extend_1;
+	}
+	&:focus {
+		@extend %extend_1;
+	}
+	&:active {
+		@extend %extend_1;
+	}
+	&.active {
+		@extend %extend_1;
+	}
+}
+.sm-top-buffer {
+	margin-top: 10px!important;
+}
+.top-buffer {
+	margin-top: 20px!important;
+}
+.big-top-buffer {
+	margin-top: 40px!important;
+}
+.xbig-top-buffer {
+	margin-top: 60px!important;
+}
+.top-buffer-10 {
+	margin-top: 10px!important;
+}
+.top-buffer-25 {
+	margin-top: 25px!important;
+}
+.top-buffer-30 {
+	margin-top: 30px!important;
+}
+.top-buffer-40 {
+	margin-top: 40px!important;
+}
+.top-buffer-50 {
+	margin-top: 50px!important;
+}
+.top-buffer-100 {
+	margin-top: 100px!important;
+}
+.top-buffer-150 {
+	margin-top: 150px!important;
+}
+.top-buffer-200 {
+	margin-top: 200px!important;
+}
+.top-buffer-dec-15 {
+	margin-top: -15px!important;
+}
+.margin-all-15 {
+	margin: 15px;
+}
+.margin-all-20 {
+	margin: 20px;
+}
+.sm-bottom-buffer {
+	margin-bottom: 10px!important;
+}
+.bottom-buffer {
+	margin-bottom: 20px!important;
+}
+.big-bottom-buffer {
+	margin-bottom: 40px!important;
+}
+.xbig-bottom-buffer {
+	margin-bottom: 60px!important;
+}
+.biggest-bottom-buffer {
+	margin-bottom: 200px!important;
+}
+.bottom-buffer-30 {
+	margin-bottom: 30px!important;
+}
+.bottom-buffer-50 {
+	margin-bottom: 50px!important;
+}
+.bottom-buffer-100 {
+	margin-bottom: 100px!important;
+}
+.bottom-buffer-150 {
+	margin-bottom: 150px!important;
+}
+.bottom-buffer-200 {
+	margin-bottom: 200px!important;
+}
+.bottom-padding-100 {
+	padding-bottom: 100px!important;
+}
+.top-padding-100 {
+	padding-top: 100px!important;
+}
+.padding-all {
+	padding: 25px!important;
+}
+.padding-all-sm {
+	padding: 10px!important;
+}
+.padding-all-xs {
+	padding: 5px!important;
+}
+.padding-vertical-sm {
+	padding: 10px!important;
+}
+.button-center-75 {
+	width: 75%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.offset-5 {
+	left: 5%;
+}
+.offset-12 {
+	left: 12%;
+}
+.font-size-8 {
+	font-size: 8px;
+}
+.font-size-9 {
+	font-size: 9px;
+}
+.font-size-11 {
+	font-size: 11px;
+}
+.font-size-14 {
+	font-size: 14px;
+}
+.font-size-16 {
+	font-size: 16px;
+}
+.cappitalize {
+	text-transform: capitalize;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+.nowrap {
+	white-space: nowrap;
+}
+.overflow {
+	overflow: hidden;
+}
+.col-fixed-20 {
+	width: 20%;
+	float: left;
+}
+.equal {
+	display: table !important;
+	[class*="col-"] {
+		float: none !important;
+		display: table-cell !important;
+		vertical-align: top;
+	}
+}
+.firstline-indent {
+	text-indent: 20px;
+}
+.row-eq-height {
+	display: flex;
+}
+.no-border-table {
+	table {
+		border: none !important;
+	}
+	th {
+		border: none !important;
+	}
+	td {
+		border: none !important;
+	}
+}
+a {
+	&.tooltips {
+		position: relative;
+		display: inline;
+		color: $color_quill_gray_approx;
+		&:hover {
+			text-decoration: none;
+		}
+		span {
+			position: absolute;
+			color: $black;
+			background: $color_kidnapper_approx;
+			width: 160px;
+			max-width: 200px;
+			height: auto;
+			line-height: auto;
+			text-align: center;
+			visibility: hidden;
+			//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+			border-radius: 6px;
+			padding: 8px;
+			margin-left: -75px;
+			&:after {
+				content: '';
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				margin-left: -8px;
+				width: 0;
+				height: 0;
+				border-top: 8px solid $color_kidnapper_approx;
+				border-right: 8px solid transparent;
+				border-left: 8px solid transparent;
+			}
+		}
+	}
+	&:hover {
+		color: $gray;
+		text-decoration: none;
+		&.tooltips span {
+			visibility: visible;
+			opacity: 1;
+			bottom: 30px;
+			left: 50%;
+			margin-left: -106px;
+			z-index: 999;
+		}
+	}
+}
+.text-center {
+	text-align: center!important;
+}
+.margin-center {
+	margin-left: auto;
+	margin-right: auto;
+}
+.big-header {
+	font-size: 70px;
+	color: $color_quill_gray_approx;
+	margin-bottom: -20px;
+}
+.white-big-header {
+	font-size: 30px;
+	color: $white;
+}
+.sm-header {
+	font-size: 16px;
+	color: $color_quill_gray_approx;
+}
+.vertical-super {
+	vertical-align: super;
+}
+.font-large {
+	font-size: 29px;
+}
+.vertical-middle {
+	vertical-align: middle!important;
+}
+.absolute-bottom {
+	position: absolute;
+	bottom: 2%;
+	right: 5%;
+	left: 5%;
+}
+.google-color {
+	background-color: $color_punch_approx !important;
+}
+.fb-color {
+	background-color: $color_azure_approx!important;
+}
+.vk-color {
+	background-color: $color_horizon_approx!important;
+}
+.logo-container img {
+	height: 100px;
+}
+.open > .dropdown-toggle.btn-success {
+	@extend %extend_1;
+}
+.gray-link a {
+	color: $gray;
+	text-decoration: none;
+}
+.orange-link a {
+	color: $web_orange;
+	text-decoration: none;
+	padding: 5px;
+	&:hover {
+		color: $web_orange;
+		text-decoration: none;
+		background-color: $color_peach_cream_approx;
+		padding: 5px;
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 5px;
+	}
+}
+/*removed google auto fill style*/
+textarea:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+input:-webkit-autofill:focus {
+	-webkit-box-shadow: 0 0 0px 1000px white inset, 0 0 8px rgba(82, 168, 236, 0.6)!important;
+}
+select:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px white inset;
+}

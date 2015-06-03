@@ -1,0 +1,33 @@
+.col-sm-12.col-md-12.bottom-buffer-100
+  .table-for-profile.table-orange
+    %table
+      %tr
+        %td 
+          = t('profile.main.date')
+        %td 
+          = t('profile.main.project')
+        %td ID
+        %td 
+          = t('profile.main.pledged')
+        %td 
+          = t('profile.main.currency')
+        %td 
+          = t('profile.main.close_date')
+        %td 
+          = t('profile.main.status')
+      - @inveted_projects.each do |project|
+        %tr
+          %td.text-center
+            10/12/2014
+          %td
+            = link_to project.name, project_path(project.id) unless project.name.nil? and project.id.nil?
+          %td.text-center
+            = link_to project.id, project_path(project.id) unless project.id.nil?
+          %td.text-center
+            = project.amount unless project.amount.nil?
+          %td.text-center
+            = project.sign unless project.sign.nil?
+          %td.text-center
+            = project.created_at unless project.created_at.nil?
+          %td.text-center
+            = project.state unless project.state.nil?

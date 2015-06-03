@@ -1,0 +1,314 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  ua: "Українська"
+  ru: "Русский"
+  en: "English"
+  hu: "Magyar"
+  hello: "Hello world"
+  sure_delete: "Are you sure to delete?"
+  sign_out: "Sign out"
+  sign_in: "Sign in"
+  sign_up: "Sign up"
+  log_in: "Log in"
+  log_out: "Log out"
+  signed_in_as: "Hi, "
+  not_you_q: "Not you?"
+  or: "or"
+  university: "Let me learn"
+  how_it_works: "How It Works"
+  bc_university: "University"
+  help: "Help"
+  faq: "Information Center"
+  faq_abr: "FAQ"
+  info: "Information"
+  quick_start: "Quick Start"
+  bc_rules: "Rules"
+  fees: "Fees"
+  bc_laws: "BC Laws"
+  company: "Company"
+  good_ideas: "Good Ideas"
+  team: "Team"
+  feedbacks: "Feedback"
+  how_and_better: "How & Better"
+  contact_us: "Contacts"
+  projects: "All Projects"
+  main_search_placeholder: "SEARCH"
+  back_to_project: "Back to project"
+  project_creator: "Project creator"
+  project_brief: "Project brief"
+  creator_details: "Creator\ndetails"
+  creator_biography: "Creator biography"
+  edit: "Edit"
+  provide_author_info: "Please, provide information about the author."
+  edit_author: "Fill info about the author"
+  login_with_vk: "VK Sign Up"
+  login_with_fb: "Facebook Sign Up"
+  login_with_google: "Google Sign Up"
+  payment_systems_is_in_progress: "Sorry, payment system is in progress. Will be available soon."
+  see_all: "See all"
+  back: "Back"
+  thank_you: "Thank You!"
+  more_comments: "Load More Comments"
+  print: "Print"
+  cancel: "Cancel"
+
+  # categories on home page
+  leisure: "Leisure"
+  media: "Media"
+  art: "Art"
+  crazy: "Crazy"
+  innovation: "Innovation"
+  social_projects: "Social"
+  paint: "Paint"
+  literature: "Literature"
+  theater: "Theater"
+  talent: "Talent"
+  funny: "Funny"
+  never_seen: "Never Seen"
+  product: "Product"
+  design: "Design"
+  technology: "Technology"
+  travel: "Travel"
+  cook: "Cook"
+  adventure: "Adventure"
+  music: "Music"
+  movie: "Movie"
+  photo: "Photo"
+  social: "Social"
+  charity: "Charity"
+  green: "Green"
+  community: "Community"
+  eco: "Eco / Green"
+  more: "More"
+
+
+  diagram:
+    creating: "Creating"
+    creating_small: "Project & Rewards"
+    receiving: "Receiving"
+    receiving_small: "Funds or Supports"
+    delivering: "Delivering"
+    delivering_small: "Rewards or Thanks"
+    success: "Success"
+
+  leisure_small: "Travel ● Hobby ● Food ● More"
+  media_small: "Music ● Video ● Film ● More"
+  art_small: "Paint ● Photography ● Theater ● More"
+  crazy_small: "Talent ● Impressed ● Fun ● More"
+  crazy_span: "Don't Ever Click"
+  innovation_small: "Design ● Ideas ● Products ● More"
+  social_projects_small: "View Projects"
+
+  # End of categories on home page
+
+  copyright: "Copyright &copy; 2014 BullCentury. All rights reserved."
+  all_projects: "All Projects"
+  popular_projects: "Popular Projects"
+  successful_projects: "Successful Projects"
+  no_projects: "No projects yet, probably your next project will appear here."
+  create_successful_project: "Create Successful Project"
+  create_popular_project: "Create Popular Project"
+  project:
+    title: "Project"
+    days_to_go: "days to go"
+    days: "days"
+    goal: "goal"
+    persons: "persons"
+    location: "Project location"
+    website: "Project Website"
+    funded: "pledged"
+    progress: "progress"
+    create: "Start Project"
+    edit: "Edit project"
+    modify: "Edit"
+    save: "Save"
+    publish: "Publish"
+    delete: "Delete"
+    show: "Show"
+    image: "Image"
+    image_hint: "jpeg, jpg, png"
+    video: "Video"
+    video_hint: ""
+    name: "Project title"
+    description: "Description"
+    tweet: "Tweet about your project"
+    funding_duration_in_days: "Time to close"
+    funding_goal: "Funding goal"
+    listing: "Browse"
+    start: "Start"
+    category: "Category"
+    number_of_supporters: "Supporters"
+    support_btn: "Support"
+    add_new_project: "start project"
+    it_is_still_empty: "It is still empty"
+
+  #Category
+  category:
+    art:
+      visual_art: "Visual art"
+      photography: "Photography"
+      painting: "Painting"
+      drawing: "Drawing"
+      sculpting: "Sculpting"
+
+      literature: "Literature"
+      publication_of_poetry: "Publication of Poetry"
+      novels: "Novels"
+      short_stories_and_epics: "Short Stories and Epics"
+
+      performing_art: "performing art"
+      musical: "Musical"
+      dance: "Dance"
+      opera: "Opera"
+      theatre_and_film: "Theatre and Film"
+
+    crazy:
+      ygt: "YOU'VE GOT TALENT"
+      musical: "Musical"
+      dance: "Dance"
+      opera: "Opera"
+
+      noc: "NO ONE CAN"
+      impressive: "Impressive"
+      shocking: "Shocking"
+      funny: "Funny"
+      surprising: "Surprising"
+
+      nsb: "NEVER SEEN BEFORE"
+      first_one_doing: "First one doing"
+      experiencing: "experiencing"
+      discovering: "discovering"
+
+    innovation:
+      products: "PRODUCTS"
+      all_products: "All innovative products"
+
+      designs: "DESIGNS"
+      all_designs: "All innovative designs in different industries"
+      
+      technology: "TECHNOLOGY"
+      it: "IT"
+      science: "Science"
+      aerospace: "Aerospace"
+      energy: "Energy"
+
+      fashion: "FASHION"
+      all_fashion: "All fashion industries"
+
+      ideas: "IDEAS"
+      start_up: "start up ideas"
+
+    leisure:
+      travel: "TRAVEL"
+      meaningful_trip: "meaningful trip"
+      adventure: "adventure"
+      outdoor_activities: "outdoor activities"
+
+      food_cook_recipes: "FOOD/COOK/RECIPES"
+      all_food: "All food and beverages related"
+
+      hobby: "HOBBY"
+      sports: "Sports"
+      comics: "Comics"
+
+    media:
+      music_video: "MUSIC/VIDEO"
+
+      movie_episode: "MOVIE/EPISODE"
+
+      photography: "PHOTOGRAPHY"
+
+    charity:
+      social: "SOCIAL"
+      helping_people: "Helping People"
+      organization: "Organization"
+      animals: "Animals"
+
+      community: "COMMUNITY"
+      neighborhood: "Neighborhood"
+      workplace: "Workplace"
+      school_university: "School/University"
+
+      eco: "ECO"
+      energy: "Energy"
+      environment: "Environment"
+      climate: "Climate"
+
+  main_details: "Main details"
+  rewards: "Rewards"
+  reward:
+    add_new_reward: "Add new Reward"
+    edit_reward: "Edit Reward"
+    delete_reward: "Delete Reward"
+    save: "Save Reward"
+    per_amount: "Per donation amount"
+    description: "Description of details"
+    reward_for: "Reward for "
+
+  author:
+    about_info: "Tell a bit about yourself"
+    name: "Name"
+    city: "City"
+    country: "Country"
+    image: "Image"
+    image_hint: "jpeg, jpg, png"
+    save: "Save"
+    edit_profile: "Edit user profile"
+    edit_credentials: "Edit user credentials"
+
+  footer:
+    start: "Start"
+    explore: "Explore"
+    about: "About"
+    follow_us: "Follow us"
+
+  #video buttons
+  video: "Video"
+  video_1: "How to shoot project video"
+  video_2: "How to create rewards"
+
+  #all projects
+  learn_more: "Learn more"
+
+  #BC University
+  university:
+    intro: "Intro"
+    level1: "Level 1"
+    level2: "Level 2"
+    video: "Video"
+
+  #Feedback
+  feedback:
+    title: "We want to hear your opinion"
+    subject: "Subject"
+    type: "Type of issue"
+    message: "Message"
+    choose_type: "Select type *"
+    technical: "Technical"
+    page_design: "Page Design"
+    payment: "Payment"
+    custome_service: "Custome service"
+    good_idea: "I have a good idea"
+    other: "Others, but important"
+    send: "Send message"
+

@@ -1,0 +1,14 @@
+%h1
+  = t('project.edit')
+
+- if flash[:errors]
+  .error
+    = flash[:errors]
+
+/ - if !@project.published? and !@project.closed?
+/   %small
+/     = link_to t('project.publish'), publish_project_path(@project)
+
+= render partial: 'projects/form'
+
+= tinymce

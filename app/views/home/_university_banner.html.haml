@@ -1,0 +1,14 @@
+- content_for :banner do
+	.imagewrap.shadow
+		= image_tag "banners/bc_univer.png", :class => "project-banner", :usemap => "#univer_banner", :alt => "univer_banner", :hidefocus => "true"
+		%map{:name => "univer_banner"}
+			%area{:alt => "Video", :coords => "577,209,588,221,428,361,405,358", :href => university_url + "#video", :shape => "poly"}
+			%area{:alt => "Lelev 3", :coords => "580,238,603,263,495,359,434,361", :href => "#", :shape => "poly"}
+			%area{:alt => "Lelev 2", :coords => "668,215,690,242,551,365,502,357", :href => "#", :shape => "poly"}
+			%area{:alt => "Lelev 1", :coords => "733,185,765,205,631,391,599,370", :href => "#", :shape => "poly"}
+			%area{:alt => "BC University", :coords => "768,239,961,239,961,271,768,271", :href => university_url, :shape => "poly"}
+			%area{:alt => "Success", :coords => "717,274,946,274,946,311,717,311", :href => "#", :shape => "poly"}
+			%area{:alt => "BC Century", :coords => "698,316,984,316,984,352,698,352", :href => root_url, :shape => "poly"}
+			%area{:alt => "Quick start", :coords => "664,359,927,356,927,391,664,391", :href =>  quick_start_url, :shape => "poly"}
+		%div.button_hover_green
+			= link_to t('project.add_new_project').upcase(), new_project_url, :class => "button_link_right_top btn-lg"

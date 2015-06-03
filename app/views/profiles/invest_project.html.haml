@@ -1,0 +1,26 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer
+  .col-sm-8.col-md-8.bottom-buffer
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("invest.jpg", width:105)
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.invest.title_part1')
+      %h1.second-header
+        = t('profile.invest.title_part2')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  - if @inveted_projects.empty?
+    .col-sm-12.col-md-12.top-buffer.big-bottom-buffer
+      .text-center.info-message-gray.top-buffer
+        Hi 
+        = current_user.name + ', You have not invested in any project yet. You can click '
+        = link_to 'here' , projects_url
+        to see how creative people are 
+  - else
+    = render partial: 'profiles/invest_money/invest_money'
+    .col-sm-12.col-md-12
+      .big-header
+        = t('profile.invest.title_1') 
+        %span.sm-header.yellow_title
+          = t('profile.invest.title_sm_1') 
+    = render partial: 'profiles/invest_money/contacts'

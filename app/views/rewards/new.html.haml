@@ -1,0 +1,2 @@
+%h1= t('reward.add_new_reward')
+= render :partial => 'rewards/form', locals: {url: project_rewards_path, method: :post}

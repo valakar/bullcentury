@@ -1,0 +1,33 @@
+.col-sm-12.col-md-12.bottom-buffer-100
+  .table-for-profile.table-purple
+    %table
+      %tr
+        %td 
+          = t('profile.main.project')
+        %td ID
+        %td 
+          = t('profile.main.pledged')
+        %td 
+          = t('profile.main.currency')
+        %td 
+          = t('profile.main.close_date')
+        %td 
+          = t('profile.main.funding')
+        %td 
+          = t('profile.main.refund')
+      - @refund_projects.each do |project|
+        %tr
+          %td
+            = link_to project.name, project_path(project.id)
+          %td.text-center
+            = link_to project.id, project_path(project.id)
+          %td.text-center
+            = project.amount
+          %td.text-center
+            = project.currency_sign
+          %td.text-center
+            = project.created_at
+          %td.text-center
+            Un-success
+          %td.text-center
+            In Process

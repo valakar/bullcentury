@@ -1,0 +1,102 @@
+.mentors-title-color {
+  span:first-child {
+    color: #C5C5C5;
+    text-transform: uppercase;
+    font-size: 48px;
+  }
+  span {
+    color: #CECEEC;
+  }
+
+}
+
+.mentors-button {
+  float: right;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  background-color: #8FD400;
+  padding: 7px 11px;
+  font-weight: bold;
+  div:first-child {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  div:last-child {
+    font-size: 13px;
+    font-weight: 100;
+  }
+}
+
+.mentors-button:hover {
+  color: white;
+  opacity: 0.9;
+  div:last-child {
+    color: white;
+  }
+}
+
+.mentors-table {
+  .thead{
+    color: #6E687C;
+    border-radius: 7px;
+    background-color: #C3C3E7;
+    padding: 8px;
+  }
+  .tbody{
+    // padding: 8px;
+    background-color: #F8F8F8;
+    [class*="col-"]:nth-child(1) {
+
+    }
+  }
+}
+#mentor_creation > [class*="col-"]:first-child{
+  border-top: 15px solid #D9D9D9;
+}
+#mentor_creation > [class*="col-"]:last-child{
+  border-top: 15px solid #C3C3E7;
+  background-color: #F8F8F8;
+}
+#mentor_creation {
+
+  .fileinput-preview {
+    width: 120px;
+    height: 120px;
+    margin: 40px 0px 0px 15px;
+  }
+  #image_instruction {
+    p {
+      color: #9999D5;
+    }
+    ol {
+      margin-left: -20px;
+    }
+  }
+}
+
+#mentor_image_sample {
+  max-width: 150px;
+  max-width: 150px;
+}
+#mentor_name_sample {
+  text-transform: capitalize;
+}
+#mentor_lastname_sample {
+  text-transform: capitalize;
+}
+#mentor_country_sample {
+  text-transform: capitalize;
+}
+#mentor_city_sample {
+  text-transform: capitalize;
+}
+#mentor_company_sample {
+  text-transform: capitalize;
+}
+#mentor_position_sample {
+  text-transform: capitalize;
+}
+#mentor_status_sample {
+  color: #9999D5;
+}

@@ -1,0 +1,8 @@
+.col-sm-12.col-md-12.text-center
+	-if @project.nil?
+		= render partial: 'dashboard_button', locals: {image: 'my_project.png', title: 'devise.dashboard.my_project', page_url: new_project_path}
+	-else
+		= render partial: 'dashboard_button', locals: {image: 'my_project.png', title: 'devise.dashboard.my_project', page_url: project_url(@project)}
+	= render partial: 'dashboard_button', locals: {image: 'promote_project.png', title: 'devise.dashboard.promote_project', page_url: promote_project_path}
+	= render partial: 'dashboard_button', locals: {image: 'shipping_box_icon.png', title: 'devise.dashboard.shipping', page_url: shipping_path}
+	= render partial: 'dashboard_button', locals: {image: 'profile_management.png', title: 'devise.dashboard.profile_management', page_url: profile_management_path}

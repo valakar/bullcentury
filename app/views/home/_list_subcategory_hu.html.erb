@@ -1,0 +1,213 @@
+<!--list subcategory-->
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.head').click(function(){
+    term = $(this).attr('term');
+    //alert(term_text);
+    $('.subcategory').each(function(){    
+      if ($(this).attr('term') == term){        
+        if ($(this).css('display') == 'none'){
+          $(this).css('display','block');
+        }          
+        else {
+          $(this).css('display','none');}      
+                    
+      }
+    });
+  });
+});
+</script>
+
+<div class="head" term="art">
+<strong>Művészet</strong>
+</div>
+<div class="subcategory" term="art">
+  <div class="col-sm-offset-1 col-sm-4">
+    Vizuális művészet
+  </div>
+  <div class="col-sm-7">
+    Fotózás, Festés, Rajzolás, Szobrászat
+  </div>
+</div>
+<div class="subcategory" term="art">
+  <div class="col-sm-offset-1 col-sm-4">
+    Irodalom
+  </div>
+  <div class="col-sm-7">
+    Versek, novella, rövid történetek és epikák publikálása
+  </div>
+</div>
+<div class="subcategory" term="art">
+  <div class="col-sm-offset-1 col-sm-4">
+    előadó művészet
+  </div>
+  <div class="col-sm-7">
+    Musical, tánc, opera, színház és film
+  </div>
+</div>
+
+<!--art-->
+
+<!--crazy-->
+<div class="head" term="crazy">
+<strong>Crazy</strong>
+</div>
+<div class="subcategory" term="crazy">
+  <div class="col-sm-offset-1 col-sm-4">
+    Tehetséges vagy egy dologban (YGT)
+  </div>
+  <div class="col-sm-7">
+    zene, tánc, opera és minden más, amire mi nem gondolnánk...
+  </div>
+</div>
+<div class="subcategory" term="crazy">
+  <div class="col-sm-offset-1 col-sm-4">
+    Senki más nem tudja (NOC)
+  </div>
+  <div class="col-sm-7">
+    lenyűgöző, sokkoló, vicces, meglepő és minden más
+  </div>
+</div>
+<div class="subcategory" term="crazy">
+  <div class="col-sm-offset-1 col-sm-4">
+    Még sose látott (NSB)
+  </div>
+  <div class="col-sm-7">
+    elsőként csinálod, felfedező és minden más
+  </div>
+</div>
+<!-- end crazy -->
+
+<!--innovation-->
+<div class="head" term="innov">
+  <strong>Innováció</strong>
+</div>
+<div class="subcategory" term="innov">
+  <div class="col-sm-offset-1 col-sm-4">
+    Termékek
+  </div>
+  <div class="col-sm-7">
+    minden innovatív termék
+  </div>
+</div>
+<div class="subcategory" term="innov">
+  <div class="col-sm-offset-1 col-sm-4">
+    Dizájn
+  </div>
+  <div class="col-sm-7">
+    minden innovatív dizájn bármely iparágban
+  </div>
+</div>
+<div class="subcategory" term="innov">
+  <div class="col-sm-offset-1 col-sm-4">
+    Technológia
+  </div>
+  <div class="col-sm-7">
+    IT, tudomány, űrkutatás, energia és minden más...
+  </div>
+</div>
+<div class="subcategory" term="innov">
+  <div class="col-sm-offset-1 col-sm-4">
+    Divat
+  </div>
+  <div class="col-sm-7">
+    minden divatág
+  </div>
+</div>
+<div class="subcategory" term="innov">
+  <div class="col-sm-offset-1 col-sm-4">
+    Ötletek
+  </div>
+  <div class="col-sm-7">
+    minden kreatív induló üzleti ötletek
+  </div>
+</div>
+<!-- end innovation-->
+<!--leisure-->
+<div class="head" term="leisure">
+  <strong>Szórakozás</strong>
+</div>
+<div class="subcategory" term="leisure">
+  <div class="col-sm-offset-1 col-sm-4">
+    Utazás
+  </div>
+  <div class="col-sm-7">
+    egy ötletes utazás, felfedezés, kültéri tevékenység létrehozása
+  </div>
+</div>
+<div class="subcategory" term="leisure">
+  <div class="col-sm-offset-1 col-sm-4">
+    Ételek/főzés/receptek
+  </div>
+  <div class="col-sm-7">
+    minden étel és ital
+  </div>
+</div>
+<div class="subcategory" term="leisure">
+  <div class="col-sm-offset-1 col-sm-4">
+    Hobby
+  </div>
+  <div class="col-sm-7">
+    sportok, komédiák, kültéri tevékenységek és minden más
+  </div>
+</div>
+<!--end leisure-->
+<!--MEDIA-->
+<div class="head" term="media">
+  <strong>Média</strong>
+</div>
+<div class="subcategory" term="media">
+  <div class="col-sm-offset-1 col-sm-4">
+    Zene / zenei video
+  </div>
+  <div class="col-sm-7">
+    &nbsp;
+  </div>
+</div>
+<div class="subcategory" term="media">
+  <div class="col-sm-offset-1 col-sm-4">
+    Film/ epizód
+  </div>
+  <div class="col-sm-7">
+    &nbsp;
+  </div>
+</div>
+<div class="subcategory" term="media">
+  <div class="col-sm-offset-1 col-sm-4">
+    Fotózás
+  </div>
+  <div class="col-sm-7">
+    &nbsp;
+  </div>
+</div>
+<!--end media-->
+<!--SOCIAL-->
+<div class="head" term="social">
+  <strong>Közösségi</strong>
+</div>
+<div class="subcategory" term="social">
+  <div class="col-sm-offset-1 col-sm-4">
+    Jótékonyság
+  </div>
+  <div class="col-sm-7">
+    segíteni embereknek, szervezetek, állatok és minden más
+  </div>
+</div>
+<div class="subcategory" term="social">
+  <div class="col-sm-offset-1 col-sm-4">
+    Közösség
+  </div>
+  <div class="col-sm-7">
+    szomszédság, munkahely, iskola, egyetem és minden más
+  </div>
+</div>
+<div class="subcategory" term="social">
+  <div class="col-sm-offset-1 col-sm-4">
+    Zöld
+  </div>
+  <div class="col-sm-7">
+    energia, környezet, klíma és minden más
+  </div>
+</div>
+
+<div class="clearfix"></div>

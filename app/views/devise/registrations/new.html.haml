@@ -1,0 +1,80 @@
+.row.sign-up-form-container
+  .sign-up-animation
+    .col-fixed-20.col-sm-offset-2.top-padding-100
+      .gray_title.text-center.margin-all-15
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '1_icon.png', title: 'devise.dashboard.create_project'}
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '2_icon.png', title: 'devise.dashboard.invest_in_project'}
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '3_icon.png', title: 'devise.dashboard.receive_money'}
+    .col-sm-4.top-padding-100.bottom-padding-100
+      %h2.black_color
+        = t('sign_up')
+        %span.gray_small_color
+          = t('devise.for_new_members')
+        %span= t('devise.express')
+      .bg_text.col-sm-12.col-md-12.no_padding.top-buffer
+        = render partial: 'devise/express/express_block'
+      .col-md-12.col-sm-12.bottom-buffer-30.font-size-9= t('devise.sm_message')
+      .col-md-12.col-sm-12.bottom-buffer-30.gray_title.text-center
+        = t('devise.or')
+      .col-md-12.col-sm-12.sign-up-form
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :class => 'sign-up-form text-left',:html => {'data-toggle' => "validator"}) do |f|
+          = devise_error_messages!
+          .col-sm-6.no_left_padding
+            .form-group
+              / TODO name = first name
+              = f.label :name, t('devise.name')
+              = f.text_field :name, :autofocus => true, :class => 'form-control input-narrow',:placeholder => t('devise.first'), :required => 'required', 'data-minlength' => "3", 'data-error' => t('errors.messages.min_3')
+              %span.help-block.with-errors 
+          .col-sm-6.no_right_padding
+            .form-group
+              / TODO name = last name
+              = f.text_field :name, :autofocus => true, :class => 'form-control input-narrow',:placeholder => t('devise.last'), :required => 'required', :id => 'lastname', 'data-minlength' => "3", 'data-error' => t('errors.messages.min_3')
+              %span.help-block.with-errors 
+          .col.sm-12.col-md-12.no_padding
+            .form-group
+              = f.label :email, t('devise.email')
+              = f.email_field :email, :autofocus => true, :class => 'form-control input-narrow', :required => 'required', 'data-error' => t('errors.messages.valid_email')
+              %span.help-block.with-errors 
+            .form-group
+              = f.label :password, t('devise.password')
+              = f.password_field :password, :class => 'form-control input-narrow', :required => 'required', :pattern => ".{8,}", "required title" => "8 characters minimum", 'data-error' => t('errors.messages.valid_password')
+              %span.help-block.with-errors 
+            .form-group
+              = f.label :password_confirmation, t('devise.password_confirmation')
+              = f.password_field :password_confirmation, :class => 'form-control input-narrow', :required => 'required', 'data-match'=>"#user_password", 'data-error' => t('errors.messages.password_match')
+              %span.help-block.with-errors 
+            .form-group
+              / TODO captcha
+              = label_tag 'captcha', t('devise.not_a_robot')
+              %br
+              = text_area_tag 'captcha', nil, class: 'form-control'
+            .form-group.col-sm-6.no_padding
+              / TODO captcha_check
+              = label_tag 'captcha_check', t('devise.type_text')
+              %br
+              = text_field_tag 'captcha_check', nil, class: 'form-control input-narrow'
+            / TODO Terms of Service and Privacy Policy
+            / all languages
+            .form-group.col-sm-12.no_padding.no_margin_bottom
+              .form-group.col-sm-1.no_padding
+                %input{name: 'user[agreement]',value: 'agreed', "data-error" => t('errors.messages.agreement'), :required => "required", :type => "checkbox"}
+                %span.help-block.with-errors.nowrap
+              .form-group.col-sm-11.no_padding.no_margin_bottom
+                %small= label_tag 'agreement', 'I agree Bull Century Terms of Service and Privacy Policy', :class => 'not-bold agreed-font '
+
+            .pull-right
+              = f.submit t('devise.sign_up'), :class => 'btn btn-sm btn-success no_margin_top'
+            %br
+          .col-sm-12.top-buffer.no_left_padding
+            = render "devise/shared/links"
+    .col-fixed-20.top-padding-100
+      .gray_title.text-center.margin-all-15
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '4_icon.png', title: 'devise.dashboard.donate_money'}
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '5_icon.png', title: 'devise.dashboard.email_notification'}
+        .col-sm-12.col-md-12
+          = render partial: 'dashboard_buttons', locals: {url: '6_icon.png', title: 'devise.dashboard.how'}

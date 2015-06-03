@@ -1,0 +1,108 @@
+@import "compass"
+@import "vars"
+
+/**************************************************************************
+ * Mixin from application.css.scss
+ **************************************************************************/
+//@extend-elements
+//original selectors
+//.btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open > .dropdown-toggle.btn-success
+%extend_1
+  color: $white
+  background-color: $color_yellow_green_approx
+  border-color: $color_yellow_green_approx
+
+
+/**************************************************************************
+ * Mixin from home.css.sass
+ **************************************************************************/
+
+//makes backgroung-color: $back and color: $color on hover
+@mixin swich_color_bg_hover($back,$color)
+  div:hover
+    background-color: $back
+    a
+      color: $color
+
+@mixin gradient($color1, $color2, $start_stop, $angle1, $angle2)
+  background: $color1 /* Old browsers */
+  background: -moz-linear-gradient($angle2, $color1 0%, $color1 $start_stop, $color2 $start_stop, $color2 100%) /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,$color1), color-stop($start_stop,$color1), color-stop($start_stop,$color2), color-stop(100%,$color2)) /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient($angle2, $color1 0%,$color1 $start_stop,$color2 $start_stop,$color2 100%) /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient($angle2, $color1 0%,$color1 $start_stop,$color2 $start_stop,$color2 100%) /* Opera 11.10+ */
+  background: -ms-linear-gradient($angle2,$color1 0%,$color1 $start_stop,$color2 $start_stop,$color2 100%) /* IE10+ */
+  background: linear-gradient($angle1, $color1 0%,$color1 $start_stop,$color2 $start_stop,$color2 100%) /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=1 ) /* IE6-9 fallback on horizontal gradient */
+
+@mixin image-before-text($url)
+  background-image: image-url($url)
+  background-repeat: no-repeat
+  padding-left: 17px
+  background-size: 13px
+  background-position-y: 1px
+
+@mixin big-title($color, $background_color)
+  background-color: $background_color
+  color: $color
+  padding: 10px 25px
+
+/**************************************************************************
+ * Mixin from projects.css.sass
+ **************************************************************************/
+
+
+
+=title_right($color)
+  background-color: $color
+  text-align: right
+  color: $white
+  margin: -1px -15px 0
+  padding: 10px 20px 10px 0
+  text-transform: uppercase
+  font-size: large
+  font-weight: 900
+
+
+=color_upper($color)
+  color: $color
+  text-transform: uppercase
+
+=white_color_hover($color)
+  font-size: 16px
+  a
+    color: white
+    &:hover
+      color: $color
+
+
+=top_menu_color($color)
+  .panel-heading
+    background-color: $color
+  background-image: $top_menu_dropdown_background
+  background-repeat: repeat
+  +color_upper($color)
+  a
+    color: $color
+    &:hover
+      color: white
+      background-color: $color
+
+=content-block($border_size, $color)
+  border: $border_size solid $color
+  padding: 10px
+  font-size: 13px
+
+=big-title($color, $background_color)
+  background-color: $background_color
+  color: $color
+  padding: 10px 25px
+  border-radius: 10px 0px 0px 10px
+
+//Category banners
+=banner
+  height: 350px
+  -webkit-background-size: contain
+  -moz-background-size: cover
+  -o-background-size: cover
+  background-size: contain
+

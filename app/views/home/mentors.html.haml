@@ -1,0 +1,221 @@
+.col-sm-12.col-md-12.top-buffer-100.bottom-buffer-100
+  .mentors-title-color 
+    %span.uppercase
+      = t('mentors.mentors_title')
+    %span.sm-header
+      = t('mentors.mentors_title_sm')
+    %a.mentors-button.btn{href: 'javacript:;'} 
+      %div 
+        = t('mentors.button_title')
+      %div 
+        = t('mentors.button_title_sm')
+  .row.mentors-table 
+    .col-sm-12.col-md-12.thead.text-center.uppercase
+      .col-sm-4.col-md-4
+        = t('mentors.im').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.expertise').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.contacts').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.status').upcase
+      .col-sm-1.col-md-1
+        = t('mentors.linkedin').upcase
+      .col-sm-1.col-md-1
+        %i.glyphicon.glyphicon-thumbs-up
+    - @users.each do |user|
+      .col-sm-12.col-md-12.row.equal.tbody.top-buffer-30.no_margin.no_padding
+        .col-sm-4.col-md-4.no_padding
+          .col-sm-4.col-md-4.no_padding
+            .pull-left
+              = image_tag(user.image, size: "150x150") unless user.image.nil?
+          .col-sm-8.col-md-8
+            %b
+              = user.name  unless user.name == ''
+            %div
+              %small
+                - location = user.country.to_s unless user.country == ''
+                - location += ', ' + user.city.to_s unless user.city.nil?
+                = location
+            %div.sm-top-buffer
+              Managing Director Goldman Venture
+        .col-sm-2.col-md-2.no_padding
+          %ul.dash.top-buffer-30
+            %li Investment
+            %li Start-up Consultant
+            %li Marketing
+        .col-sm-2.col-md-2.no_padding
+          %ul.dash.top-buffer-30
+            %li info@bullcentury.com
+            %li 0637531258
+        .col-sm-2.col-md-2
+          .top-buffer-30
+            I like brainstorm, so contact me at anytime
+        .col-sm-1.col-md-1.text-center
+          = image_tag('linkedin.png', size: "30x30", class: "top-buffer-30")
+        .col-sm-1.col-md-1.text-center
+          .top-buffer-30
+            5
+.col-sm-12.col-md-12.top-buffer-100.bottom-buffer-100
+  =render partial: 'home/mentor_angular/mentor'
+
+.col-sm-12.col-md-12.top-buffer-100.bottom-buffer-100
+  .mentors-title-color#preview
+    %span
+      = t('mentors.mentors_title_new')
+    %span.sm-header
+      = t('mentors.mentors_title_sm')
+  .row.mentors-table 
+    .col-sm-12.col-md-12.thead.text-center.uppercase
+      .col-sm-4.col-md-4
+        = t('mentors.im').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.expertise').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.contacts').upcase
+      .col-sm-2.col-md-2
+        = t('mentors.status').upcase
+      .col-sm-1.col-md-1
+        = t('mentors.linkedin').upcase
+      .col-sm-1.col-md-1
+        %i.glyphicon.glyphicon-thumbs-up
+    .col-sm-12.col-md-12.row.equal.tbody.top-buffer-30.no_margin.no_padding
+      .col-sm-4.col-md-4.no_padding
+        .col-sm-4.col-md-4.no_padding
+          .pull-left
+            %div{style: "width:150px; height:150px"}
+              = image_tag("user_placeholder.png", id: "mentor_image_sample", onclick: "return $('#mentor_image_sample').attr('src', $('#image_preview > img').attr('src'));")
+        .col-sm-8.col-md-8
+          %b
+            %span#mentor_name_sample
+              = t('mentors.mentor_creation.name')
+            %span#mentor_lastname_sample
+              = t('mentors.mentor_creation.lastname')
+          %div
+            %small
+              %span#mentor_country_sample
+                = t('mentors.mentor_creation.country')
+              , 
+              %span#mentor_city_sample
+                = t('mentors.mentor_creation.city')
+          %div.sm-top-buffer
+            #mentor_position_sample
+              = t('mentors.mentor_creation.position')
+            #mentor_company_sample
+              = t('mentors.mentor_creation.company')
+      .col-sm-2.col-md-2.no_padding
+        %ul.dash.top-buffer-30#mentor_expertise_sample
+          %li Investment
+          %li Start-up Consultant
+          %li Marketing
+      .col-sm-2.col-md-2.no_padding
+        %ul.dash.top-buffer-30
+          %li 
+            %span#mentor_email_sample 
+              = t('mentors.mentor_creation.email')
+          %li 
+            %span#mentor_mobile_sample 
+              = t('mentors.mentor_creation.mobile')
+      .col-sm-2.col-md-2
+        .top-buffer-30
+          #mentor_status_sample
+            = t('mentors.mentor_creation.status_example')
+      .col-sm-1.col-md-1.text-center
+        = image_tag('linkedin.png', size: "30x30", class: "top-buffer-30")
+      .col-sm-1.col-md-1.text-center
+        .top-buffer-30
+          777
+  .row#mentor_creation
+    .col-sm-6.col-md-6.top-buffer-30.no_padding
+      .col-sm-6.col-md-6.top-buffer-40
+        =text_field(:mentor, :name, class: 'form-control', placeholder: t('mentors.mentor_creation.name'), required:'required')
+      .col-sm-6.col-md-6.top-buffer-40
+        =text_field(:mentor, :lastname, class: 'form-control', placeholder: t('mentors.mentor_creation.lastname'))
+      .col-sm-6.col-md-6.sm-top-buffer
+        =text_field(:mentor, :country, class: 'form-control', placeholder: t('mentors.mentor_creation.country'))
+      .col-sm-6.col-md-6.sm-top-buffer
+        =text_field(:mentor, :city, class: 'form-control', placeholder: t('mentors.mentor_creation.city'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        =text_area(:mentor, :expertise, class: 'form-control', rows: '6', placeholder: t('mentors.mentor_creation.expertise'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        =email_field(:mentor, :email, class: 'form-control', placeholder: t('mentors.mentor_creation.email'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        %select.form-control{:name => 'mentor[status]', id: 'mentor_status',:required => 'required', "required title" => "Please select one status"}
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} 
+            = t('mentors.mentor_creation.choose_your_status')
+          %option{:value => 1} 
+            = t('mentors.mentor_creation.status_instruction1')
+          %option{:value => 2} 
+            = t('mentors.mentor_creation.status_instruction2')
+    .col-sm-6.col-md-6.top-buffer-30.no_padding
+      .col-sm-4.col-md-4.no_padding
+        .fileinput.fileinput-new{"data-provides" => "fileinput"}
+          .fileinput-preview.thumbnail#image_preview{"data-trigger" => "fileinput"}
+            / %div Image upload 1024x768
+            = image_tag("user_placeholder.png")
+          %div
+            %span.btn.btn-file.file-input
+              = file_field(:mentor, :image, onchange: "return $('#mentor_image_sample').attr('src', $('#image_preview > img').attr('src'));");
+      .col-sm-8.col-md-8.top-buffer-40#image_instruction
+        %p
+          = t('mentors.mentor_creation.image_instruction_title')
+        %ol
+          %li 
+            = t('mentors.mentor_creation.image_instruction1')
+          %li 
+            = t('mentors.mentor_creation.image_instruction2')
+      .col-sm-12.col-md-12
+        =text_field(:mentor, :mobile, class: 'form-control', placeholder: t('mentors.mentor_creation.mobile'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        =text_field(:mentor, :linkedin, class: 'form-control', placeholder: t('mentors.mentor_creation.linkedin'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        =text_field(:mentor, :company, class: 'form-control', placeholder: t('mentors.mentor_creation.company'))
+      .col-sm-12.col-md-12.sm-top-buffer
+        =text_field(:mentor, :position, class: 'form-control', placeholder: t('mentors.mentor_creation.position'))
+      %a.mentors-button.btn.margin-all-20{href: '#preview'} 
+        %div 
+          = t('mentors.preview')
+
+:javascript
+  function makeSame(id_source, id_target)
+  {
+    var value = $(id_source).val();
+    $(id_target).text(value);
+  };
+
+  $(document).ready(function() {
+    $('#mentor_name').on('change', function() {
+      makeSame('#mentor_name', '#mentor_name_sample');
+    });
+    $('#mentor_lastname').on('change', function() {
+      makeSame('#mentor_lastname', '#mentor_lastname_sample');
+    });
+    $('#mentor_country').on('change', function() {
+      makeSame('#mentor_country', '#mentor_country_sample');
+    });
+    $('#mentor_city').on('change', function() {
+      makeSame('#mentor_city', '#mentor_city_sample');
+    });
+    $('#mentor_expertise').on('change', function() {
+      makeSame('#mentor_expertise', '#mentor_expertise_sample');
+    });
+    $('#mentor_email').on('change', function() {
+      makeSame('#mentor_email', '#mentor_email_sample');
+    });
+    $('#mentor_status').on('change', function() {
+      var value = $('#mentor_status option:selected').html();
+      $('#mentor_status_sample').text(value);
+    });
+    $('#mentor_mobile').on('change', function() {
+      makeSame('#mentor_mobile', '#mentor_mobile_sample');
+    });
+    $('#mentor_position').on('change', function() {
+      makeSame('#mentor_position', '#mentor_position_sample');
+    });
+    $('#mentor_company').on('change', function() {
+      makeSame('#mentor_company', '#mentor_company_sample');
+    });
+  });
+
+
+  

@@ -1,0 +1,17 @@
+%h4
+  %strong
+    = t('reward.reward_for').upcase
+    = reward.per_amount.to_s  + '+'
+    = @project.currency.key unless @project.currency.nil?
+%div.reward-small.bottom-buffer-50
+  %span{class: hideText} 
+    = reward.description
+  - if reward.image?
+    %p
+      = image_tag reward.image.url(:thumb), class: 'img-rounded'
+/ - if(can?(:manage, @project))     
+/   - if !@project.published? and !@project.closed? and !@project.on_review? 
+/     - if user_signed_in?
+/       %p
+/         = link_to t('reward.edit_reward'), edit_project_reward_path(reward.project.id, reward.id), :class => 'btn btn-info'
+/         = link_to t('reward.delete_reward'), project_reward_path(reward.project.id, reward.id), method: :delete, :class => 'btn btn-link'

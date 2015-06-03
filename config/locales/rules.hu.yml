@@ -1,0 +1,8 @@
+hu:
+  rules:
+    nav:
+      project-categories: "Projekt kategóriák"
+      the-project: "Project sztenderdek"
+      who-can-create-project: "KI HOZHAT LÉTRE PROJEKTET"
+      who-can-support-project: "KI FEKTETHET BE ÉS TÁMOGATHAT"
+      what-is-not-allowed: "MI NEM MEGENGEDETT"

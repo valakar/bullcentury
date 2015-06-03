@@ -1,0 +1,155 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer
+  .col-sm-8.col-md-8
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("promote_project.png")
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.promote.title_part1')
+      %h1.second-header
+        = t('profile.promote.title_part2')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  .col-sm-6.col-md-6
+    %span.pull-right
+      %a.tooltips{:href => "javascript:;"}
+        = t('profile.main.how_it_works')
+        %span 
+          = t('profile.main.how_it_works')
+    .row.two-column-table
+      .col-sm-12.col-md-12.thead
+        KEY INDICATORS
+      .row.equal.tbody
+        .col-sm-5.col-md-5.td-first CONVERSION RATE
+        .col-sm-7.col-md-7.td-second 0.78
+      .row.equal.tbody.sm-top-buffer
+        .col-sm-5.col-md-5.td-first AVERAGE PLEGE 
+        .col-sm-7.col-md-7.td-second 35 usd
+      .row.equal.tbody.sm-top-buffer
+        .col-sm-5.col-md-5.td-first CLICKS NEEDED TO SUCCESS
+        .col-sm-7.col-md-7.td-second I will contact you if I'm interested in your project
+    .row.two-column-table
+      .col-sm-12.col-md-12.thead
+        PROGRESS
+      .row.equal.tbody
+        .col-sm-5.col-md-5.td-first GOAL
+        .col-sm-7.col-md-7.td-second 
+          = @project.nil? ? "0" : @project.funding_goal.to_i
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+      .row.equal.tbody.sm-top-buffer
+        .col-sm-5.col-md-5.td-first FUND PLEGED 
+        .col-sm-7.col-md-7.td-second 
+          = @project.nil? ? "0" : @project.funding_goal.to_i
+          = @project.nil? ? "$" : (@project.currency.nil? ? "$" : @project.currency.key)
+      .row.equal.tbody.sm-top-buffer
+        .col-sm-5.col-md-5.td-first PROGRESS
+        .col-sm-7.col-md-7.td-second 
+
+          = @project.nil? ? "0%" : (((@project.funding_goal.to_i == 0 ? 1 : @project.funding_goal.to_i)/(@project.funding_goal.to_i == 0 ? 1 : @project.funding_goal.to_i))*100).to_s + "%"
+      .row.equal.tbody.sm-top-buffer
+        .col-sm-5.col-md-5.td-first DAYS TO CLOSE
+        .col-sm-7.col-md-7.td-second 15 DAYS
+  .col-sm-6.col-md-6
+    %span.pull-right
+      %a.tooltips{:href => "javascript:;"}
+        = t('profile.main.what_is_it')
+        %span 
+          = t('profile.main.what_is_it')
+    .row.two-column-table.social-table 
+      .col-sm-12.col-md-12.thead.text-center
+        .col-sm-3.col-md-3
+          SM
+        .col-sm-3.col-md-3
+          CLICKS
+        .col-sm-3.col-md-3
+          LIKES
+        .col-sm-3.col-md-3
+          FANS
+
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/facebook_icon.png', clicks: '200', likes: '159', fans: '1200'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/vk_icon.png', clicks: '1200', likes: '120', fans: '900'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/google+_icon.png', clicks: '150', likes: '70', fans: '700'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/linkedin_icon.png', clicks: '750', likes: '12', fans: '500'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/instagram_icon.png', clicks: '40', likes: '30', fans: '100'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/youtube_icon.png', clicks: '30', likes: '', fans: '70'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/twitter_icon.png', clicks: '50', likes: '1', fans: '40'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/vimeo_icon.png', clicks: '40', likes: '2', fans: '10'}
+      = render partial: '/profiles/promote/social_table_row', locals: {link: 'javascript:;', image: 'social/vine_icon.png', clicks: '8', likes: '5', fans: '1'}
+
+  .col-sm-12.col-md-12.big-top-buffer.mouse_pointer#step1{:term => "step1"}
+    .row.equal
+      .col-sm-4.col-md-4.big-header.text-right STEP 1
+      .col-sm-8.col-md-8.vertical-middle.text-center
+        .step-1 LET YOUR FRIENDS KNOW ON SM
+        .glyphicon.glyphicon-chevron-down.step-1-button
+  .col-sm-12.col-md-12.content#step1-content{:term => "step1"}
+    %form{:action => "#"}
+      .col-sm-7.col-md-7
+        %span.pull-right
+          %a.tooltips{:href => "javascript:;"}
+            = t('profile.main.what_is_it')
+            %span 
+              = t('profile.main.what_is_it')
+        .row.two-column-table.sm-marketing-table
+          .col-sm-12.col-md-12.thead
+            .col-sm-10.col-md-10
+              SOCIAL MEDIA MARKETING
+            .col-sm-2.col-md-2.text-center
+              SHARE PJ UPDATES
+
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/facebook_icon.png', text: 'facebook', id: '#option1', value: '1'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/google+_icon.png', text: 'Google+', id: '#option2', value: '2'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/vk_icon.png', text: 'Vkontakte', id: '#option3', value: '3'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/linkedin_icon.png', text: 'LinkedIn', id: '#option4', value: '4'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/instagram_icon.png', text: 'instagram', id: '#option5', value: '5'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/vimeo_icon.png', text: 'vimeo', id: '#option6', value: '6'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/twitter_icon.png', text: 'twitter', id: '#option7', value: '7'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/youtube_icon.png', text: 'youtube', id: '#option8', value: '8'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: 'social/vine_icon.png', text: 'vine', id: '#option9', value: '9'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: '', text: '', id: '#option10', value: '10'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: '', text: 'popular in your country', id: '#option11', value: '11'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: '', text: 'popular in your country', id: '#option12', value: '12'}
+          = render partial: '/profiles/promote/sm_marketing_row', locals: {link: 'javascript:;', image: '', text: '', id: '#option13', value: '13'}
+
+      .col-sm-5.col-md-5.marketing-rules
+        .col-sm-12.col-md-12 - You have not published anything yet
+        .col-sm-12.col-md-12 - First automatic post starts only after your project is complete, approved and published
+        .col-sm-12.col-md-12 - What will be posting automatically on my social?
+        .col-sm-12.col-md-12 
+          %button{:type => "submit"} 
+            %div Save
+            %div Let's do it
+  .col-sm-12.col-md-12.big-top-buffer.mouse_pointer#step2{:term => "step2"}
+    .row.equal
+      .col-sm-4.col-md-4.big-header.text-right STEP 2
+      .col-sm-8.col-md-8.vertical-middle.text-center
+        .step-2 See how good you are - just do it !
+        .glyphicon.glyphicon-chevron-down.step-2-button
+  .col-sm-12.col-md-12.content#step2-content{:term => "step2"}
+    STEP 2
+  .col-sm-12.col-md-12.big-top-buffer.mouse_pointer#step3{:term => "step3"}
+    .row.equal
+      .col-sm-4.col-md-4.big-header.text-right STEP 3
+      .col-sm-8.col-md-8.vertical-middle.text-center
+        .step-3 More ideas how to market my project 
+        .glyphicon.glyphicon-chevron-down.step-3-button
+  .col-sm-12.col-md-12.content#step3-content{:term => "step3"}
+    STEP 3
+:javascript
+  $(document).ready(function(){
+    $('.mouse_pointer').click(function(){
+      term = $(this).attr('term');
+      //alert(term_text);
+      $('.content').each(function(){    
+        if ($(this).attr('term') == term){        
+          if ($(this).css('display') == 'none'){
+            $('.content:not(this)').css('display','none');
+            $(this).css('display','block');
+          }          
+          else {
+            $(this).css('display','none');
+          }      
+                      
+        }
+      });
+    });
+  });

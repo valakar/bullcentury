@@ -1,0 +1,124 @@
+<div class="col-sm-9 top-buffer-50" data-spy="scroll" data-target="#nav-rules">
+  <% if I18n.locale == :ua %>
+      <%= render partial: 'home/faq_ua' %>
+  <% end %>
+
+  <% if I18n.locale == :ru %>
+      <%= render partial: 'home/faq_ru' %>
+  <% end %>
+
+  <% if I18n.locale == :en %>
+      <%= render partial: 'home/faq_en' %>
+  <% end %>
+
+  <% if I18n.locale == :hu %>
+      <%= render partial: 'home/faq_hu' %>
+  <% end %>
+</div>
+<div class="col-sm-3 top-buffer-50">
+	<div class="bs-sidebar hidden-print" role="complementary">
+  		<h3 class="text-center"><%= t('faq') %></h3>
+  		<%= image_tag 'information-symbol.jpg', width: '210px' %>
+  		<!-- <img src="../assets/information-symbol.jpg" width="210px"> -->
+
+	  	<div class="grid-nav-container row text-center empty">
+	  		<div class="col-sm-12 col-md-12">
+		  		<div class="pink_hover_white" >
+			  		<div class="grid-nav-item-small border-pink  ">
+			  			<a href="#index-a" class="empty" term="index-a">
+			  				<%= t('infocenter.nav.index-a') %>
+			  			</a>
+			  		</div>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="grid-nav-container row text-center empty">
+		  	<div class="col-sm-12 col-md-12">
+		  		<div class="blue_hover_white">
+			  		<div class="grid-nav-item-small border-blue">
+			  			<a href="#index-b" class="empty" term="index-b">
+			  				<%= t('infocenter.nav.index-b') %>
+			  			</a>
+			  		</div>
+			  	</div>
+		  	</div>
+	  	</div>
+	  	
+	  	<div class="grid-nav-container row text-center">
+		  	<div class="col-sm-12 col-md-12">
+		  		<div class="yellow_hover_white">
+			  		<div class="grid-nav-item-small border-yellow">
+			  			<a href="#index-c" class="empty" term="index-c">
+			  				<%= t('infocenter.nav.index-c') %>
+			  			</a>
+			  		</div>
+			  	</div>
+		  	</div>
+		</div>
+		<div class="grid-nav-container row text-center empty">
+		  	<div class="col-sm-12 col-md-12">
+		  		<div class="green_hover_white">
+			  		<div class="grid-nav-item-small border-green">
+			  			<a href="#index-d" class="empty" term="index-d">
+			  				<%= t('infocenter.nav.index-d') %>
+			  			</a>
+			  		</div>
+			  	</div>
+		  	</div>
+	  	</div>
+  	</div>
+</div>
+<div class="col-sm-12 bottom-buffer-150">
+<!-- GoUp Button -->
+<span id="top-link-block" class="hidden">
+    <a href="#top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <%= image_tag 'up_button.png' %>
+    </a>
+</span>
+
+<!-- GoUp button -->
+<script type="text/javascript">
+  // Only enable if the document has a long scroll bar
+  // Note the window height + offset
+  if ( ($('body').outerHeight() > $(window).height()) ) {
+      $('#top-link-block').removeClass('hidden').affix({
+          // how far to scroll down before link "slides" into view
+          offset: {top:100}
+      });
+  }
+</script>
+
+<script type="text/javascript">
+// $(document).ready(function(){
+//   $('.mouse_pointer').click(function(){
+//     term = $(this).attr('term');
+//     //$(this).addClass('blue');
+//     //alert(term_text);
+//     $('.content').each(function(){    
+//       if ($(this).attr('term') == term){        
+//         if ($(this).css('display') == 'none'){
+//           $(this).css('display','block');
+//         }          
+//         else {
+//           $(this).css('display','none');
+//         }      
+                    
+//       }
+//     });
+//   });
+// });
+// $(document).ready(function(){
+//   $('.empty').click(function(){
+//     term = $(this).attr('term');
+//     //$(this).addClass('blue');
+//     //alert(term_text);
+//     $('.content').each(function(){    
+//       if ($(this).attr('term') == term){        
+//         if ($(this).css('display') == 'none'){
+//           $(this).css('display','block');
+//         }                 
+//       }
+//     });
+//   });
+// });
+</script>

@@ -1,0 +1,335 @@
+/ list subcategory
+/ art
+%strong= t('art')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.art.sub_1')
+  .col-sm-7
+    \- #{t('quickstart.category.art.sub_small_1')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.art.sub_2')
+  .col-sm-7
+    \- #{t('quickstart.category.art.sub_small_2')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.art.sub_3')
+  .col-sm-7
+    \- #{t('quickstart.category.art.sub_small_3')}
+.clearfix
+/ crazy
+%strong= t('crazy')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.crazy.sub_1')
+  .col-sm-7
+    \- #{t('quickstart.category.crazy.sub_small_1')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.crazy.sub_2')
+  .col-sm-7
+    \- #{t('quickstart.category.crazy.sub_small_2')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.crazy.sub_3')
+  .col-sm-7
+    \- #{t('quickstart.category.crazy.sub_small_3')}
+.clearfix
+/ innovation
+%strong= t('innovation')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.innov.sub_1')
+  .col-sm-7
+    \- #{t('quickstart.category.innov.sub_small_1')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.innov.sub_2')
+  .col-sm-7
+    \- #{t('quickstart.category.innov.sub_small_2')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.innov.sub_3')
+  .col-sm-7
+    \- #{t('quickstart.category.innov.sub_small_3')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.innov.sub_4')
+  .col-sm-7
+    \- #{t('quickstart.category.innov.sub_small_4')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.innov.sub_5')
+  .col-sm-7
+    \- #{t('quickstart.category.innov.sub_small_5')}
+.clearfix
+/ lrisure
+%strong= t('leisure')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.leisure.sub_1')
+  .col-sm-7
+    \- #{t('quickstart.category.leisure.sub_small_1')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.leisure.sub_2')
+  .col-sm-7
+    \- #{t('quickstart.category.leisure.sub_small_2')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.leisure.sub_3')
+  .col-sm-7
+    \- #{t('quickstart.category.leisure.sub_small_3')}
+.clearfix
+/ MEDIA
+%strong= t('media')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.media.sub_1')
+  .col-sm-7
+    = t('quickstart.category.media.sub_small_1')
+    \ 
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.media.sub_2')
+  .col-sm-7
+    = t('quickstart.category.media.sub_small_2')
+    \ 
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.media.sub_3')
+  .col-sm-7
+    = t('quickstart.category.media.sub_small_3')
+    \ 
+.clearfix
+/ SOCIAL
+%strong= t('social')
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.social.sub_1')
+  .col-sm-7
+    \- #{t('quickstart.category.social.sub_small_1')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.social.sub_2')
+  .col-sm-7
+    \- #{t('quickstart.category.social.sub_small_2')}
+.row-fluid
+  .col-sm-offset-1.col-sm-4
+    = t('quickstart.category.social.sub_3')
+  .col-sm-7
+    \- #{t('quickstart.category.social.sub_small_3')}
+.clearfix
+
+/ <!--list subcategory--
+/ <script type="text/javascript">
+/ $(document).ready(function(){
+/   $('.head').click(function(){
+/     term = $(this).attr('term');
+/     //alert(term_text);
+/     $('.subcategory').each(function(){    
+/       if ($(this).attr('term') == term){        
+/         if ($(this).css('display') == 'none'){
+/           $(this).css('display','block');
+/         }          
+/         else {
+/           $(this).css('display','none');}      
+                    
+/       }
+/     });
+/   });
+/ });
+/ </script>
+
+/ <div class="head" term="art">
+/ <strong><%= t('art') %></strong>
+/ </div>
+/ <div class="subcategory" term="art">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.art.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.art.sub_small_1') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="art">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.art.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.art.sub_small_2') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="art">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.art.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.art.sub_small_3') %>
+/   </div>
+/ </div>
+
+/ <!--art
+/ crazy--
+/ <div class="head" term="crazy">
+/ <strong><%= t('crazy') %></strong>
+/ </div>
+/ <div class="subcategory" term="crazy">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.crazy.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.crazy.sub_small_1') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="crazy">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.crazy.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.crazy.sub_small_2') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="crazy">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.crazy.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.crazy.sub_small_3') %>
+/   </div>
+/ </div>
+/ / end crazy
+
+/ <!--innovation--
+/ <div class="head" term="innov">
+/   <strong><%= t('innovation') %></strong>
+/ </div>
+/ <div class="subcategory" term="innov">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.innov.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.innov.sub_small_1') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="innov">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.innov.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.innov.sub_small_2') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="innov">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.innov.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.innov.sub_small_3') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="innov">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.innov.sub_4') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.innov.sub_small_4') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="innov">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.innov.sub_5') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.innov.sub_small_5') %>
+/   </div>
+/ </div>
+/ <!-- end innovation--
+/ <!--leisure--
+/ <div class="head" term="leisure">
+/   <strong><%= t('leisure') %></strong>
+/ </div>
+/ <div class="subcategory" term="leisure">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.leisure.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.leisure.sub_small_1') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="leisure">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.leisure.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.leisure.sub_small_2') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="leisure">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.leisure.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.leisure.sub_small_3') %>
+/   </div>
+/ </div>
+/ <!--end leisure--
+/ <!--MEDIA--
+/ <div class="head" term="media">
+/   <strong><%= t('media') %></strong>
+/ </div>
+/ <div class="subcategory" term="media">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.media.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     &nbsp;
+/   </div>
+/ </div>
+/ <div class="subcategory" term="media">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.media.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     &nbsp;
+/   </div>
+/ </div>
+/ <div class="subcategory" term="media">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.media.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     &nbsp;
+/   </div>
+/ </div>
+/ / end media
+/ <!--SOCIAL--
+/ <div class="head" term="social">
+/   <strong><%= t('social') %></strong>
+/ </div>
+/ <div class="subcategory" term="social">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.social.sub_1') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.social.sub_small_1') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="social">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.social.sub_2') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.social.sub_small_2') %>
+/   </div>
+/ </div>
+/ <div class="subcategory" term="social">
+/   <div class="col-sm-offset-1 col-sm-4">
+/     <%= t('quickstart.category.social.sub_3') %>
+/   </div>
+/   <div class="col-sm-7">
+/     <%= t('quickstart.category.social.sub_small_3') %>
+/   </div>
+/ </div>
+
+/ <div class="clearfix"></div>

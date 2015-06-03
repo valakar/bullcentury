@@ -1,0 +1,55 @@
+.col-sm-12.col-md-12#feedback
+  %h3.text-center
+    = t('feedback.title')
+  .col-sm-6.col-md-6.col-sm-offset-3.form
+    / = simple_form_for @feedback, :html => {:class => 'form-horizontal' } do |f|
+    /   = f.input :name, :required => true
+    /   = f.input :email, :required => true
+    /   = f.input :subject, :required => true
+    /   = f.input :message, :as => :text, :required => true
+    /   .hidden
+    /     = f.input :nickname, :hint => 'Leave this field blank!'
+    /   %div
+    /     = f.button :submit, 'Send message', :class=> "btn"
+
+    = simple_form_for @feedback, :html => {:class => 'form-horizontal', 'data-toggle' => "validator"} do |f|
+      .form-group
+        = f.label :email, t('devise.name')
+        = f.text_field :name, :autofocus => true, :class => 'form-control input-narrow'
+      .form-group
+        = f.label :email, t('devise.email')
+        = f.email_field :email, :required => true, :class => 'form-control input-narrow', 'data-error' => t('errors.messages.valid_email')
+        %span.help-block.with-errors 
+      .form-group
+        = f.label :email, t('feedback.type')
+        / = f.select(:type)
+        %select.form-control.input-narrow{:name => 'feedback[type]', :required => 'required', 'data-error' => t('errors.messages.valid_type')}
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} 
+            =t('feedback.choose_type')
+          %option{:value => t('feedback.technical')} 
+            = t('feedback.technical')
+          %option{:value => t('feedback.page_design')} 
+            = t('feedback.page_design')
+          %option{:value => t('feedback.payment')} 
+            = t('feedback.payment')
+          %option{:value => t('feedback.custome_service')} 
+            = t('feedback.custome_service')
+          %option{:value => t('feedback.good_idea')} 
+            = t('feedback.good_idea')
+          %option{:value => t('feedback.other')} 
+            = t('feedback.other')
+        %span.help-block.with-errors 
+      .form-group
+        = f.label :email, t('feedback.subject')
+        = f.text_field :subject, :class => 'form-control input-narrow', :required => true, 'data-minlength' => "5", 'data-error' => t('errors.messages.min_5')
+        %span.help-block.with-errors 
+      .form-group
+        = f.label :email, t('feedback.message')
+        = f.text_area :message, :as => :text, :required => true, :class => 'form-control input-narrow', 'data-error' => t('errors.messages.required_field')
+        %span.help-block.with-errors 
+      .hidden
+        = f.input :nickname, :hint => 'Leave this field blank!'
+      %div.text-center
+        = f.button :submit, t('feedback.send'), :class=> "btn btn-success"
+        %button.btn{:type => "reset"} 
+          = t('cancel')

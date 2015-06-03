@@ -1,0 +1,100 @@
+/ banner here
+= render partial: 'banner'
+/ banner ends
+%br
+
+.row.projects_rows.bottom-buffer-150
+  - if @category.nil?
+    = render partial: 'projects_block', locals: { |
+      key: 'popular',                             |
+      projects: @projects,                        |
+      caption: t('popular_projects'),             |
+      is_separator_hidden: true }                 |
+    -#
+    = render partial: 'projects_block', locals: { |
+      key: 'successful',                          |
+      projects: @projects,                        |
+      caption: t('successful_projects'),          |
+      is_separator_hidden: false }                |
+  - else
+    = render partial: 'projects_block', locals: {          |
+      key: 'popular',                                      |
+      projects: @projects,                                 |
+      caption: t(@category) + ' ' + t('popular_projects'), |
+      is_separator_hidden: true }                          |
+  - Category.order('name ASC').all.each_with_index do |category, n|
+    = render partial: 'projects_block', locals: { |
+      key: category.key,                          |
+      projects: @projects,                        |
+      caption: t(category.key),                   |
+      is_separator_hidden: false }                |
+%br
+%span#top-link-block.hidden
+  %a{:href => "#top", :onclick => "$('html,body').animate({scrollTop:0},'slow');return false;"}
+    = image_tag 'up_button.png'
+/ /top-link-block
+/ create new lin
+/ arrow for top menu
+:javascript
+  $('.collapse').on('shown.bs.collapse', function(){
+  	$(this).parent().find(".glyphicon-chevron-left").removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-down");
+  }).on('hidden.bs.collapse', function(){
+  	$(this).parent().find(".glyphicon-chevron-down").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-left");
+  });
+/ horizontal slider
+:javascript
+  (function () {
+  	$(function() {
+  	  $(".projects-carousel").each(function (i, element) {
+  	    $(element).jCarouselLite({
+  	      btnNext: $('.next', element)[0],
+  	      btnPrev: $('.prev', element)[0],
+  	      visible: 3,
+  	      start: 0,
+  	      circular: false
+  	    });
+  	  });
+  	});
+  })()
+/ GoUp button
+:javascript
+  // Only enable if the document has a long scroll bar
+  // Note the window height + offset
+  if ( ($('body').outerHeight() > $(window).height()) ) {
+      $('#top-link-block').removeClass('hidden').affix({
+          // how far to scroll down before link "slides" into view
+          offset: {top:800}
+      });
+  }
+/ <!-- Top menu hover dropdown
+:javascript
+  $(function() {
+  
+  	var active = true;
+  
+      $('#accordion').on('mouseenter.collapse.data-api', '[data-toggle=hovercollapse]', function(e) {
+          var $this = $(this),
+              href, target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+              ,
+              option = $(target).data('collapse') ? $this.data(): 'show' 
+              $(target).collapse(option)
+      })
+  	$('#accordion.panel').on('mouseleave.collapse.data-api', '[data-toggle=hovercollapse]', function(e) {
+          var $this = $(this),
+              href, target = $this.attr('data-target') || e.preventDefault() || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+              ,
+              option = $(target).data('hide') ? $this.data() : 'hide'
+              $(target).collapse(option)
+  
+      }) 
+  	    $('#accordion').on('show.bs.collapse', function () {
+  	    if (active) $('#accordion .in').collapse('hide');
+  	});
+  	$('html').click(function() {
+  		if (active) $('#accordion .in').collapse('hide');
+  	});
+  })
+:javascript
+  $(function() {
+    $('.panel-title').quickfit({ width: 310, max: 16, min: 11 });
+  });

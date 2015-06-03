@@ -1,0 +1,87 @@
+/ .row.equal.top-buffer-150.bottom-buffer-200
+/   .col-sm-2.col-md-2.col-sm-offset-1.vertical-middle.text-center
+/     = image_tag('bullcentury_logo.png', width: 130, class: 'bottom-buffer-50')
+/   .col-sm-5.col-md-5.vertical-middle.text-center.no_margin{style: "color: darkgray"}
+/     %h4 BULLCENTURY, part of GOLDMAN VENTURE.
+/   .col-sm-3.col-md-3
+/     = image_tag('goldman_venture.png', width: 250, class: 'top-buffer-100')
+- content_for :part1 do
+  .imagewrap.shadow
+    #company_banner
+/ # = image_tag "banners/popular_bigbanner.png", :class => "project-banner "
+.col-sm-12.col-md-12.font-size-16.bottom-buffer-50
+  %h3.text-center About us
+  .col-sm-3.col-md-3.no_padding
+    .col-sm-12.col-md-12.no_padding.about-us.bottom-buffer-50
+      .col-sm-3.col-md-3.no_padding.icon
+        = image_tag("icons/man204.svg", size: '60x60')
+      .col-sm-9.col-md-9
+        %h5 Total Guests
+        %h3 100,000,000+
+    .col-sm-12.col-md-12.no_padding.about-us
+      .col-sm-3.col-md-3.no_padding.icon
+        = image_tag("icons/light28.svg", size: '60x60')
+      .col-sm-9.col-md-9
+        %h5 Total Projects
+        %h3 100,000+
+  .col-sm-6.col-md-6.text-justify
+    %p
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+    %p 
+      Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+  .col-sm-3.col-md-3.no_padding
+    .col-sm-12.col-md-12.no_padding.about-us.bottom-buffer-50
+      .col-sm-3.col-md-3.no_padding.icon
+        = image_tag("icons/ukraine.svg", size: '60x60')
+      .col-sm-9.col-md-9
+        %h5 Countries
+        %h3 100+
+    .col-sm-12.col-md-12.no_padding.about-us
+      .col-sm-3.col-md-3.no_padding.icon
+        = image_tag("icons/urban.svg", size: '60x60')
+      .col-sm-9.col-md-9
+        %h5 Cities
+        %h3 3,400+
+- content_for :part2 do
+  .second-part-content.bottom-buffer-50
+    .second-part-content-container
+      .row
+        .col-sm-12.col-md-12#team
+          %h3.text-center Team
+          = render partial: 'home/company/member', locals: {image: "team/example_image.png"}
+          = render partial: 'home/company/member', locals: {image: "team/yulia.jpg"}
+          = render partial: 'home/company/member', locals: {image: "team/james.jpg"}
+          = render partial: 'home/company/member', locals: {image: "team/victor.jpg"}
+- content_for :part3 do
+  .bottom-buffer-50
+    .empty-container
+      .row
+        .col-sm-12.col-md-12#we_belive.bottom-buffer-30
+          %h3.text-center We believe
+          .col-sm-6.col-md-6.col-sm-offset-3
+            %ol
+              %li Focus on the user and all else will follow.
+              %li It’s best to do one thing really, really well.
+              %li Fast is better than slow.
+              %li Democracy on the web works.
+              %li You don’t need to be at your desk to need an answer.
+              %li You can make money without doing evil.
+              %li There’s always more information out there.
+              %li The need for information crosses all borders.
+              %li You can be serious without a suit.
+              %li Great just isn’t good enough.
+        .text-center
+          = image_tag("map.png", width: '970')
+  %div
+    .empty-container
+      .row
+        = image_tag("company_new_style/1.jpg", width: '25%', class: 'pull-left')
+        = image_tag("company_new_style/2.jpg", width: '75%', class: 'pull-left')
+        = image_tag("company_new_style/3.jpg", width: '100%', class: 'pull-left')
+        %div{style: 'width: 50%', class: 'pull-left'}
+          = image_tag("company_new_style/4.jpg", width: '100%', class: 'pull-left')
+          = image_tag("company_new_style/5.jpg", width: '50%', class: 'pull-left')
+          = image_tag("company_new_style/6.jpg", width: '50%', class: 'pull-left')
+        = image_tag("company_new_style/7.jpg", width: '50%', class: 'pull-left')  
+
+          

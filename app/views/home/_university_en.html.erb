@@ -1,0 +1,435 @@
+<%= render partial: 'university_banner' %>
+
+<h1>BC University</h1>
+<!-- Nav tabs -->
+
+<%= render partial: 'university_nav' %>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="intro">
+    <h2>What is BC University</h2>
+    <p>BC University is built to help you getting BETTER on 3 things:</p>
+    <ol>
+      <li>Understand BullCentury usability better</li>
+      <li>Create your project better</li>
+      <li>Fund raise your project better</li>
+    </ol>
+    <p>It is a information resource center where you will find detailed instructional, tutorial, and advisory information. BC University provides the main features like:</p>
+    <table class="table table-bordered table-hover">
+      <tr>
+        <td>
+          1. Video Class Room
+        </td>
+        <td>
+          Explains basic HOW TO questions
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2. Text Instruction
+        </td>
+        <td>
+          Step-by-step explanation on every process
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3. Consultant
+        </td>
+        <td>
+          How to be BETTER on key issues<br>
+          e .g. build project better; promote project better, shoot project video better... etc.
+        </td>
+      </tr>
+    </table>
+    <p><strong>FUTURE</strong> - As BULLCENTURY keep growing, the future BC university will be further developed into a comprehensive Central Intelligence Resource (CIR) rather than just a study-center. Additionally, it will be the home for project analytical tools, statistic data center, forecast center, press publishing power house and socializing ground - the place where you could meet up new friends and exchange expertise.</p>
+  </div>
+  <div class="tab-pane" id="level_1">
+    <h2>LEVEL 1: BASICS</h2>
+    <!--<ol>
+      <li><a href="#">BC Rules</a></li>
+      <li><a href="#">Fees</a></li>
+      <li><a href="#">Create Project</a></li>
+      <li><a href="#">Navigate On Home Page</a></li>
+      <li><a href="#">Create Project Video</a></li>
+      <li><a href="#">Create Reward</a></li>
+      <li><a href="#">Promote Your Project</a></li>
+      <li><a href="#">Receive And Send a Payment</a></li>
+      <li><a href="#">More Questions Or Ideas</a></li>
+    </ol>-->
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.header').click(function(){
+          term = $(this).attr('term');
+          //$(this).addClass('blue');
+          //alert(term_text);
+          $('.content').each(function(){    
+            if ($(this).attr('term') == term){        
+              if ($(this).css('display') == 'none'){
+                $(this).css('display','inline-block');
+              }          
+              else {
+                $(this).css('display','none');
+              }      
+                          
+            }
+          });
+        });
+      });
+    </script>
+    <h3 class="header" term="rules">1. BC Rules</h3>
+    <div class="content no_margin" term="rules" >
+      <% if I18n.locale == :ua %>
+          <%= render partial: 'home/rules_ua' %>
+      <% end %>
+
+      <% if I18n.locale == :ru %>
+          <%= render partial: 'home/rules_ru' %>
+      <% end %>
+
+      <% if I18n.locale == :en %>
+          <%= render partial: 'home/rules_en' %>
+      <% end %>
+
+      <% if I18n.locale == :hu %>
+          <%= render partial: 'home/rules_hu' %>
+      <% end %>
+      <br /><br />
+    </div>
+    <h3 class="header" term="fees">2. Fees</h3>
+    <div class="content" term="fees">
+      <p>Coming Soon</p>
+    </div>
+    <h3 class="header" term="create_project">3. Create Project</h3>
+    <div class="content" term="create_project">
+      <p>Coming Soon</p>
+    </div>
+
+    <h3 class="header" term="navigate">4. Navigate on Home Page</h3>
+    <div class="content" term="navigate">
+      <p>Start to navigate on Bullcentury website is fast and easy. Our introduction content will be in a top-to-bottom order.</p>
+      <h4 class="header" term="section_1">Section 1</h4>
+      <div class="content" term="section_1">
+        <p>Referring to the page top area above of the main banner. You may find out the basic feature links including Logo, Rules, Quick Start, Searching bar, Sign Up and Log in/out. In second line position, you may find 3 tab-buttons and language version switcher. Section-1 is a fixed template structure. Meaning no mater which page your browsing leads you to later on, this same set of structure will be always showing on the top of each page.</p>
+        <p><strong>Logo</strong> meaning home screen button, it gets you back to the home screen no matter where you went.</p>
+        <p><strong>Searching</strong> will allow you to quickly find out information you need, for example by project name, ID or question key words.</p>
+        <p><strong>Sign up, Log in/out</strong>. Very straight forward meaning. They are part of structure template on the top, meaning you can do all these no matter which page you are at and any time you want to.</p>
+        <p><strong>3 Tab Buttons: Browsing Project, Create Project, Information</strong></p>
+        <p>Projects - Browse all project.</p>
+        <p>Create Project - Start to build your own project.</p>
+        <p>Information - Quick Start, BC University and Information Center</p>
+        <p><strong>Quick Start</strong> - it gives all basic information that you should know before start a project, such as BC rules, how crowd-funding works on BC and How it works etc.</p>
+        <p><strong>BC university</strong> - it gives all advisory information that you should know for during or after project creation. All information under BC university is organized to help your project become better. For example, how to shoot better project video; define project better or better project promotion etc.</p>
+        <p><strong>Information Center</strong>- it is the most detailed information center for all types questions we could possibly cover at all time. For the new questions and new problem solving information, the FAQ data base will be continuously updated, replaced or added through out our future business development.</p>
+        <p><strong>Languages</strong> - You may switch between different language version at any time.</p>
+      </div>
+
+      <h4 class="header" term="section_2">Section 2</h4>
+      <div class="content" term="section_2">
+        <p>Each main Banner (Slide Show) contains a link based on the different banner content. It will link you to the different destination page within bullcentury.</p>
+      </div>
+      <h4 class="header" term="section_3">Section 3</h4>
+      <div class="content" term="section_3">
+        <p>9 smart buttons are enhanced design for the touch screen users. The whole idea is to allow both project creator and investor to browse comfortably on their smart devices, including smartphone, tablets and touch screen computer.</p>
+        <p>BUTTONS:</p>
+        <table class="table table-bordered table-hover">
+          <tr>
+            <td>
+              Browse
+            </td>
+            <td>
+              Browse all projects in different categories
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Start
+            </td>
+            <td>
+              Enter project creating page
+            </td>
+            <td>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              University
+            </td>
+            <td>
+              Detailed Bullcentury educational content
+            </td>
+            <td>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              Art
+            </td>
+            <td>
+              Browse all art related projects
+            </td>
+            <td>
+              e.g. paint, literature & dance etc.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Media
+            </td>
+            <td>
+              Browse all media related projects
+            </td>
+            <td>
+              e.g. music, film & photos etc.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Leisure
+            </td>
+            <td>
+              Browse all leisure related projects
+            </td>
+            <td>
+              e.g. travel, cook & hobby etc.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Innovation
+            </td>
+            <td>
+              Browse all innovation related projects
+            </td>
+            <td>
+              e.g. products, designs & technology etc.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Social
+            </td>
+            <td>
+              Browse all social projects
+            </td>
+            <td>
+              e.g. community, charity & green etc.
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Crazy
+            </td>
+            <td>
+              Browse all crazy projects
+            </td>
+            <td>
+              e.g. talent, impressive & first one doing etc.
+            </td>
+          </tr>
+        </table>
+        <p>The 6 project buttons (main categories): Art, Media, Leisure, Innovation, Social and Crazy. Each main category contains detailed sub-categories. For example, by click on Social Project button, you may find subcategories of Community, Charity, Environment etc, all listed under SOCIAL main category. Same system apply to all other 5 buttons.</p>
+      </div>
+
+      <h4 class="header" term="section_4">Section 4</h4>
+      <div class="content" term="section_4">
+        <p><strong>Project Thumbnails</strong> will enable users to browse project snap shots easily right from home page. The project thumbnails on home page displays 2 categories project only: most popular projects and
+        successful projects. All the other categories are available in BROWSE (all projects) page. Each project thumbnail contains the key data including project picture, funding goal, closing date and amount pledged etc. By click on each thumbnail, you could enter into each project to explore the details.</p>
+      </div>
+
+      <h4 class="header" term="section_5">Section 5</h4>
+      <div class="content" term="section_5">
+        <p><strong>Foot Menu</strong> offers shot-cut accesses and solutions to some key pages and questions, such as FAQs for start a project; explore key category projects; understand our company; follow us via social media and most importantly - under good ideas, you may provide us feedbacks at anytime.</p>
+        <p><strong>If you stuck at any process on BC, our 4-ways help/support system will help you further:</strong></p>
+        <ol>
+          <li>Instructional Video - Help yourself by finding out step by step video from video class room</li>
+          <li>Information Center - Help yourself by finding out answers for the popular questions</li>
+        </ol>
+        <p>Contact us:</p>
+        <p>Before you contact us, please be aware that BC <a href="#">Information Center</a> and <a href="#">BC University</a> are the great resources for the answers and know-hows.</p>
+        <ol start="3">
+          <li>Messaging - Instant messaging or email us your questions (Reply right away or within 24 hours)</li>
+          <li>Phone - Contact customer support (During regular operational hours)</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 class="header" term="create_video">5. Create Project Video</h3>
+    <div class="content" term="create_video">
+      <h4 class="header" term="without_video">Without Video?</h4>
+      <div class="content" term="without_video">
+        <p>The project video plays vital role of success. Projects with video received much higher successful rate than those without, 59% (with video) vs. 32% (without video) . That’s why we still strongly encourage you to make a project video rather than not, even the video is not required for publishing your project on BULLCENTURY. After all, your will find it time worth.</p>
+        <p>However, if you prefer not to do so. In order to make your project presentation more attractive, the empty video window (on project page) will be automatically replaced by your project image on the same spot.</p>
+      </div>
+      <h4 class="header" term="video_format">Video Format</h4>
+      <div class="content" term="video_format">
+        <ul>
+          <li>mp4. mov. flv. mpg. webm. avi. ogv. are top preferred and recommend for the best quality</li>
+          <li>Besides above listed, BULLCENTURY almost accepts and supports all other video formats. Please feel free to try which one works best for you. The video quality depends on many factors, such as operation system, uploading device, production software etc.</li>
+        </ul>
+      </div>
+      <h4 class="header" term="video_size">Video Size</h4>
+      <div class="content" term="video_size">
+        <p>< 5 GB per video</p>
+      </div>
+      <h4 class="header" term="device_i_need">What device do I need to make a video?</h4>
+      <div class="content" term="device_i_need">
+        <p>You could directly produce or upload videos from all smart devices such as tablets, smartphone, video camera or laptop/desktop, regardless your equipment is professional or un-professional, expensive or
+        cheap, simple or complicated.</p>
+      </div>
+      <h4 class="header" term="shooting_by_smartphone">Shooting Video by Smartphone or Tablets</h4>
+      <div class="content" term="shooting_by_smartphone">
+        <p>Bullcentury supports and receives video-uploading directly from your smart phones, tablets and all other smart camera devices. But please note that keep your smart device horizontal while shooting video, so the final video could fit on project screen in nice and wide shape.</p>
+      </div>
+      <h4 class="header" term="video_experience">Do I need to have video experience or a professional video camera man?</h4>
+      <div class="content" term="video_experience">
+        <p>No, video production experience is not required to produce a project video. Don’t be afraid to express yourself in front of the camera. An amateur video can be as attractive as those been professionally made if you could keep the following key factors in mind:</p>
+        <ol>
+          <li>Be yourself, be open, and be honest</li>
+          <li>Describe your project as detailed as possible</li>
+          <li>Maximize the video, sound and light quality within your equipment capacity</li>
+        </ol>
+      </div>
+      <h4 class="header" term="video_content">Video Content Guideline</h4>
+      <div class="content" term="video_content">
+        <p>Even you may use all kinds creativities to impress audience in the video. For the better success, we still recommend you to cover the following contents:</p>
+        <ul>
+          <li>Self Introduction & Project Introduction</li>
+          <li>Story Behind your project (e.g. motives, personal feelings, idea comes from... etc.)</li>
+          <li>Ask for support, set a clear list and content about the helps you need</li>
+          <li>Explain the reason why you need their supports and money</li>
+          <li>Explain what will you do or achieve with their money</li>
+          <li>Offer your reward in details, make them as attractive as possible. (Additional images can be used)</li>
+          <li>Inform your settings including funding goal, time limit, what if the funding goal did not reached... etc.</li>
+          <li>Express your appreciation at the end</li>
+        </ul>
+      </div>
+      <h4 class="header" term="better_video">Better Video better success?</h4>
+      <div class="content" term="better_video">
+        <p>Yes, in all perspectives, a better looking video will benefit your project by increasing the attractiveness and popularity. Therefore, if you have the ability to add some professional touch up, worth to do so.</p>
+        <p>For more information:</p>
+        <p><a href="#">How to shoot better project video</a> (BC University Level II: BETTER project video)</p>
+        <p><a href="#">BC Media Studio</a> (BC Authorized Professional Help)</p>
+      </div>
+      <h4 class="header" term="do_not_do_this">Do <u>not</u> do these things in your video</h4>
+      <div class="content" term="do_not_do_this">
+        <p>Do not put any unauthorized (copyrighted) music, animation characters, or image in your video. The big fine and lawsuit by the copyright owner may cost you trouble later on.</p>
+        <p>For music, image and video production editing resources, we recommend you the following links:</p>
+        <p>Coming Soon</p>
+      </div>
+    </div>
+
+    <h3 class="header" term="create_reward">6. Create Reward</h3>
+    <div class="content" term="create_reward">
+      <p>Creating Reward is another crucial part which has heavy influence on the final success. Projects that offer unrealistic, uninspired, overpriced or underpriced rewards usually fail to attract support. The importances of value mix are creative, meaningful and fairly valued.</p>
+      <h4 class="header" term="the-common-reward-offers">What are the common reward offers?</h4>
+      <div class="content" term="the-common-reward-offers">
+        <strong>1. Tangible Product</strong>
+        <p>New product that made from your project.</p>
+        <p>Examples: new innovative product, first CD album, DVD, Show Ticket</p>
+        <strong>2. Creative Involvement</strong>
+        <p>Collaborate supporters into your project creations.</p>
+        <p>Examples: play a role in your movie; show supporters faces in my photo album; paint supporter’s portraits on all T-shirt; be the models of my fashion show</p>
+        <strong>3. Creative Experiences</strong>
+        <p>Invite supporter to experience your project creations.</p>
+        <p>Examples: a free ride of my new air-balloon night-tour; invite all to my concert; invite supporter’s children to try new swing chair in the community play ground.</p>
+        <strong>4. Meaningful Mementos</strong>
+        <p>Offering something with meaningful memory and joyful moment.</p>
+        <p>Examples: post card with whole team picture after reached mountain peak - Everest; meaningful token tells our final victory; a picture of rescued dolphin.</p>
+      </div>
+      <h4 class="header" term="price-a-reward">How to Price a Reward</h4>
+      <div class="content" term="price-a-reward">
+        <ul>
+          <li>Offering something has value more than sticker price - first one in the world to try, limited edition etc.</li>
+          <li>Offering realistic price or close to manufacture cost - Be creative, but be reasonable. ‘Rip-off’ will cost permanent damage to the project credibility.</li>
+        </ul>
+
+        <p><strong>Reference and Key Indicators</strong> (Research conducted on 50 crowd-funding sites in different regions of the world)</p>
+        <p><i>Note: The economy condition and investment environment are very different in each country. The research result may not accurate or suitable for all countries. For users’ convenience, BC will periodically update the most accurate data.</i></p>
+        <table class="table table-bordered table-hover">
+          <tr>
+            <td>
+              Most Popular Minimum Reward (by creator):
+            </td>
+            <td>
+              10USD
+            </td>
+            <td>
+              Most Popular Maximum Reward (by creator):
+            </td>
+            <td>
+              70USD
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Most Popular Pledge Amount (from supporter):
+            </td>
+            <td>
+              20 USD
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Average Pledge Amount (from supporter):
+            </td>
+            <td>
+              68 USD
+            </td>
+          </tr>
+        </table>
+        <strong>Successful Rate</strong>
+        <table class="table table-bordered table-hover">
+          <tr>
+            <td>
+              Without Reward:
+            </td>
+            <td>
+              21 %
+            </td>
+          </tr>
+          <tr>
+            <td>
+              With Reward:
+            </td>
+            <td>
+              35 % (If reward value < $20)<br>47 % (If reward value > $20)
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 class="header" term="promote">7. Promote Your Project</h3>
+    <div class="content" term="promote">
+      <p><strong>Basic Step I</strong>: People must know about your project first - meaning you must tell people about it. And tell them twice if they didn’t take you serious enough. Don’t be afraid to open your idea and discuss your project to all people close to you. Even an exceptional project could attract supports from all over the world, but for most projects, supporter and investors come directly from friends circle and friends’ friend networks.</p>
+      <p><strong>Basic Step II</strong>: Share your project on social media network(s), let your network and supporters’ networks help to spread your idea.</p>
+      <p><strong>More on how to promote your project better</strong></p>
+    </div>
+
+    <h3 class="header" term="receive_and_send">8. Receive and Send a Payment</h3>
+    <div class="content" term="receive_and_send">
+      <p>Coming Soon</p>
+    </div>
+
+    <h3 class="header" term="more_questions">9. More Questions Or Ideas</h3>
+    <div class="content" term="more_questions">
+      <ul>
+        <li>Did our articles helped you? Answered you questions?</li>
+        <li>If you have better ideas please let us know.</li>
+        <li>If you have more questions, our supporting team will help you further.</li>
+      </ul>
+      <a href="mailto:info@bullcentury.com">Write Email to BC Support</a>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="level_2">level 2</div>
+  <div class="tab-pane" id="video">Video...</div>
+</div>

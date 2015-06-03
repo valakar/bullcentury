@@ -1,0 +1,34 @@
+%table
+  %tr
+    %td 
+      = t('profile.main.p_date')
+    %td 
+      = t('profile.main.project')
+    %td ID
+    %td 
+      = t('profile.main.pledged')
+    %td 
+      = t('profile.main.goal')
+    %td 
+      = t('profile.main.close_date')
+    %td 
+      = t('profile.main.funding')
+    %td 
+      = '% ' + t('profile.main.funded')
+  - @shipping_projects.each do |project|
+    %tr
+      %td 07/24/2014
+      %td
+        = project.name
+      %td.text-center
+        = project.id
+      %td.text-center
+        = project.sum
+      %td.text-center
+        = project.funding_goal
+      %td.text-center
+        = project.created_at
+      %td.text-center
+        In Process
+      %td.text-center
+        = number_to_percentage(project.funded, precision: 0)

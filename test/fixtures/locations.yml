@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: "test1"
+  country: "test_country1"
+  user_id: 1
+
+two:
+  city: "test2"
+  country: "test_country2"
+  user_id: 2
+
+three:
+  city: "test2"
+  country: "test_country2"
+  user_id: 3

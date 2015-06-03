@@ -1,0 +1,45 @@
+.row
+  .col-sm-5.col-md-5
+    - if  @project.author
+      .row
+        .col-sm-5.no_right_padding
+          %a{:href=>"javascript:;", :class=>"thumbnail fixed-size-150"}
+            = image_tag @project.author.image.url(:thumb), :class => "fixed-size-150" if @project.author and @project.author.image?
+
+        .col-sm-7.no_right_padding
+          %strong
+            = t('project_creator').upcase
+          - if(can?(:manage, @project.author))
+            %small
+              = link_to t('edit'), edit_profile_path(@project.author.id)
+
+          %p.content-block-lightgreen.creator-block-fix
+            = t('author.name') + ":"
+            = link_to(@project.author.name, profile_path(@project.author)) if @project.author
+          %p.content-block-lightgreen.creator-block-fix
+            = t('author.country') + "/" + t('author.city') + ":"
+            -#- country = current_user.country.nil? ? '' : current_user.country
+            - country = @project.author.country
+            -#- city = current_user.city.nil? ? '' : current_user.city
+            - city = @project.author.city
+            - if((!city.nil?) && (!country.nil?))
+              = country.name.to_s + ' / ' + city.name.to_s
+            - elsif(!country.nil?)
+              = country.name.to_s
+            - elsif(!city.nil?)
+              = city.name.to_s
+          %p.content-block-lightgreen.creator-block-fix
+            = t('project.location') + ":"
+            = @project.country ? @project.country.name : ''
+    .row
+      .col-sm-12.no_right_padding
+        .thumbnail.padding-all-sm.fixed-height-158.content-background-lightpurple
+          %strong
+            = t('project_brief')
+          %p.overflow
+            = @project.tweet
+
+  .col-sm-7.col-md-7
+    %a{:href=>"javascript:;"}
+      .b-project__profile-image-container-sm.text-center
+        = image_tag @project.image.url(:project_profile) if @project.image?

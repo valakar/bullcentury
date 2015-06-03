@@ -1,0 +1,89 @@
+.col-sm-12.col-md-12.big-top-buffer.biggest-bottom-buffer
+  .col-sm-8.col-md-8
+    .col-sm-3.col-md-3.no_right_padding
+      = image_tag("shipping_box_icon.png", width:105)
+    .col-sm-9.col-md-9.no_left_padding
+      %h2.first-header
+        = t('profile.shipping.title_part1')
+      %h1.second-header
+        = t('profile.shipping.title_part2')
+  .col-sm-4.col-md-4.text-center.top-buffer-dec-15
+    = render partial: 'general_buttons_block'
+  .col-sm-8.col-md-8.col-sm-offset-2.top-buffer
+    %ul.shipping-announcement
+      %li
+        = t('profile.shipping.attention_1')
+      %li 
+        = t('profile.shipping.attention_2')
+      %li 
+        = t('profile.shipping.attention_3')
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer-100
+    .big-header.color-shipping-1
+      = t('profile.shipping.title_1')
+      %span.sm-header
+        = t('profile.main.project')
+    - if @shipping_projects.empty?
+      .text-center.info-message-gray.top-buffer
+        Hi 
+        = current_user.name + ', You have no published project yet. Let\'s'
+        = link_to 'create a project' , new_project_url
+    - else
+      .table-for-profile.table-shipping-1
+        = render partial: 'profiles/user_projects/projects'
+
+  .col-sm-12.col-md-12
+    .big-header.lightpink-color
+      = t('profile.shipping.title_2')
+      %span.sm-header
+        = t('profile.shipping.title_sm_2')
+  .col-sm-6.col-md-6.bottom-buffer
+    .table-for-profile.table-lightgray
+      %table
+        %tr
+          %td ID
+          %td 
+            = t('profile.main.project')
+          %td 
+            = t('profile.main.creator')
+        %tr
+          %td
+            123456
+          %td.text-center
+            CREATIVE PAINTING
+          %td.text-center
+            JAMES HUANG
+  .col-sm-2.col-md-2.pull-right.text-center
+    .col-sm-6.no_padding
+      %div{:onclick => "myFunction()"} 
+        = link_to('javascript:;') do
+          = image_tag('print_icon.png', height: '50')
+      = t('print')
+    .col-sm-6.no_padding
+      %div{:onclick => "myFunction()"} 
+        = link_to('javascript:;') do
+          = image_tag('pdf.png', height: '50')
+      = t('PDF')
+    
+  .col-sm-12.col-md-12.bottom-buffer.top-buffer
+    .table-for-profile.table-lightpink
+      = render partial: 'profiles/user_projects/supporters'
+
+  .col-sm-2.col-md-2.pull-left
+    = link_to('Show All', 'javascript:;')
+
+  .col-sm-3.col-md-3.pull-right.text-center
+    .col-sm-5.col-sm-offset-2
+      %div
+        = link_to('javascript:;') do
+          = image_tag('email.png', height: '70')
+      = t('ALL')
+    .col-sm-5
+      %div.top-buffer-10 
+        = link_to('javascript:;') do
+          = image_tag('email.png', height: '50')
+      = t('SELECTED')
+
+:javascript
+  function myFunction() {
+    window.print();
+  }

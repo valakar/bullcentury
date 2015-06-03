@@ -1,0 +1,36 @@
+.row.sign-in-form-container
+  .col-sm-4.col-md-4.col-sm-offset-2.top-padding-100.bottom-padding-100
+    / TODO Translate
+    %h2.black_color
+      = t('log_in')
+      %span.gray_small_color
+        = t('devise.for_members')
+      %span= t('devise.express')
+    .bg_text.col-sm-12.col-md-12.no_padding.bottom-buffer-30
+      .bg_text.col-sm-12.col-md-12.no_padding.top-buffer
+        = render partial: 'devise/express/express_block'
+    .col-md-12.col-sm-12.bottom-buffer-30.gray_title.text-center
+      = t('devise.or')
+    .col-md-12.col-sm-12.sign-in-form
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => {'data-toggle' => "validator"}) do |f|
+        .form-group
+          = f.label :email, t('devise.email')
+          = f.email_field :email, :class => 'form-control input-narrow', :required => 'required', 'data-error' => t('errors.messages.valid_email')
+          %span.help-block.with-errors 
+        .form-group
+          = f.label :password, t('devise.password')
+          = f.password_field :password, :class => 'form-control input-narrow', :required => 'required'
+        - if devise_mapping.rememberable?
+          .form-group
+            = f.check_box :remember_me
+            %small= f.label :remember_me, t('devise.remember_me'), :class => 'not-bold'
+        .pull-right= f.submit t('devise.sign_in'), :class => 'btn btn-sm btn-success no_margin_top'
+        %br/
+        %small= render "devise/shared/links"
+  %h4.gray_title.no_margin.big-bottom-buffer.col-md-6.top-padding-100.text-left.top-buffer-30.text-center
+    = t('devise.all_devices')
+  .col-sm-6.text-center
+    = image_tag('bc_comp.png', width: 370, class: 'col-sm-12 col-md-12 top-buffer-100')
+    .col-sm-12.col-md-12.top-buffer-50
+      = link_to t('devise.new_user').upcase, new_registration_path(resource_name),class: 'btn btn-success button-center font-size-11'
+      %br/

@@ -1,0 +1,19 @@
+#feedback {
+	margin-top: 100px;
+	margin-bottom: 200px;
+	.form {
+		background-color: #E9F7FD;
+		padding: 15px;
+		border-radius: 10px;
+		.form-group {
+			margin-left: 0px;
+			margin-right: 0px;
+		}
+		select {
+			padding: 0px 12px;
+		}
+	}
+	// input:invalid {
+	//     @extend .has-warning;
+	// }
+}

@@ -1,0 +1,10 @@
+.col-sm-12.col-md-12.top-buffer.project-content-block
+  = render partial: 'projects/edit/author'
+  .col-sm-12.col-md-12
+    .col-sm-4.col-md-4.no_padding
+      = render partial: 'social_links'
+    .col-sm-1.col-md-1
+      .pull-right
+        %a{ 'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;' }
+          %i.glyphicon.glyphicon-star-empty
+  

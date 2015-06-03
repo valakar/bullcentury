@@ -1,0 +1,11 @@
+= render partial: 'dashboard_button', locals: {image: 'back_arrow.png', title: 'back', page_url: profile_path(current_user)}
+.col-sm-4
+	%div.dashboard_icons{:onclick => "myFunction()"} 
+		= link_to('javascript:;') do
+			= image_tag('print_icon.png', height: '50')
+	= t('print')
+= render partial: 'dashboard_button', locals: {image: 'contact_icon.png', title: 'contact_us', page_url: 'javascript:;'}
+:javascript
+	function myFunction() {
+	    window.print();
+	}

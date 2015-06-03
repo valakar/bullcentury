@@ -1,0 +1,6 @@
+/ - if user_signed_in?
+/   = render partial: 'projects/form'
+/   = tinymce
+/ - else
+.background-start
+  = render partial: 'projects/short_form'

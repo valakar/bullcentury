@@ -1,0 +1,13 @@
+= Bull Century
+
+Crowdfunding site for goldman ventures company
+{BullCentury}[http://dev.bullcentury.com/]
+
+== Technology used:
+  - Ruby on Rails
+  - HTML, Haml
+  - CSS, Sass, Compass
+  - JavaScript, jQuery
+  - Angular
+  - Bootstrap
+  - PostgresQL

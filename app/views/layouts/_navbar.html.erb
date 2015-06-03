@@ -1,0 +1,33 @@
+<nav class="navbar main-navigation" role="navigation">
+  <ul class="nav navbar-nav">
+    <li class="m-bg-pink"><%= link_to t('projects'), projects_path %></li>
+    <li class="m-bg-blue"><%= link_to t('project.create'), new_project_path %></li>
+
+    <li class="dropdown m-bg-green">
+      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <%= t('help') %> <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu">
+        <li class="capitalize"><%= link_to t('quick_start'), quick_start_path %></li>
+        <li><%= link_to t('bc_university'), university_path %></li>
+        <li><%= link_to t('faq'), faq_path %></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul class="language-switcher nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+        <%= t(I18n.locale) %> <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><%= link_to t(:ua), :locale=>'ua'%></li>
+        <li><%= link_to t(:ru), :locale=>'ru'%></li>
+        <li><%= link_to t(:en), :locale=>'en'%></li>
+        <li><%= link_to t(:hu), :locale=>'hu'%></li>
+      </ul>
+    </li>
+  </ul>
+</nav>

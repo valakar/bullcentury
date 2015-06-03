@@ -1,0 +1,54 @@
+%form{:name => 'projectRewardForm',:id => 'projectRewardForm', 'ng-submit' => 'saveReward()'}
+  .col-sm-12.col-md-12.no_left_padding.big-top-buffer
+    %div{'ng-show' => '{{reward.errors}}'}
+      #error_explanation
+        %h2
+          = pluralize('{{reward.errors.length}}', 'error')
+          prohibite
+          this reward from being saved:
+        %ul{'ng-repeat' => 'msg in reward.errors.full_messafes'}
+          %li {{msg}}
+    / = f.hidden_field :project_id, value: @reward.project_id
+    /TODOANG Image for reward
+    / .form-group.row
+    / = f.label :image, t('reward.image'), :class => 'col-sm-5'
+    / .col-sm-7
+    / = image_tag(@reward.image.url(:thumb)) if (@reward and @reward.image?)
+    / = f.file_field :image, class: 'form-control'
+    / %small.help-block
+    / = t('reward.image_hint')
+    / .form-group.row
+    / = f.label :image, t('reward.delete_image'), :class => 'col-sm-5'
+    / .col-sm-7
+    / = check_box_tag "reward[delete_image]"
+    .form-group
+      %label 
+        =t('reward.per_amount') 
+      %input{'ng-model' => 'newReward.per_amount', type: 'number', :required => 'required', class: "form-control", min: 1}
+    .form-group
+      %label 
+        =t('reward.description') 
+      %textarea{'ng-model' => 'newReward.description', rows: 10, :class => 'form-control', :required => 'required'}
+      / = f.label :description, t('reward.description'), :class => 'col-sm-5'
+      .col-sm-7
+        / = f.text_area :description, rows: 10, :class => 'form-control', :required => 'required'
+    .form-group
+      /%label 
+      /  =t('reward.image') 
+      /%input{'ng-model' => 'newReward.image', type: 'number', :required => 'required', class: "form-control", min: 1}
+
+
+      %div
+        %input#rewardImageInput{:type => "file"}
+      %div{"ng-show" => "rewardImage"}
+        //.cropArea
+        //  %img-crop{"area-type" => "square", "result-image-size" => "150", :image => "myImage", "result-image" => "myCroppedImage"}
+        .cropArea#cropAreaRewardImage
+          %img-crop{"area-min-size"=>"25", "area-type" => "square",:image => "rewardImage", "result-image" => "rewardCroppedImage"}
+
+      %div{"ng-hide" => "rewardImage"}
+        %img{"src" => "{{newReward.image.url}}", class: "reward-form"}
+
+  .col-sm-12.col-md-12
+    %input.btn.btn-success.pull-right{:type => "submit", :value => "Save reward"}
+    %button.btn.btn-primary.pull-right{'ng-click' => "clearForm()", type: 'button'} Clear form  

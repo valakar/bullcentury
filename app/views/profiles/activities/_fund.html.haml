@@ -1,0 +1,37 @@
+%table
+  %tr
+    %td 
+      = t('profile.main.project')
+    %td ID
+    %td 
+      = t('profile.main.country')
+    %td 
+      = t('profile.main.category')
+    %td 
+      = t('profile.main.goal')
+    %td 
+      = t('profile.main.funded')
+    %td 
+      = t('profile.main.bc_fee')
+    %td 
+      = t('profile.main.total')
+  - @projects.each do |project|
+    %tr
+      %td
+        = project.name
+      %td.text-center
+        = project.id
+      %td.text-center
+        = project.author.country unless project.author.nil?
+      %td.text-center
+        - project.categories.each do |category|
+          = render :partial => 'projects/category', :locals => { category: category }
+      %td.text-center
+        = project.funding_goal
+      %td.text-center
+        = project.funding_goal
+      %td.text-center
+        - bc_fee = project.funding_goal * 0.04 unless project.funding_goal.nil?
+        = bc_fee
+      %td.text-center
+        = project.funding_goal - bc_fee  unless project.funding_goal.nil?

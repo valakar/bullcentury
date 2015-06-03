@@ -1,0 +1,71 @@
+= form_for(:user, url: { controller: :profiles, action: :update },
+           html: { multipart: true, method: :post, class: 'form-horizontal', role: :form, id: 'profile_form_1'},
+           remote: true) do |f|
+  = f.hidden_field :id
+  - if @errors and @errors.any?
+    %ul
+      - @errors.each do |msg|
+        %li
+          = msg
+  .text-right.orange-link
+    %a{:href => "", onclick: "$('#profile_form_1').submit()"}
+      SAVE
+
+    -#= f.submit 'Save'
+  .table-profile.table-profile-contact-information
+    %table
+      %tr
+        %td{:colspan => 2}
+          = t('profile.profile.contact_information')
+      %tr
+        %td
+          = t('profile.main.firstname')
+        %td
+          = f.text_field :name
+      %tr
+        %td
+          = t('profile.main.lastname')
+        %td
+          = f.text_field :lastname
+      %tr
+        %td
+          = t('profile.main.company')
+        %td
+          = f.text_field :company
+      %tr
+        %td
+          = t('profile.main.birthday')
+        %td
+          = f.text_field :birthday
+          :javascript
+            $("#user_birthday").datepicker({
+              changeMonth: true,
+              changeYear: true,
+              yearRange: '1900:c',
+              maxDate: new Date(),
+              dateFormat: 'yy-mm-dd'
+            });
+      %tr
+        %td
+          = t('profile.main.gender')
+        %td
+          = f.select :sex, options_for_select(@sexes, @user.sex), :include_blank => 'Choose Gender'
+      %tr
+        %td
+          = t('profile.main.mobile')
+        %td
+          = f.text_field :mobile
+      %tr
+        %td
+          = t('profile.main.phone')
+        %td
+          = f.text_field :phone
+      %tr
+        %td
+          = t('profile.main.email')
+        %td
+          = @user.email
+      %tr
+        %td
+          = t('profile.main.email2')
+        %td Retrieving Password

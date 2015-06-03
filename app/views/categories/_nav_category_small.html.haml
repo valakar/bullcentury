@@ -1,0 +1,12 @@
+.panel.panel-default{:class => color}
+	%a.bright{:href => category_path(@category.key) + "##{title}", :data => {:toggle => 'hovercollapse', :parent => '#accordion', :target => "#collapse#{key}"}}
+		.panel-heading.fixed-panel  
+			.panel-title.menu_title
+				%span.glyphicon.glyphicon-chevron-left.pull-left
+				= t("category.#{@category.key}." + title)
+	.panel-collapse.collapse{id: "collapse#{key}"}
+		.panel-body
+			- subcategories.each do |subcategory|
+				%a{:href => category_path(@category.key) + "##{subcategory}"}
+					= t("category.#{@category.key}." + subcategory)
+					%br

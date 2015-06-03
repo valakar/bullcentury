@@ -1,0 +1,8 @@
+ua:
+  rules:
+    nav:
+      project-categories: "Категорії Проектів"
+      the-project: "Проект"
+      who-can-create-project: "Хто може створити проект"
+      who-can-support-project: "Хто може Інвестувати та Підтримувати проект"
+      what-is-not-allowed: "Що робити забороняється"

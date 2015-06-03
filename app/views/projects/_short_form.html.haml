@@ -1,0 +1,56 @@
+= form_for :project, url: projects_path, multipart: true, method: :post, html: { class: 'form-horizontal', role: 'form' } do |f|
+  
+  .col-sm-8.col-md-8.col-sm-offset-2.text-center.font-large.top-buffer-100
+    .form-group#first-line-create-project
+      %div
+        I want to create a
+      %div
+        / Button trigger modal
+        %div#hint
+          %a{href: 'javascript:;', "data-target" => "#project_categories", "data-toggle" => "modal", :type => "button"}
+            Category details
+        %select.form-control.form-fix{:name => 'project[category]', :required => 'required', "required title" => "Please select category"}
+          %option{:disabled => "disabled", :selected => "selected", :value => ""} Select category *
+          - Category.all.each do |category|
+            %option{:value => category.id} 
+              = t(category.key)
+      %div
+        project
+    
+  .col-sm-8.col-md-8.col-sm-offset-2.text-center.font-large.big-top-buffer
+    .form-group.bottom-buffer
+      Name called
+      %input.input-start{:name => 'project[name]', :placeholder => 'title...', :required => 'required', :pattern => ".{3,}", "required title" => "3 characters minimum"}
+    .pull-right
+      = f.submit t('project.start'), class: 'btn btn-start btn-success'
+    .pull-left
+      %select.form-control.form-fix{:name => 'project[country_id]', :required => 'required', "required title" => "Please select one country"}
+        %option{:disabled => "disabled", :selected => "selected", :value => ""} Select your Country *
+        - Country.all.each do |country|
+          %option{:value => country.id} 
+            = t(country.name)
+            / %option{:value => 'Ukraine'} Ukraine
+            / %option{:value => 'USA'} USA
+            / %option{:value => 'Hungary'} Hungary
+            / %option{:value => 'Romania'} Romania
+  .col-sm-8.col-md-8.col-sm-offset-2
+    %ol.country-instraction
+      %li Please select the country where your project will be receiving the fund
+      %li Project creation currently open to creators in Hungary and Ukraine
+    .soon-open
+      BC will be opening soon in:
+      %br
+      Poland, Croatia, France, PR China.
+  .col-sm-8.col-md-8.col-sm-offset-2.big-top-buffer.bottom-buffer-100
+    .col-sm-offset-3.col-sm-3.col-md-3
+      = link_to t('bc_rules'), rules_path, class: 'btn btn-start btn-info btn-round'
+    .col-sm-offset-1.col-sm-3.col-md-3
+      = link_to t('faq_abr'), faq_path, class: 'btn btn-start btn-orange btn-round'
+/ Modal
+#project_categories.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-body
+        = render :partial => 'home/list_subcategory'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

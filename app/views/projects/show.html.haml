@@ -1,0 +1,281 @@
+=#<!-- TEMPORARY -->
+- if flash[:notice] 
+  .notice 
+    = flash[:notice] 
+- if flash[:errors] 
+  .error 
+    = flash[:errors] 
+.col-sm-12.col-md-12.top-buffer-50
+  =# link_to t('project.listing'), projects_path 
+
+  - if(can?(:manage, @project))
+    - if !@project.published? and !@project.closed? and !@project.on_review?
+      %small
+        = link_to t('project.modify'), edit_project_path(@project), :class => "btn btn-success"
+
+      %small
+        = link_to t('project.publish'), agreement_page_project_path(@project), :class => "btn btn-warning"
+=#<!-- END OF TEMPORARY -->
+
+=#<!-- MAIN PART -->
+- if @project.nil?
+  No project
+- else 
+  .col-sm-12.col-md-12.no_left_padding.big-top-buffer
+    .project-title
+      = @project.name
+    .project-category
+      %small
+        = t('project.category').upcase + ':'
+      - @project.categories.each do |category|
+        = render :partial => 'projects/category', :locals => { category: category }
+        
+  .col-sm-12.col-md-12.project-content-block.top-buffer
+    = render partial: 'projects/show/main'
+
+  .col-sm-12.col-md-12.top-buffer.project-content-block
+    = render partial: 'projects/show/author'
+    .col-sm-12.col-md-12
+      .col-sm-4.col-md-4.no_padding
+        = render partial: 'social_links'
+      .col-sm-1.col-md-1
+        .pull-right
+          %a{"data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Like", :href => "javascript:;"}
+            %i.glyphicon.glyphicon-star-empty
+
+  =#<!-- REWARDS -->
+  .col-sm-12.col-md-12.top-buffer.project-content-block
+    = render partial: 'projects/show/rewards'
+  =#<!-- REWARDS END -->
+
+  =#<!-- MAIN DETAILS -->
+  - unless @project.description.nil?
+    .col-sm-12.col-md-12.top-buffer.project-content-block
+      .row.row-eq-height
+        .col-sm-9.col-md-9.no_right_padding
+          .col-sm-12.col-md-12.no_right_padding
+            %h4.big-title-blue.text-center
+              = t('main_details').upcase
+              - if(can?(:manage, @project))     
+                - if !@project.published? and !@project.closed? and !@project.on_review? 
+                  - if user_signed_in?
+                    %small
+                      = link_to t('project.modify'), edit_project_path(@project)
+          .col-sm-12.col-md-12
+            = @project.description.html_safe
+
+        .col-sm-3.col-md-3.right-col
+          %h3
+            = t('rewards').upcase
+          - @project.rewards.sort { |a,b| a.per_amount <=> b.per_amount }.each do |reward|
+            = render :partial => 'projects/reward', :locals => { reward: reward , hideText: ''}
+        
+  =#<!-- MAIN END -->
+
+=#<!-- CREATOR DETAILS -->
+.col-sm-12.col-md-12.top-buffer.project-content-block.bottom-buffer
+  .col-sm-6.col-md-6
+    .col-sm-6.col-md-6.author-title
+      %h1
+        = t('creator_details')
+        - if(can?(:manage, @project))     
+          - if !@project.published? and !@project.closed? and !@project.on_review? 
+            - if user_signed_in?
+              %small
+                = link_to t('project.modify'), edit_project_path(@project)
+    .col-sm-6.col-md-6.no_left_padding
+      %a{:href=>'javascript:;', :class=>'thumbnail fixed-size-200'}
+        = image_tag @project.author.image.url(:thumb), :class => 'fixed-size-200' if @project.author and @project.author.image?
+  .col-sm-6.col-md-6.no_left_padding
+    %p.content-block-lightgreen.creator-block-fix
+      = t('author.name') + ':'
+      = link_to(@project.author.name, profile_path(@project.author)) if @project.author 
+    %p.content-block-lightgreen.creator-block-fix
+      = t('author.country') + '/' + t('author.city') + ':'
+      - unless @project.author.nil?
+        - country = @project.author.country.nil? ? nil : @project.author.country
+        - city = @project.author.city.nil? ? nil : @project.author.city
+        - if((!city.nil?) && (!country.nil?))
+          = country.name.to_s + ' / ' + city.name.to_s
+        - elsif(!country.nil?)
+          = country.name.to_s
+        - elsif(!city.nil?)
+          = city.name.to_s
+    %p.content-block-lightgreen.creator-block-fix
+      = t('project.website') + ': ' + @project.website.to_s
+      %br (Optional)
+    %p.content-block-lightgreen.creator-block-fix
+      = t('project.location') + ':'
+      = @project.country ? @project.country.name : ''
+  .col-sm-12.col-md-12
+    .row.row-eq-height
+      .col-sm-12.col-md-12
+        %h3 
+          = t('creator_biography')
+        .creator_bigraphy
+          %p
+            = @project.creator_biography
+  .col-sm-4.col-md-4.no_padding.pull-right
+    = render partial: 'social_links'
+=#<!-- CREATOR DETAILS END -->
+
+=#<!-- PROGRESS BAR -->
+.col-sm-12.col-md-12.top-buffer.project-content-block.bottom-buffer
+  .col-sm-12.col-md-12
+    %h2 Project timeline
+    .col-sm-4.col-md-4
+      = @project.timeline1
+    .col-sm-4.col-md-4
+      = @project.timeline2
+    .col-sm-4.col-md-4
+      = @project.timeline3
+    .progress.top-buffer-25
+      .progress-bar.progress-bar-success{'aria-valuemax' => '33', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 35%', :title => ''}
+      .progress-bar.progress-bar-info{'aria-valuemax' => '100', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 33%', :title => ''}
+      .progress-bar.progress-bar-warning{'aria-valuemax' => '100', 'aria-valuemin' => '0', 'aria-valuenow' => '40', :role => 'progressbar', :style => 'width: 32%', :title => ''}
+    .col-sm-4.col-md-4
+      = (@project.timeline_date1.strftime("%m/%d/%Y") unless @project.timeline_date1.nil?)
+    .col-sm-4.col-md-4
+      = (@project.timeline_date2.strftime("%m/%d/%Y") unless @project.timeline_date2.nil?)
+    .col-sm-4.col-md-4
+      = (@project.timeline_date3.strftime("%m/%d/%Y") unless @project.timeline_date3.nil?)
+  .col-sm-12.col-md-12
+    %h4.top-buffer-30.bottom-buffe-30
+      = @project.name.upcase
+  .col-sm-8.col-md-8
+    %h2
+      = t('thank_you')
+  .col-sm-4.col-md-4
+    %p 
+      = @project.author.name unless @project.author.name.nil?
+    %p 
+      = @project.address unless @project.address.nil?
+    %p
+      = @project.country ? @project.country.name : ''
+      = @project.city ? @project.city.name : ''
+      / - res = @project.country unless @project.country == ''
+      / - res += ' ' + @project.city.to_s unless @project.city == ''
+      / - res += ' ' + @project.region.to_s unless @project.region == ''
+      / - res += ' ' + @project.zip.to_s unless @project.zip.nil?
+      / = res
+
+    / %p 4321 First Street (Optional)
+    / %p Anytown, State ZIP (Optional)
+=#<!-- PROGRESS BAR END -->
+
+=#<!-- COMMENTS -->
+.col-sm-12.col-md-12.top-buffer.xbig-bottom-buffer.project-content-block
+  .row.row-eq-height
+    .col-sm-9.col-md-9.left-col
+      .form-group.padding-all-sm
+        .notifications
+          =link_to 'Nice', 'javascript:;', :class => 'message'
+        .pull-right.blue_title  
+          %a{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;'}
+            %i.glyphicon.glyphicon-star-empty
+      .form-group.padding-all-sm
+        .notifications
+          =link_to 'Cool', 'javascript:;', :class => 'message'
+        .pull-right.blue_title  
+          %a{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;'}
+            %i.glyphicon.glyphicon-star-empty
+      .form-group.padding-all-sm
+        .notifications
+          =link_to 'Awesome', 'javascript:;', :class => 'message'
+        .pull-right.blue_title  
+          %a{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;'}
+            %i.glyphicon.glyphicon-star-empty
+      .form-group.padding-all-sm
+        .notifications
+          =link_to 'A popover is a light, hollow roll made from an egg batter similar to that of Yorkshire pudding, typically baked in muffin tins or dedicated popover pans, which have straight-walled sides rather than angled. ', 'javascript:;', :class => 'message'
+        .pull-right.blue_title  
+          %a{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;'}
+            %i.glyphicon.glyphicon-star-empty
+      .form-group.padding-all-sm
+        .notifications
+          =link_to 'Not bad', 'javascript:;', :class => 'message'
+        .pull-right.blue_title  
+          %a{'data-toggle' => 'tooltip', 'data-placement' => 'bottom', 'title' => 'Like', :href => 'javascript:;'}
+            %i.glyphicon.glyphicon-star-empty
+
+      %br
+      .blue_title 
+        =link_to t('more_comments'), 'javascript:;'
+    .col-sm-3.col-md-3.right-col
+      %h3
+        = t('rewards').upcase
+      - @project.rewards.sort { |a,b| a.per_amount <=> b.per_amount }.each do |reward|
+        = render :partial => 'projects/reward', :locals => { reward: reward, hideText: 'more'}
+=#<!-- COMMENTS END -->
+.col-sm-12.col-md-12.bottom-buffer-50
+  - if(can?(:manage, @project))
+    - if !@project.published? and !@project.closed? and !@project.on_review?
+      %small
+        = link_to t('project.modify'), edit_project_path(@project), :class => "btn btn-success"
+
+      %small
+        = link_to t('project.publish'), agreement_page_project_path(@project), :class => "btn btn-warning"
+
+
+
+#pledgeForm.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h4.modal-title Pledge
+      = form_for @new_pledge do |f|
+        .form-group
+          .modal-body
+            = f.hidden_field :project_id, value: @project.id
+            = f.hidden_field :currency_id, value: @project.currency_id
+            -if !user_signed_in?
+              .form-group.required
+                = f.label :email, 'Enter your email or sign in'
+                = f.text_field :email, type: 'email', class: 'form-control', required: true
+            .form-group.required
+              = f.hidden_field :user_id, value: current_user.id
+              = f.label :amount, 'How much do you want to pledge?'
+              = f.text_field  :amount, class: 'form-control', value: 10, type: 'number', required: true
+          .modal-footer
+            %a.btn{"data-dismiss" => "modal", :href => "#"} Close
+            = f.submit 'Pledge', class: 'btn btn-primary'
+
+:javascript
+  $(document).ready(function() {
+    // Configure/customize these variables.
+    var showChar = 100;  // How many characters are shown by default
+    var ellipsestext = "...";
+    var moretext = "More";
+    var lesstext = "Less";
+    
+
+    $('.more').each(function() {
+        var content = $(this).html();
+ 
+        if(content.length > showChar) {
+ 
+            var c = content.substr(0, showChar);
+            var h = content.substr(showChar, content.length - showChar);
+ 
+            var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+ 
+            $(this).html(html);
+        }
+ 
+    });
+ 
+    $(".morelink").click(function(){
+        if($(this).hasClass("less")) {
+            $(this).removeClass("less");
+            $(this).html(moretext);
+        } else {
+            $(this).addClass("less");
+            $(this).html(lesstext);
+        }
+        $(this).parent().prev().toggle();
+        $(this).prev().toggle();
+        return false;
+    });
+  });
+

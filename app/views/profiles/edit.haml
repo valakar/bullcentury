@@ -1,0 +1,80 @@
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      .h4
+        = t('author.edit_profile')
+  .panel-body
+    = form_for(@user, url: { controller: :profiles, action: :update },
+                      html: { multipart: true, method: :post, class: 'form-horizontal', role: :form }) do |f|
+      = f.hidden_field :id
+      - if @errors and @errors.any?
+        %ul
+          - @errors.each do |msg|
+            %li
+              = msg
+      .form-group.row
+        = f.label :image, t('author.image'), :class => 'col-sm-5' 
+        .col-sm-7
+          = image_tag(@user.image.url(:thumb)) if @user.image?
+          = f.file_field :image, class: 'form-control'
+          %small.help-block 
+            = t('author.image_hint')
+      .form-group
+        = f.label :name, t('author.name'), class: 'col-sm-5'
+        .col-sm-7
+          = f.text_field :name, class: 'form-control'
+
+      = f.fields_for(:location, @location) do |loc|
+        .form-group
+          = loc.label :country, t('author.country'), class: 'col-sm-5'
+          .col-sm-7
+            = loc.text_field :country, class: 'form-control', :value => (@location ? @location.country : nil)
+
+        .form-group
+          = loc.label :city, t('author.city'), class: 'col-sm-5'
+          .col-sm-7
+            = loc.text_field :city, class: 'form-control', :value => (@location ? @location.city : nil)
+
+      .form-group
+        .col-sm-offset-5.col-sm-7
+          = f.submit t('author.save'), class: 'btn btn-default'
+
+.panel.panel-default
+  .panel-heading
+    .panel-title
+      .h4
+        = t('author.edit_credentials')
+  .panel-body
+    = form_for(@user, url: { controller: :profiles, action: :update },
+                      html: { method: :post, class: 'form-horizontal', role: :form }) do |f|
+      = f.hidden_field :id
+      - if @email_errors and @email_errors.any?
+        %ul
+          - @email_errors.each do |msg|
+            %li
+              = msg
+
+      .form-group
+        = f.label :email, t('devise.email'), class: 'col-sm-5'
+        .col-sm-7
+          = f.text_field :email, class: 'form-control'
+
+
+      .form-group
+        = f.label :password, t('devise.password'), class: 'col-sm-5'
+        .col-sm-7
+          = f.password_field :password, class: 'form-control'
+
+      .form-group
+        = f.label :password_confirmation, t('devise.password_confirmation'), class: 'col-sm-5'
+        .col-sm-7
+          = f.password_field :password_confirmation, class: 'form-control'
+
+      .form-group
+        = f.label :old_password, t('devise.current_password'), required: true, class: 'col-sm-5'
+        .col-sm-7
+          = f.password_field :old_password, class: 'form-control'
+
+      .form-group
+        .col-sm-offset-5.col-sm-7
+          = f.submit  t('author.save'), class: 'btn btn-default'

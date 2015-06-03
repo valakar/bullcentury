@@ -1,0 +1,18 @@
+%form{:name => 'projectMainForm', 'ng-submit' => 'saveMain()'}
+  =#<!-- MAIN PART -->
+  .col-sm-10.col-md-10.no_left_padding.big-top-buffer.disable-input-style
+    .project-title
+      / = f.text_field :name, id: 'project_name1', 'data-autosize-input' => '{ "space": 10 }', placeholder: t('project.name'), maxlength: '70', 'tabindex' => '1'
+      %input{'ng-model' => 'project.name', 'data-autosize-input' => '{ "space": 10 }', placeholder: t('project.name'), maxlength: '70', 'tabindex' => '1', id: 'project_counter1'}
+      .remaining-symbols-input#project_counter1
+    .project-category
+      %small
+        = t('project.category').upcase + ':'
+
+      %select{'ng-model' => 'project.category_ids', 'ng-options' => "category.id as category.name for category in categories",:multiple=>true, :class=>'selectpicker'}
+
+      / = f.collection_select(:category_ids, Category.all, :id, :name, {}, {:multiple=>true, :class=>'selectpicker'})
+  .col-sm-2.col-md-2.big-top-buffer
+    %input.btn.btn-primary{:type => "submit", :value => "Submit main part"}
+.col-sm-12.col-md-12.project-content-block.top-buffer
+  = render partial: 'projects/edit/main'

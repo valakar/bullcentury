@@ -1,0 +1,43 @@
+<table data-toggle="table" data-click-to-select="true" data-select-item-name="radioName" class="no-border-table" id="table-methods-table">
+    <thead>
+        <tr>
+            <th data-field="state" data-radio="true"></th>
+            <th data-field="id" data-align="left"><%= t('profile.receive_money.acc_name') %>:</th>
+            <th data-field="name" data-align="left"><%= t('profile.receive_money.acc_number') %>:</th>
+            <th data-field="price" data-align="left"><%= t('profile.main.action') %>:</th>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+    		<td >
+    		</td>
+    		<td>
+    			Paypal
+    		</td>
+    		<td>
+    			xxxxx 5678
+    		</td>
+    		<td>
+    			Edit
+    		</td>
+    	</tr>
+    	<tr>
+    		<td>
+    		</td>
+    		<td>
+    			ipay
+    		</td>
+    		<td>
+    			xxxxx 5678
+    		</td>
+    		<td>
+    			Edit
+    		</td>
+    	</tr>
+    </tbody>
+</table>
+<div class="col-sm-12 col-md-12">
+	<div class="btn btn-success pull-right">
+		<%= link_to t('profile.main.submit'), receive_money_success_path(id: 7), url: '/receive_money_success', id: 'submit-project'%>
+	</div>
+</div>

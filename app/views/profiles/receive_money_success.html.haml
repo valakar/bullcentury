@@ -1,0 +1,97 @@
+-if @project.nil?
+  You didn't choose project or account
+-else
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer#receive_money
+    %h1 SUCCESS
+    %small
+      %ol
+        %li YOUR REQUEST HAS BEEN SUBMITTED SUCCESSFULLY
+        %li YOUR FUND WILL BE ARRIVE TO YOUR ACCOUNT WITHIN 2-3 BUSINESS DAYS
+        %li A COPY OF CONFIRMATION HAS BEEN SENT TO YOUR EMAIL
+        %li 
+          FOR FURTHER QUESTIONS PLEASE CONTACTC US: AT +1 630 935 6833 OR 
+          = mail_to 'CS@BULLCENTURY.COM'
+    .col-sm-12.col-md-12.top-buffer.bottom-buffer
+      .bottom-buffer
+        %span.step
+          = t('profile.receive_money.confirmation')
+      .row.two-column-table#receive_money_confirmation
+        .row.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3
+            = @project.name
+          .col-sm-3.col-md-3 
+            ID: 
+            = @project.id
+          .col-sm-3.col-md-3
+            STATUS: 
+            = @project.state
+          .col-sm-3.col-md-3
+            Closing Date: 
+            = @project.created_at.strftime("%m/%d/%Y") unless @project.created_at.nil?
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first
+            = t('author.country').upcase + ':'
+          .col-sm-3.col-md-3.td-second 
+            = @project.country
+          .col-sm-6.col-md-6
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first
+            = t('project.category').upcase + ':'
+          .col-sm-3.col-md-3.td-second 
+            - @project.categories.each do |category|
+              = render :partial => 'projects/category', :locals => { category: category }
+          .col-sm-6.col-md-6
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first
+            = t('project.goal').upcase + ':'
+          .col-sm-3.col-md-3.td-second 
+            = (@project.funding_goal.to_s +  @project.currency.key.to_s unless @project.currency.nil?)
+          .col-sm-6.col-md-6
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first
+            = t('project.funded').upcase + ':'
+          .col-sm-3.col-md-3.td-second
+            = (@project.funding_goal.to_s +  @project.currency.key.to_s unless @project.currency.nil?)
+          .col-sm-6.col-md-6 
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first
+            = t('profile.receive_money.bc_fees').upcase + ':'
+          .col-sm-3.col-md-3.td-second
+            = @project.funding_goal * 0.04 unless @project.funding_goal.nil?
+            = @project.currency.key unless @project.currency.nil?
+          .col-sm-3.col-md-3
+            @4%
+          .col-sm-3.col-md-3
+            %a.tooltips{:href => "javascript:;"}
+              = t('profile.main.what_is_it')
+              %span 
+                = t('profile.main.what_is_it')
+        .row.equal.tbody.text-center.sm-top-buffer
+          .col-sm-3.col-md-3.td-first.text-center
+            = t('profile.main.total_balance')
+          .col-sm-3.col-md-3.td-second 
+            0 usd
+          .col-sm-2.col-md-2.vertical-middle 
+            = t('profile.main.not_right')
+          .col-sm-4.col-md-4.vertical-middle 
+            = t('profile.main.contact_us')
+            = mail_to "account@bullcentury.com"
+
+      .col-sm-9.col-md-9.info-message-yellow
+        .col-sm-4.col-md-4
+          TRANSFER TO:
+        .col-sm-4.col-md-4
+          ipay
+        .col-sm-4.col-md-4
+          Account No. xxxxxx 0001
+      .col-sm-9.col-md-9.info-message-yellow
+        .col-sm-4.col-md-4
+          Request Date:
+        .col-sm-4.col-md-4
+          10/15/2014
+  .col-sm-12.col-md-12.top-buffer.bottom-buffer
+    %h4 ATTENTION:
+    %small
+      %ol
+        %li It is project creator's sole responsibility to pay all required taxes in different country.
+        %li It is project creator's sole responsibility for any inbound transaction fees (receiving fund) post by your own bank, payment site or financial institutions. Please note that BC is not responsible for these fees.

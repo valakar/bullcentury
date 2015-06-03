@@ -1,0 +1,74 @@
+<div class="col-sm-3 logo-container">
+  <%= link_to image_tag('bullcentury_logo.png'), root_url %>
+</div>
+
+<div class="col-sm-9">
+  <div class="row">
+    <div class="col-sm-3 black-hover">
+      <br />
+      <%= link_to t('bc_rules'), rules_path, :class => "image-before-text-green uppercase"%><br />
+      <%= link_to t('quick_start'), quick_start_path, :class => "image-before-text-black uppercase" %>
+    </div>
+
+    <div class="col-sm-5">
+      <input type="text" class="main-search-input" placeholder="<%= t('main_search_placeholder') %>" list="datalist" id="search">
+      <div class="aListCon">
+        <datalist id="datalist">
+          <%= render :partial => 'layouts/datalist_search'%>
+        </datalist>
+      </div>
+    </div>
+
+    <div class="col-sm-4 text-right no_right_padding">
+      <% if user_signed_in? %>
+        <%= link_to "#{image_tag('logout.png', :class => 'logout-button')}".html_safe, destroy_user_session_path, :method => :delete%>
+        <% if current_user.image.to_s != "" %>
+          <%= link_to "#{image_tag(current_user.image, :class => 'my-account-button')}".html_safe, dashboard_path%>
+        <% else %>
+          <%= link_to "#{image_tag('user_placeholder.png', :class => 'my-account-button')}".html_safe, dashboard_path%>
+        <% end %>
+        <div class="main-login-logout-controls-container">
+          <%= t('signed_in_as') %>
+          <%= link_to dashboard_path do %>
+              <strong><%= current_user.name or current_user.email %></strong><br />
+          <% end %>
+        </div>
+          <%#= t('not_you_q') %>
+          <%#= link_to t('log_out'), destroy_user_session_path, :method => :delete %>
+      <% else %>
+
+          <div class="col-sm-2"></div>
+          <div class="col-sm-5 no_right_padding darkgray_hover_green">
+            <div class="grid-nav-item-xs border-green">
+              <%= link_to t('sign_up'), new_user_registration_path %> 
+            </div>
+          </div>
+          <div class="col-sm-5 no_right_padding darkgray_hover_green">
+            <div class="grid-nav-item-xs back-green">
+              <%= link_to t('log_in'), new_user_session_path %>
+            </div>
+          </div>
+            
+        <% end %>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 no_right_padding">
+        <%= render :partial => 'layouts/navbar' %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  (function(window, document, undefined) {
+    "use strict";
+    
+    var myAutocomplete = new Autocomplete("search", {
+          useNativeInterface : false, 
+          srcType : "dom"
+        });
+    
+  })(this, this.document);
+</script>

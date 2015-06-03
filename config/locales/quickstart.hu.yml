@@ -1,0 +1,57 @@
+hu:
+  quickstart:
+    nav:
+      how-it-works: "1. Hogyan működik?"
+      fees: "2. Díjak"
+      crowd-funding: "3. Hogyan működik a Crowd-Funding a Bullcentury-n?"
+      what-do-you-need-to-start: "4. Mire van szükséged, hogy belekezdj?"
+      link-to-info-center: "5. Még mindig van kérdésed?"
+    category:
+      art:
+        sub_1: "Vizuális művészet"
+        sub_small_1: "Fotózás, Festés, Rajzolás, Szobrászat"
+        sub_2: "Irodalom"
+        sub_small_2: "Versek, novella, rövid történetek és epikák publikálása"
+        sub_3: "előadó művészet"
+        sub_small_3: "Musical, tánc, opera, színház és film"
+      crazy:
+        sub_1: "Tehetséges vagy egy dologban (YGT)"
+        sub_small_1: "zene, tánc, opera és minden más, amire mi nem gondolnánk..."
+        sub_2: "Senki más nem tudja (NOC)"
+        sub_small_2: "lenyűgöző, sokkoló, vicces, meglepő és minden más"
+        sub_3: "Még sose látott (NSB)"
+        sub_small_3: "elsőként csinálod, felfedező és minden más"
+      innov:
+        sub_1: "Termékek"
+        sub_small_1: "minden innovatív termék"
+        sub_2: "Dizájn"
+        sub_small_2: "minden innovatív dizájn bármely iparágban"
+        sub_3: "Technológia"
+        sub_small_3: "IT, tudomány, űrkutatás, energia és minden más..."
+        sub_4: "Divat"
+        sub_small_4: "minden divatág"
+        sub_5: "Ötletek"
+        sub_small_5: "minden kreatív induló üzleti ötletek"
+      leisure:
+        sub_1: "Utazás"
+        sub_small_1: "egy ötletes utazás, felfedezés, kültéri tevékenység létrehozása"
+        sub_2: "Ételek/főzés/receptek"
+        sub_small_2: "minden étel és ital"
+        sub_3: "Hobby"
+        sub_small_3: "sportok, komédiák, kültéri tevékenységek és minden más"
+      media:
+        sub_1: "Zene / zenei video"
+        sub_small_1: ""
+        sub_2: "Film/ epizód"
+        sub_small_2: ""
+        sub_3: "Fotózás"
+        sub_small_3: ""
+      social:
+        sub_1: "Jótékonyság"
+        sub_small_1: "segíteni embereknek, szervezetek, állatok és minden más"
+        sub_2: "Közösség"
+        sub_small_2: "szomszédság, munkahely, iskola, egyetem és minden más"
+        sub_3: "Zöld"
+        sub_small_3: "energia, környezet, klíma és minden más"
+
+

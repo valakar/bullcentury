@@ -1,0 +1,3 @@
+<h1><%= t('author.about_info') %></h1>
+
+<%= render :partial => 'authors/form', locals: {url: project_author_path(@project_id, @author.id), method: :patch} %>

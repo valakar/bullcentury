@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-body
+    %h2
+      = @profile.name
+      - if can? :manage, @profile
+        %small.text-lowercase
+          (
+          = link_to t('user.edit'), edit_profile_path(:id => @profile.id), class: 'text-lowercase'
+          )
+    %img{ :src => @profile.image.url(:thumb), class: 'img-thumbnail' }
+    %div
+      - if @profile.location.present?
+        = @profile.location.country if @profile.location.country
+        ,
+        = @profile.location.city if @profile.location.city

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  per_amount: 1
+  description: MyText
+  project_id: 1
+
+two:
+  per_amount: 1
+  description: MyText
+  project_id: 1
+
+three:
+  per_amount: 1
+  description: MyText
+  project_id: 3

@@ -1,0 +1,124 @@
+<div class="row footer_menu">
+  <div class="col-sm-3">
+    <h5><%= t('footer.start').upcase %></h5>
+    <ul class="list-unstyled">
+      <li><%= link_to t('how_it_works'), how_it_works_path %></li>
+      <li><%= link_to t('bc_university'), university_path %></li>
+      <li><%= link_to t('project.create'), new_project_path %></li>
+      <li><%= link_to t('fees'), 'javascript:;' %></li>
+      <li><%= link_to t('bc_rules'), rules_path %></li>
+      <li><%= link_to t('faq'), faq_path %></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-3">
+    <h5><%= t('footer.explore').upcase %></h5>
+    <ul class="list-unstyled">
+      <li><%= link_to t('media'), category_path('media') %></li>
+      <li><%= link_to t('leisure'), category_path('leisure') %></li>
+      <li><%= link_to t('art'), category_path('art') %></li>
+      <li><%= link_to t('crazy'), category_path('crazy') %></li>
+      <li><%= link_to t('innovation'), category_path('innovation') %></li>
+      <li><%= link_to t('social_projects'), category_path('social_projects') %></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-3">
+    <h5><%= t('footer.about').upcase %></h5>
+    <ul class="list-unstyled">
+      <li><%= link_to t('company'), company_path %></li>
+      <li><%= link_to t('good_ideas'), 'javascript:;' %></li>
+      <li><%= link_to t('team'), 'javascript:;', onclick: 'return destroy()' %></li>
+      <li><%= link_to t('dont_click'), 'javascript:;', onclick: 'return blow()' %></li>
+      <li><%= link_to t('feedbacks'), feedbacks_path %></li>
+      <li><%= link_to t('contact_us'), 'javascript:;' %></li>
+    </ul>
+  </div>
+
+  <div class="col-sm-3">
+    <h5><%= t('footer.follow_us').upcase %></h5>
+    <ul class="list-unstyled">
+      <li><%= link_to 'VK', 'http://vk.com/id233757671', :target => '_blank' %></li>
+      <li><%= link_to 'Facebook', 'https://www.facebook.com/bull.century', :target => '_blank' %></li>
+      <li><%= link_to 'Twitter', 'https://twitter.com/BullCentury', :target => '_blank' %></li>
+      <li><%= link_to 'G+', 'https://plus.google.com/+Bullcentury/posts', :target => '_blank' %></li>
+      <li><%= link_to 'YouTube', 'javascript:;', :target => '_blank' %></li>
+      <li><%= link_to 'Vimeo', 'http://vimeo.com/user25466194/videos', :target => '_blank' %></li>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+  function destroy() {
+    var s = document.createElement('script');
+    s.type='text/javascript';
+    document.body.appendChild(s);
+    s.src='http://erkie.github.com/asteroids.min.js';
+
+    void(0);
+  }
+
+  function blow() {
+    (function () {
+      var s = document.createElement('script');
+      s.setAttribute('src', 'http://fontbomb.ilex.ca/js/main.js');
+      document.body.appendChild(s);
+    }());
+  }
+
+  function editable(){
+    // alert('test');
+    document.body.contentEditable='true'; 
+    document.designMode='on'; 
+  }
+  var clicked = true;
+  function not_click() {
+
+    if (clicked) {
+      clicked = false;
+      return clock();
+    }
+  }
+
+  function clock(){
+
+    function rotate(degrees)
+      {
+          $('body' ).css({
+              '-webkit-transform':'rotate(-' + degrees + 'deg)',
+              '-moz-transform':'rotate(-' + degrees + 'deg)',
+              '-ms-transform':'rotate(-' + degrees + 'deg)',
+              '-o-transform':'rotate(-' + degrees + 'deg)',
+              'transform':'rotate(-' + degrees + 'deg)',
+
+              '-webkit-transition':'3s',
+              '-moz-transition':'3s',
+              '-ms-transition':'3s',
+              '-o-transition':'3s',
+              'transition':'3s',
+
+              '-webkit-transform-origin':'50% 50%',
+              '-moz-transform-origin':'50% 50%',
+              '-ms-transform-origin':'50% 50%',
+              '-o-transform-origin':'50% 50%',
+              'transform-origin':'50% 50%',
+              '-webkit-backface-visibility':'hidden'
+          });
+      }
+
+      var degrees = 0,
+          interval;
+
+      document.onmousemove = function()
+      {
+          // if(degrees == 0){ rotate(0); degrees = 180; }
+
+          clearInterval(interval);
+          interval = setInterval(function(){
+              rotate(degrees);
+
+              degrees = degrees + 1;
+              // degrees = (degrees === 180) ? 0 : 180;
+          }, 1 * 1 * 1000); // 30 min
+      }
+    }
+</script>

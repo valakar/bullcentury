@@ -1,0 +1,117 @@
+.row
+  .col-sm-5.col-md-5
+    %form{:name => 'projectAuthorForm', 'ng-submit' => 'saveAuthor()'}
+      - if  @project.author
+      - elsif can?( :manage, @project.author)
+        .alert.alert-warning
+          = t('provide_author_info')
+          = link_to t('edit_author'), edit_profile_path(@project.author), :class => 'b-project__fill-author-info-btn btn btn-info'
+      .row.disable-input-style
+        .col-sm-5.no_right_padding
+          / %a{:href=>'javascript:;', :class=>'thumbnail fixed-size-150'}
+          /   - if @project.author and @project.author.image?
+          /     = image_tag @project.author.image.url(:thumb), :class => 'fixed-size-150'
+          /   - elsif current_user.image.to_s != ""
+          /     = image_tag current_user.image.url(:thumb), :class => 'fixed-size-150'
+          /   - else
+          /     = image_tag 'user_placeholder.png', :class => 'fixed-size-150'
+          
+
+          %div
+            %input#profileImageInput{:type => "file"}
+          %div{"ng-show" => "profileImage"}
+            //.cropArea
+            //  %img-crop{"area-type" => "square", "result-image-size" => "150", :image => "myImage", "result-image" => "myCroppedImage"}
+            .cropArea#cropAreaProfileImage
+              %img-crop{"area-min-size"=>"25", "area-type" => "square",:image => "profileImage", "result-image" => "profileCroppedImage"}
+
+          %div{"ng-hide" => "profileImage"}
+            %img{"ng-src" => "{{user.image.url}}", :class=>'thumbnail fixed-size-150'}
+
+
+
+        .col-sm-7.no_right_padding
+          %strong
+            = t('project_creator').upcase
+          - if(can?(:manage, @project.author))
+            %small
+              = link_to t('edit'), edit_profile_path(@project.author.id)
+
+          %p.content-block-lightgreen.creator-block-fix
+            = t('author.name') + ':'
+            / %input{:name => 'user[name]', :placeholder => 'User name'}
+            / = link_to(current_user.name, profile_path(current_user))
+            %input{'ng-model' => 'user.name', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'User name', maxlength: "20", "tabindex" => "16", class: 'nowidth'}
+          %p.content-block-lightgreen.creator-block-fix
+            = t('author.country') + '/' + t('author.city') + ':'
+            - country = current_user.country.nil? ? '' : current_user.country
+            - city = current_user.city.nil? ? '' : current_user.city
+            - if((city.name != '') && (country.name != ''))
+              = country.name.to_s + ' / ' + city.name.to_s
+            - elsif(country.name != '')
+              = country.name.to_s
+            - elsif(city.name != '')
+              = city.name.to_s
+
+          %p.content-block-lightgreen.creator-block-fix
+            = t('project.location') + ':'
+            /%input{'ng-model' => 'project.country', id: 'country1', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project country', maxlength: "20", "tabindex" => "16", class: 'nowidth'}
+            %select{'ng-model' => 'project.country_id', 'ng-options' => "country.id as country.name for country in countries", 'ng-change'=>'change(project.country_id)'}
+            / = f.text_field :country, id: 'country1', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project country', maxlength: "20", "tabindex" => "16", class: 'nowidth'
+      /TODO ADD SELECT for country and country from Short form
+      .row.disable-input-style
+        .col-sm-12.no_right_padding
+          .thumbnail.padding-all-sm.fixed-height-158.content-background-lightpurple
+            %strong
+              = t('project_brief')
+            %p
+              %textarea{'ng-model' => 'project.tweet', id:'tweet', rows: '6', maxlength: '140', placeholder: t('project.tweet'), "tabindex" => "4"}
+              / = f.text_area :tweet, id:'tweet', rows: '6', maxlength: '140', placeholder: t('project.tweet'), "tabindex" => "4"
+              .remaining-symbols-textarea#tweet_counter
+      %input.btn.btn-primary.pull-right{:type => "submit", :value => "Submit author part"}
+
+  .col-sm-7.col-md-7
+    %div{'ng-controller' => 'ImageController'}
+      %form{:name => 'projectImageForm', 'ng-submit' => 'saveImage()'}
+        %div
+          %input#fileInput{:type => "file"}
+        %div{"ng-show" => "myImage"}
+          //.cropArea
+          //  %img-crop{"area-type" => "square", "result-image-size" => "150", :image => "myImage", "result-image" => "myCroppedImage"}
+          .cropArea#cropAreaProjectImage
+            %img-crop{"result-image-size"=>"642", "area-type" => "rectangle", :image => "myImage", "result-image" => "myCroppedImage",  "aspect-ratio"=>"1.638"}
+
+        %div{"ng-hide" => "myImage"}
+          %img{"ng-src" => "{{project.image.url}}", height: "329", width: "529"}
+        //%div Cropped Image:
+        //%div{"ng-if" => "myImage"}
+        //  %img{"ng-src" => "{{myCroppedImage}}"}
+        
+        %input.btn.btn-primary.pull-right{:type => "submit", :value => "Submit image"}
+
+    / = form_for :project, url: project_path(@project), multipart: true, method: :patch, :html => { :id => '#create_form', :class => 'form-horizontal', :role => 'form' } do |f|
+    /   %a.disable-input-style{:href=>'javascript:;'}
+    /     .text-center
+    /       - if @project.image?
+    /         %div
+    /           .fileinput.fileinput-new{"data-provides" => "fileinput"}
+    /             .fileinput-preview.thumbnail{"data-trigger" => "fileinput", :style => "width: 539px; height: 329px;"}
+    /               %img{:alt => "...", "src" => @project.image.url(:project_profile)}
+    /             %div
+    /               %span.btn.btn-file.file-input
+    /                 / %input{type: 'file', name: 'image', onchange: "angular.element(this).scope().uploadFile(this.files)"}
+    /                 = f.file_field :image
+    /       - else
+    /         =# TODO Image croping, not working yet
+    /         / %input#demo{:name => "project[image]", :type => "hidden"}
+
+    /         .fileinput.fileinput-new{"data-provides" => "fileinput"}
+    /           .fileinput-preview.thumbnail{"data-trigger" => "fileinput", :style => "width: 539px; height: 329px;vertical-align: middle;display: table-cell;"}
+    /             %div Image upload 1024x768
+    /             / %img{:alt => "...", "src" => "holder.js/539x329"}
+    /           %div
+    /             %span.btn.btn-file.file-input
+    /               / %input{type: 'file', name: 'image', onchange: "angular.element(this).scope().uploadFile(this.files)"}
+    /               = f.file_field :image
+    /   %input.btn.btn-primary.pull-right{:type => "submit", :value => 'Save image(page refresh)'}
+    /   =# f.submit 'Save image(page refresh)', :class => 'btn btn-default'

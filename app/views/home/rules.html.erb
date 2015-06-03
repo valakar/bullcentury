@@ -1,0 +1,175 @@
+<h1 class="col-sm-1 big-title xbig-top-buffer"><%= t('bc_rules').upcase %></h1>
+<div class="col-sm-9 top-buffer-100 offset-5">
+  <div class="rules-arrow"></div>
+  <div class="fresh-row fresh-row-1">
+    <table>
+      <tr>
+        <td style="width:30%">
+          &nbsp;
+        </td>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="crazy_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/crazy.png", width: '330')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/crazy_back.png", width: '330')%>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td style="width:30%">
+          &nbsp;
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="fresh-row fresh-row-2">
+    <table>
+      <tr>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="art_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/art.png", width: '250')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/art_back.png", width: '250')%>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="innovation_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/innovation.png", width: '300')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/innovation_back.png", width: '300')%>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="social_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/social.png", width: '250')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/social_back.png", width: '250')%>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="fresh-row fresh-row-3">
+    <table>
+      <tr>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="media_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/media.png", width: '220')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/media_back.png", width: '220')%>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td style="width:50%">
+          
+        </td>
+        <td>
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');" id="leisure_info">
+            <div class="flipper">
+              <div class="front">
+                <%= image_tag("banners/rules/leisure.png", width: '220')%>
+              </div>
+              <div class="back">
+                <%= image_tag("banners/rules/leisure_back.png", width: '220')%>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+<div class="col-sm-12 no-padding bottom-buffer-200 top-buffer-100" data-spy="scroll" data-target="#nav-rules">
+
+  <!-- <div class="bs-sidebar hidden-print" role="complementary">
+    <ul class="nav bs-sidenav">
+      <li class="sidebar_li"><a href="#nav-project-categories"><%#= t('rules.nav.project-categories') %></a></li>
+      <li class="sidebar_li"><a href="#nav-the-project"><%#= t('rules.nav.the-project') %></a></li>
+      <li class="sidebar_li"><a href="#nav-who-can-create-project"><%#= t('rules.nav.who-can-create-project') %></a></li>
+      <li class="sidebar_li"><a href="#nav-who-can-support-project"><%#= t('rules.nav.who-can-support-project') %></a></li>
+      <li class="sidebar_li"><a href="#nav-what-is-not-allowed"><%#= t('rules.nav.what-is-not-allowed') %></a></li>
+    </ul>
+  </div> -->
+
+  <% if I18n.locale == :ua %>
+      <%= render partial: 'home/rules_ua' %>
+  <% end %>
+
+  <% if I18n.locale == :ru %>
+      <%= render partial: 'home/rules_ru' %>
+  <% end %>
+
+  <% if I18n.locale == :en %>
+      <%= render partial: 'home/rules_en' %>
+  <% end %>
+
+  <% if I18n.locale == :hu %>
+      <%= render partial: 'home/rules_hu' %>
+<% end %>
+</div>
+
+<!-- GoUp Button -->
+<span id="top-link-block" class="hidden">
+    <a href="#top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <%= image_tag 'up_button.png' %>
+    </a>
+</span>
+
+<!-- GoUp button -->
+<script type="text/javascript">
+  // Only enable if the document has a long scroll bar
+  // Note the window height + offset
+  if ( ($('body').outerHeight() > $(window).height()) ) {
+      $('#top-link-block').removeClass('hidden').affix({
+          // how far to scroll down before link "slides" into view
+          offset: {top:100}
+      });
+  }
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.mouse_pointer').click(function(){
+    term = $(this).attr('term');
+    //$(this).addClass('blue');
+    //alert(term_text);
+    $('.content').each(function(){    
+      if ($(this).attr('term') == term){        
+        if ($(this).css('display') == 'none'){
+          $(this).css('display','block');
+        }          
+        else {
+          $(this).css('display','none');
+        }      
+                    
+      }
+    });
+  });
+});
+</script>

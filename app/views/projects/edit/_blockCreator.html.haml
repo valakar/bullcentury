@@ -1,0 +1,60 @@
+%form{:name => 'projectCreatorForm', 'ng-submit' => 'saveCreator()'}
+  =#<!-- CREATOR DETAILS -->
+  .col-sm-12.col-md-12.top-buffer.project-content-block.bottom-buffer.disable-input-style
+    .col-sm-6.col-md-6
+      .col-sm-6.col-md-6.author-title
+        %h1
+          = t('creator_details')
+          /TODO Remove or no
+          / - if(can?(:manage, @project))     
+          /   - if !@project.published? and !@project.closed? and !@project.on_review? 
+          /     - if user_signed_in?
+          /       %small
+          /         = link_to t('project.modify'), edit_project_path(@project)
+      .col-sm-6.col-md-6.no_left_padding
+        %a{:href=>'javascript:;', :class=>'thumbnail fixed-size-200'}
+          - if @project.author and @project.author.image?
+            = image_tag @project.author.image.url(:thumb), :class => 'fixed-size-200' 
+          - elsif current_user.image.to_s != ""
+            = image_tag current_user.image.url(:thumb), :class => 'fixed-size-200' 
+          - else
+            = image_tag 'user_placeholder.png', :class => 'fixed-size-200'
+    .col-sm-6.col-md-6.no_left_padding
+      %p.content-block-lightgreen.creator-block-fix
+        = t('author.name') + ':'
+        = link_to(current_user.name, profile_path(current_user))
+      %p.content-block-lightgreen.creator-block-fix
+        = t('author.country') + '/' + t('author.city') + ':'
+        - country = current_user.country.nil? ? '' : current_user.country
+        - city = current_user.city.nil? ? '' : current_user.city
+        - if((city.name != '') && (country.name != ''))
+          = country.name.to_s + ' / ' + city.name.to_s
+        - elsif(country.name != '')
+          = country.name.to_s
+        - elsif(city.name != '')
+          = city.name.to_s
+      %p.content-block-lightgreen.creator-block-fix
+        = t('project.website') + ':'
+        %input{'ng-model' => 'project.website', "data-autosize-input"=>'{ "space": 10 }', placeholder: 'Website(optional)',:type => 'url', maxlength: "40", "tabindex" => "6", class: 'nowidth'}
+        / = f.text_field :website, "data-autosize-input"=>'{ "space": 10 }', placeholder: 'Website(optional)',:type => 'url', maxlength: "40", "tabindex" => "6", class: 'nowidth'
+        / %input.nowidth{:name => 'project[website]', :placeholder => 'Website(optional)',:type => 'url', "data-autosize-input"=>'{ "space": 0 }', maxlength: "40"}
+        %br (Optional)
+
+      %p.content-block-lightgreen.creator-block-fix
+        = t('project.location') + ':'
+        /%input{'ng-model' => 'project.country', id: 'country3', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project country', maxlength: "20", "tabindex" => "16", class: 'nowidth'}
+        %select{'ng-model' => 'project.country_id', 'ng-options' => "country.id as country.name for country in countries", 'ng-change'=>'change(project.country_id)'}
+        / = f.text_field :country, id: 'country3', "data-autosize-input"=>'{ "space": 0 }', placeholder: 'Project country', maxlength: "20", "tabindex" => "16", class: 'nowidth'
+    .col-sm-12.col-md-12
+      .row.row-eq-height
+        .col-sm-12.col-md-12
+          %h3 
+            = t('creator_biography')
+          %textarea{'ng-model' => 'project.creator_biography',rows: '10', maxlength: '1255', placeholder: "Please, add information about creator", "tabindex" => "7", onclick: 'textAreaAdjust(this)'}
+          / = f.text_area :creator_biography, id:'creator_biography',rows: '10', maxlength: '1255', placeholder: "Please, add information about creator", "tabindex" => "7", onclick: 'textAreaAdjust(this)'
+          / %textarea{name: "project[creator_biography]", rows: "auto", maxlength: "1255", id: "creator_biography", placeholder: "Please, add information about creator", "tabindex" => "6"}
+
+    .col-sm-4.col-md-4.no_padding.pull-right
+      = render partial: 'social_links'
+  =#<!-- CREATOR DETAILS END -->
+  %input.btn.btn-primary.pull-right{:type => "submit", :value => "Submit creator part"}
